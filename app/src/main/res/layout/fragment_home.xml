@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="50dp"
+    android:orientation="vertical"
+
+    tools:context=".ui.HomeFragment">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            tools:text="AWAI title..." />
+
+        <TextView
+            android:id="@+id/text_view_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            tools:text="your trusted support for Tamariki and Rangatahi..." />
+
+        <Button
+            android:id="@+id/button_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            tools:text="English" />
+
+        <Button
+            android:id="@+id/button_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Information" />
+
+        <Button
+            android:id="@+id/button_escorting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Process Of Escorting" />
+
+        <Button
+            android:id="@+id/button_parents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Legal Rights Of Parent" />
+
+        <Button
+            android:id="@+id/button_caregivers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Legal Rights Of Caregivers" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
