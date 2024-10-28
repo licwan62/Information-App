@@ -6,7 +6,6 @@
     android:gravity="center"
     android:padding="50dp"
     android:orientation="vertical"
-
     tools:context=".ui.HomeFragment">
 
     <LinearLayout

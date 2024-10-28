@@ -9,5 +9,38 @@
         android:id="@+id/homeFragment"
         android:name="com.example.information_app.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_caregiverFragment"
+            app:destination="@id/caregiverFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_escortingFragment"
+            app:destination="@id/escortingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_parentFragment"
+            app:destination="@id/parentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/caregiverFragment"
+        android:name="com.example.information_app.ui.CaregiverFragment"
+        android:label="fragment_caregivers"
+        tools:layout="@layout/fragment_caregivers" />
+    <fragment
+        android:id="@+id/escortingFragment"
+        android:name="com.example.information_app.ui.EscortingFragment"
+        android:label="fragment_escorting"
+        tools:layout="@layout/fragment_escorting" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.information_app.ui.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" />
+    <fragment
+        android:id="@+id/parentFragment"
+        android:name="com.example.information_app.ui.ParentFragment"
+        android:label="fragment_parents"
+        tools:layout="@layout/fragment_parents" />
 </navigation>
