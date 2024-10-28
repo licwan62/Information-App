@@ -1,4 +1,4 @@
-pluginManagement {
+/*pluginManagement {
     repositories {
         google()
         mavenCentral()
@@ -11,6 +11,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-}
+}*/
 rootProject.name = "Information-App"
 include ':app'
