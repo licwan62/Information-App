@@ -4,20 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="50dp"
     android:orientation="vertical"
+    android:padding="50dp"
     tools:context=".ui.HomeFragment">
 
     <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/text_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/home_title"
             android:textSize="30sp"
             tools:text="AWAI title..." />
 
@@ -25,6 +26,7 @@
             android:id="@+id/text_view_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/home_description"
             android:textSize="20sp"
             tools:text="your trusted support for Tamariki and Rangatahi..." />
 
@@ -33,30 +35,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:text="@string/language_button"
             tools:text="English" />
 
         <Button
             android:id="@+id/button_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/information_button"
             tools:text="Information" />
 
         <Button
             android:id="@+id/button_escorting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/escorting_button"
             tools:text="Process Of Escorting" />
 
         <Button
             android:id="@+id/button_parents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/parents_button"
             tools:text="Legal Rights Of Parent" />
 
         <Button
             android:id="@+id/button_caregivers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/caregivers_button"
             tools:text="Legal Rights Of Caregivers" />
 
     </LinearLayout>

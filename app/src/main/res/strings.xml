@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Information-App</string>
-    <string name="home_title">AWAI...</string>
-    <string name="language_button">English</string>
-    <string name="home_description">your trusted support for Tamariki and Rangatahi</string>
     <string name="information_button">Information</string>
     <string name="escorting_button">Process Of Escorting</string>
     <string name="parents_button">Legal Right of Parents</string>

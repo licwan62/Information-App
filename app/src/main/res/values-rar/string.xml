@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Maori_Information-App</string>
+    <string name="home_title">Maori_AWAI...</string>
+    <string name="language_button">Maori</string>
+    <string name="home_description">Maori_your trusted support for Tamariki and Rangatahi</string>
+    <string name="information_button">Maori_Information</string>
+    <string name="escorting_button">Maori_Process Of Escorting</string>
+    <string name="parents_button">Maori_Legal Right of Parents</string>
+    <string name="caregivers_button">Maori_Legal Right Of Caregivers</string>
+</resources>
