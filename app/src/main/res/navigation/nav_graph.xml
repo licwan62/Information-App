@@ -50,11 +50,7 @@
         android:id="@+id/quizFragment"
         android:name="com.example.information_app.ui.quiz.QuizFragment"
         android:label="Quiz"
-        tools:layout="@layout/fragment_quiz">
-        <action
-            android:id="@+id/action_quizFragment_to_quizResultFragment"
-            app:destination="@id/quizResultFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_quiz"/>
     <fragment
         android:id="@+id/quizResultFragment"
         android:name="com.example.information_app.ui.quiz.QuizResultFragment"

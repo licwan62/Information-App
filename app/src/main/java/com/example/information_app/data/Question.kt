@@ -12,6 +12,7 @@ data class Question(
     val answer: Boolean, // right answer to the question
     val response: Boolean = false, // user input answer
     @PrimaryKey(autoGenerate = true) val id: Int = 0
-) : Parcelable{
-
+) : Parcelable {
+    var isCorrect: Boolean = false
+        get() = answer == response
 }
