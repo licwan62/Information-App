@@ -18,9 +18,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var button_escorting: Button
     private lateinit var button_parents: Button
     private lateinit var button_caregivers: Button
-    private val languages = arrayOf("en", "rar")
+    private val languages = arrayOf("English", "Maori")
     private var current_language = 0
-
 
     fun setLocal(languageCode: String) {
         val locale = Locale(languageCode)
