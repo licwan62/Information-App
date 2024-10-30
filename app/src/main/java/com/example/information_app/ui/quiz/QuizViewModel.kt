@@ -1,6 +1,9 @@
 package com.example.information_app.ui.quiz
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.information_app.data.Question
 import com.example.information_app.data.QuestionDao
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,48 +14,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
-    private val dao: QuestionDao,
-    private val state: SavedStateHandle
+    private val dao: QuestionDao
 ) : ViewModel() {
-
-    val test = "test"
-
-    var questionId: Int =
-        state.get<Int>("id") ?: 0
-        set(value) {
-            field = value
-            state.set("id", value)
-            _question.postValue(dao.getQuestion(value))
-        }
-
-    fun increaseQuestionId() {
-        questionId++
-    }
 
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
-    /*var question =
-        state.get<Question>("question")
-        set(value) {
-            field = value
-            state.set("question", value)
-        }*/
 
-    var questionDescription =
-        state.get<String>("description") ?: ""
-        set(value) {
-            field = value
-            state.set("description", value)
-        }
+    val test = "test"
 
-    var questionAnswer =
-        state.get<Boolean>("answer") ?: ""
-        set(value) {
-            field = value
-            state.set("answer", value)
-        }
+    var questionId = 0
 
-    var questionResponse = _question.value!!.response
+    var questionResponse = _question.value?.response ?: false
 
     fun onOptionClick() {
         val updatedQuestion = _question.value!!.copy(response = questionResponse)
@@ -68,6 +40,22 @@ class QuizViewModel @Inject constructor(
     sealed class Event {
         object Correct : Event()
         object Wrong : Event()
+    }
+
+    fun loadQuestion() = viewModelScope.launch {
+//        dao.getQuestion(questionId).collect { questions ->
+//            if (questions.isEmpty()){
+//                return@collect
+//            }
+//            _question.postValue(questions.first())
+//        }
+        dao.getAllQuestions().collect { questions ->
+            if (questions.isEmpty()){
+                return@collect
+            }
+            _question.postValue(questions.first())
+        }
+        questionId++
     }
 
     fun goToNextQuestion() = viewModelScope.launch {

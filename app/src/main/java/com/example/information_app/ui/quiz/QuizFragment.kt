@@ -25,9 +25,14 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
         val binding = FragmentQuizBinding.bind(view)
         binding.apply {
-            textViewTitle.text = viewModel.test
-            //textViewTitle.text = "Question ${viewModel.question.value?.id ?: 0 + 1} in 5"
-            //textViewDescription.text = viewModel.questionDescription
+            text_view_title = textViewTitle
+            text_view_description = textViewDescription
+        }
+
+        viewModel.loadQuestion()
+
+        viewModel.question.observe(viewLifecycleOwner){qustion ->
+            text_view_description.text = qustion.description
         }
 
         /*viewLifecycleOwner.lifecycleScope.launchWhenStarted {
