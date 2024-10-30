@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.ParentFragment">
+    tools:context=".ui.parents.ParentFragment">
 
     <Button
         android:id="@+id/button_language"
