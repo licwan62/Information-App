@@ -8,8 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.information_app.ui.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_caregiverFragment"
             app:destination="@id/caregiverFragment" />
@@ -50,8 +49,8 @@
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.information_app.ui.QuizFragment"
-        android:label="fragment_quiz"
-        tools:layout="@layout/fragment_quiz" >
+        android:label="Quiz"
+        tools:layout="@layout/fragment_quiz">
         <action
             android:id="@+id/action_quizFragment_to_quizResultFragment"
             app:destination="@id/quizResultFragment" />
@@ -59,8 +58,8 @@
     <fragment
         android:id="@+id/quizResultFragment"
         android:name="com.example.information_app.ui.QuizResultFragment"
-        android:label="fragment_quiz_result"
-        tools:layout="@layout/fragment_quiz_result" >
+        android:label="Your Quiz Result"
+        tools:layout="@layout/fragment_quiz_result">
         <action
             android:id="@+id/action_quizResultFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
