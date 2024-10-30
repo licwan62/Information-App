@@ -63,5 +63,8 @@
         <action
             android:id="@+id/action_quizResultFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_quizResultFragment_to_escortingFragment2"
+            app:destination="@id/escortingFragment" />
     </fragment>
 </navigation>
