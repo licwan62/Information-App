@@ -32,7 +32,11 @@
         android:id="@+id/escortingFragment"
         android:name="com.example.information_app.ui.EscortingFragment"
         android:label="fragment_escorting"
-        tools:layout="@layout/fragment_escorting" />
+        tools:layout="@layout/fragment_escorting" >
+        <action
+            android:id="@+id/action_escortingFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
     <fragment
         android:id="@+id/informationFragment"
         android:name="com.example.information_app.ui.InformationFragment"
@@ -43,4 +47,22 @@
         android:name="com.example.information_app.ui.ParentFragment"
         android:label="fragment_parents"
         tools:layout="@layout/fragment_parents" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.information_app.ui.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_quizResultFragment"
+            app:destination="@id/quizResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizResultFragment"
+        android:name="com.example.information_app.ui.QuizResultFragment"
+        android:label="fragment_quiz_result"
+        tools:layout="@layout/fragment_quiz_result" >
+        <action
+            android:id="@+id/action_quizResultFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
 </navigation>

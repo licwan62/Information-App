@@ -7,4 +7,5 @@
     <string name="escorting_button">Maori_Process Of Escorting</string>
     <string name="parents_button">Maori_Legal Right of Parents</string>
     <string name="caregivers_button">Maori_Legal Right Of Caregivers</string>
+    <string name="test_long">This is a long test text...This is a long test text...This is a long test text...This is a long test text...This is a long test text...</string>
 </resources>
