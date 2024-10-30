@@ -19,14 +19,15 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(
-        app: Application
+        app: Application,
+        callback: QuestionDatabase.Callback
     ) = Room.databaseBuilder(app, QuestionDatabase::class.java, "question_database")
         .fallbackToDestructiveMigration()
+        .addCallback(callback)
         .build()
 
     @Provides
-    @Singleton
-    fun provideQuestionDao(database: QuestionDatabase) = database.questionDao()
+    fun provideQuestionDao(database: QuestionDatabase) = database.getDao()
 
     @ApplicationScope
     @Provides

@@ -9,10 +9,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
 
-@Database(version = 1, entities = [Question::class])
+@Database(version = 1, entities = [Question::class], exportSchema = false)
 abstract class QuestionDatabase : RoomDatabase() {
 
-    abstract fun questionDao(): QuestionDao
+    abstract fun getDao(): QuestionDao
+
 
     class Callback @Inject constructor(
         private val database: Provider<QuestionDatabase>, // lazy init
@@ -22,8 +23,7 @@ abstract class QuestionDatabase : RoomDatabase() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
 
-            val questionDatabase = database.get()
-            val dao = questionDatabase.questionDao()
+            val dao = database.get().getDao()
 
             applicationScope.launch {
                 dao.insert(Question("This is question 1", true))
@@ -32,8 +32,6 @@ abstract class QuestionDatabase : RoomDatabase() {
                 dao.insert(Question("This is question 4", true))
                 dao.insert(Question("This is question 5", true))
             }
-
         }
-
     }
 }
