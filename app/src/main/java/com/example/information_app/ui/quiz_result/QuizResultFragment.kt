@@ -1,4 +1,4 @@
-package com.example.information_app.ui.quiz
+package com.example.information_app.ui.quiz_result
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels

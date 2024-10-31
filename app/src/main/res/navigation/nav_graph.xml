@@ -53,7 +53,7 @@
         tools:layout="@layout/fragment_quiz"/>
     <fragment
         android:id="@+id/quizResultFragment"
-        android:name="com.example.information_app.ui.quiz.QuizResultFragment"
+        android:name="com.example.information_app.ui.quiz_result.QuizResultFragment"
         android:label="Your Quiz Result"
         tools:layout="@layout/fragment_quiz_result">
         <action
