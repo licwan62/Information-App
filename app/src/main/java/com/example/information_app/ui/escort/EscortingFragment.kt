@@ -19,7 +19,7 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
 
         button_quiz = view.findViewById(R.id.button_quiz)
         button_quiz.setOnClickListener {
-            val action = EscortingFragmentDirections.actionEscortingFragmentToQuizFragment()
+            val action = EscortingFragmentDirections.actionEscortingFragmentToQuizFragment(1)
             findNavController().navigate(action)
         }
 

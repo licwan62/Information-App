@@ -50,7 +50,12 @@
         android:id="@+id/quizFragment"
         android:name="com.example.information_app.ui.quiz.QuizFragment"
         android:label="Quiz"
-        tools:layout="@layout/fragment_quiz"/>
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="questionId"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
     <fragment
         android:id="@+id/quizResultFragment"
         android:name="com.example.information_app.ui.quiz_result.QuizResultFragment"

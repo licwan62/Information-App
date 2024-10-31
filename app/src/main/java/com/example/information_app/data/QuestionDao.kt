@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.Flow
 interface QuestionDao {
 
     // get state of question answer on result page
-    @Query("SELECT * FROM question_table WHERE (id == :id)")
-    fun getQuestion(id: Int): Flow<List<Question>>
+    @Query("SELECT * FROM question_table WHERE (id == :id) LIMIT 1")
+    fun getQuestion(id: Int): Flow<Question>
 
     @Query("SELECT * FROM question_table")
     fun getAllQuestions(): Flow<List<Question>>
