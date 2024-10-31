@@ -13,4 +13,7 @@
     <string name="escorting_content">Content for Escorting</string>
     <string name="parents_content">Content for Parents</string>
     <string name="caregivers_content">Content for Caregivers</string>
+    <string name="button_yes">YES</string>
+    <string name="button_no">NO</string>
+    <string name="button_next">NEXT QUESTION</string>
 </resources>

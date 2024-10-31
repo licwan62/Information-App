@@ -55,6 +55,9 @@
             android:name="questionId"
             app:argType="integer"
             android:defaultValue="1" />
+        <action
+            android:id="@+id/action_quizFragment_to_quizResultFragment"
+            app:destination="@id/quizResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizResultFragment"

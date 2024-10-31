@@ -42,35 +42,69 @@
             app:layout_constraintTop_toBottomOf="@+id/text_view_title"
             tools:text="@string/test_long" />
 
+        <TextView
+            android:id="@+id/text_view_correct_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_description"
+            tools:text="Correct Answer: NO" />
+
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_left"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Yes"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            android:text="@string/button_yes"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/button_right"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_description" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view_correct_answer" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_right"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="32dp"
-            android:text="No"
-            app:layout_constraintBottom_toBottomOf="@+id/button"
+            android:text="@string/button_no"
+            app:layout_constraintBottom_toBottomOf="@+id/button_left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toTopOf="@+id/button" />
+            app:layout_constraintStart_toEndOf="@+id/button_left"
+            app:layout_constraintTop_toTopOf="@+id/button_left" />
 
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_left" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_before_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="button_left,button_right"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_on_wrong_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="button_next,text_view_correct_answer"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

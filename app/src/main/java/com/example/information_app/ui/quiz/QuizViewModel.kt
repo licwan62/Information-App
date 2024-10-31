@@ -16,9 +16,21 @@ class QuizViewModel @Inject constructor(
     private val state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
+    private val navigationChannel = Channel<NavigationAction>()
+    val navigationFlow = navigationChannel.receiveAsFlow()
+
+    sealed class NavigationAction {
+        object NEXT_QUESTION : NavigationAction()
+        object COMPLETE_QUIZ : NavigationAction()
+    }
+
     var questionCount = 0
+
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
+
+    private val _buttonVisibility = MutableLiveData<Boolean>()
+    var buttonVisibility: LiveData<Boolean> = _buttonVisibility
 
     // state stored arguments in NavGraph
     var questionId = state.get<Int>("questionId") ?: 0
@@ -28,8 +40,9 @@ class QuizViewModel @Inject constructor(
         }
 
     init {
-        printDatabase()
+        //printDatabase()
         setQuestionCount()
+        _buttonVisibility.value = false
     }
 
     /**
@@ -41,18 +54,26 @@ class QuizViewModel @Inject constructor(
         updateQuestion(updatedQuestion)
 
         if (isCorrectAnswer(response)) {
-            if (isQuizOver())
-                goToNextQuestion()
-            else
-                completeQuiz()
-        } else {
+            navigateOut()
+        } else {// wrong answer
             showCorrectAnwer()
-            showNextButton()
+        }
+    }
+
+    fun onNextClick() {
+        navigateOut()
+    }
+
+    fun navigateOut() {
+        if (isQuizOver()) {
+            completeQuiz()
+        } else {
+            goToNextQuestion()
         }
     }
 
     fun loadQuestion() = viewModelScope.launch {
-        if (questionId == 0){
+        if (questionId == 0) {
             Log.e("vm", "invalid zero question ID, arg not sent?")
             return@launch
         }
@@ -60,18 +81,24 @@ class QuizViewModel @Inject constructor(
         dao.getQuestion(questionId).collect { question ->
             if (question != null) {
                 _question.value = question
-                Log.d("vm", "current question: ${_question.value}")
+                Log.v(
+                    "vm", "call loadQuestion, " +
+                            "current question: ${_question.value}"
+                )
             } else {
-                Log.e("vm", "failed to get question, id: $questionId")
+                Log.e(
+                    "vm", "call loadQuestion, " +
+                            "failed to get question, id: $questionId"
+                )
             }
         }
     }
 
     fun printDatabase() = viewModelScope.launch {
-        dao.getAllQuestions().collect{ questions ->
+        dao.getAllQuestions().collect { questions ->
             if (questions.isNullOrEmpty()) {
                 Log.e("vm", "empty database")
-            }else{
+            } else {
                 questions.forEach { question ->
                     Log.d("vm", "$question")
                 }
@@ -84,39 +111,38 @@ class QuizViewModel @Inject constructor(
     }
 
     fun goToNextQuestion() = viewModelScope.launch {
-        questionEventChannel.send(Event.Correct)
+        navigationChannel.send(NavigationAction.NEXT_QUESTION)
+        Log.v("vm", "call goToNextQuestion: ${questionId + 1}")
     }
+
+//    fun isCorrectAnswer(response: Boolean): Boolean =
+//        _question.value!!.isCorrect
 
     fun isCorrectAnswer(response: Boolean): Boolean {
-        return true
+        Log.d(
+            "vm", "call isCorrectAnswer, " +
+                    "response: $response, " +
+                    "answer: ${_question.value!!.answer}, " +
+                    "isCorrect: ${_question.value!!.isCorrect}"
+        )
+
+        return _question.value!!.isCorrect
     }
 
-    fun isQuizOver(): Boolean {
-        return true
-    }
+    fun isQuizOver(): Boolean =
+        _question.value!!.id == questionCount
 
     fun showCorrectAnwer() {
-        return
+        _buttonVisibility.value = true
     }
 
-    fun completeQuiz() {
-        return
-    }
-
-    fun showNextButton() {
-        return
+    fun completeQuiz() = viewModelScope.launch {
+        navigationChannel.send(NavigationAction.COMPLETE_QUIZ)
+        Log.v("vm", "call complete quiz, current id: $questionId")
     }
 
     fun updateQuestion(question: Question) = viewModelScope.launch {
         dao.update(question)
     }
-
-
-    private val questionEventChannel = Channel<Event>()
-    val questionEvent = questionEventChannel.receiveAsFlow()
-
-    sealed class Event {
-        object Correct : Event()
-        object Wrong : Event()
-    }
 }
+
