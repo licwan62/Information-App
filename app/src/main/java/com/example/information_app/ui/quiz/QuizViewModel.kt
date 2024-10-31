@@ -51,6 +51,10 @@ class QuizViewModel @Inject constructor(
      */
     fun onOptionClick(response: Boolean) {
         val updatedQuestion = _question.value!!.copy(response = response)
+
+        Log.e("vm", "call onOptionClick, " +
+                "my response: $response, ")
+
         updateQuestion(updatedQuestion)
 
         if (isCorrectAnswer(response)) {
@@ -119,14 +123,7 @@ class QuizViewModel @Inject constructor(
 //        _question.value!!.isCorrect
 
     fun isCorrectAnswer(response: Boolean): Boolean {
-        Log.d(
-            "vm", "call isCorrectAnswer, " +
-                    "response: $response, " +
-                    "answer: ${_question.value!!.answer}, " +
-                    "isCorrect: ${_question.value!!.isCorrect}"
-        )
-
-        return _question.value!!.isCorrect
+        return _question.value!!.answer == response
     }
 
     fun isQuizOver(): Boolean =
@@ -139,10 +136,13 @@ class QuizViewModel @Inject constructor(
     fun completeQuiz() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.COMPLETE_QUIZ)
         Log.v("vm", "call complete quiz, current id: $questionId")
+        printDatabase()
     }
 
     fun updateQuestion(question: Question) = viewModelScope.launch {
         dao.update(question)
+
+        Log.e("vm", "data updated: $question")
     }
 }
 

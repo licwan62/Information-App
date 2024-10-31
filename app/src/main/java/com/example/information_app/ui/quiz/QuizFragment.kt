@@ -26,10 +26,10 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 viewModel.onNextClick()
             }
             buttonLeft.setOnClickListener {
-                viewModel.onOptionClick(false)
+                viewModel.onOptionClick(true)
             }
             buttonRight.setOnClickListener {
-                viewModel.onOptionClick(true)
+                viewModel.onOptionClick(false)
             }
         }
 
