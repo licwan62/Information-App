@@ -35,6 +35,11 @@
         <action
             android:id="@+id/action_escortingFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <argument
+            android:name="score"
+            app:argType="com.example.information_app.data.Score"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
@@ -70,5 +75,7 @@
         <action
             android:id="@+id/action_quizResultFragment_to_escortingFragment2"
             app:destination="@id/escortingFragment" />
+        <argument android:name="score"
+            app:argType="com.example.information_app.data.Score" />
     </fragment>
 </navigation>

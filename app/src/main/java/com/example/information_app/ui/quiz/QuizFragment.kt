@@ -36,7 +36,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
 
         viewModel.loadQuestion()
-        Log.i(TAG, "new question loaded")
+        //Log.i(TAG, "new question loaded")
 
         viewModel.question.observe(viewLifecycleOwner) { question ->
             binding.apply {
@@ -66,7 +66,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             // handle navigation
             viewModel.navigationFlow.collect { event ->
                 when (event) {
-                    is QuizViewModel.NavigationAction.NEXT_QUESTION -> {
+                    is QuizViewModel.NavigationAction.GoToNextQuestion -> {
                         val bundle = Bundle().apply {
                             putInt("questionId", viewModel.questionId + 1)
                         }
@@ -80,10 +80,12 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         )
                         Log.i(TAG, "navigate to next question with arg: $bundle")
                     }
-                    is QuizViewModel.NavigationAction.COMPLETE_QUIZ -> {
-                        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment()
+                    is QuizViewModel.NavigationAction.CompleteQuizWithScore -> {
+                        val action =
+                            QuizFragmentDirections
+                                .actionQuizFragmentToQuizResultFragment(event.score)
                         findNavController().navigate(action)
-                        Log.i(TAG, "navigate to result")
+                        Log.i(TAG, "navigate to result with score: ${event.score}")
                     }
                 }.exhaustive
             }

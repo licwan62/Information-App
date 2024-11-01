@@ -16,4 +16,7 @@
     <string name="button_yes">YES</string>
     <string name="button_no">NO</string>
     <string name="button_next">NEXT QUESTION</string>
+    <string name="button_start_quiz">Test Your Knowledge</string>
+    <string name="button_retry">Retry</string>
+    <string name="button_complete">Complete</string>
 </resources>

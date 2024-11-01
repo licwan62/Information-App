@@ -17,24 +17,27 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button_retry"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_weight="1"
-            android:text="Retry" />
+            android:text="@string/button_retry" />
 
         <Button
+            android:id="@+id/button_complete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_weight="1"
-            android:text="Back" />
+            android:text="@string/button_complete" />
 
     </LinearLayout>
 
     <TextView
+        android:id="@+id/text_view_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="You got 3 out of 4 correct"/>
+        tools:text="You got 3 out of 5 correct!"/>
 
 </LinearLayout>

@@ -4,14 +4,15 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.information_app.data.Question
 import com.example.information_app.data.QuestionDao
+import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val TAG = "quiz_vm"
-
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val dao: QuestionDao,
@@ -22,11 +23,13 @@ class QuizViewModel @Inject constructor(
     val navigationFlow = navigationChannel.receiveAsFlow()
 
     sealed class NavigationAction {
-        object NEXT_QUESTION : NavigationAction()
-        object COMPLETE_QUIZ : NavigationAction()
+        object GoToNextQuestion : NavigationAction()
+        //object COMPLETE_QUIZ : NavigationAction()
+        data class CompleteQuizWithScore(val score: Score) : NavigationAction()
     }
 
     var questionCount = 0
+    var score = Score()
 
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
@@ -93,14 +96,13 @@ class QuizViewModel @Inject constructor(
         dao.getQuestion(questionId).collect { question ->
             if (question != null)
                 _question.value = question
+            printCurrentQuestionState()
         }
-
-        printCurrentQuestionState()
     }
 
     fun printCurrentQuestionState() {
-        if (question != null) {
-            Log.d(
+        if (_question.value != null) {
+            Log.i(
                 TAG,
                 "call loadQuestion, loaded question: ${_question.value}"
             )
@@ -130,14 +132,18 @@ class QuizViewModel @Inject constructor(
     }
 
     fun goToNextQuestion() = viewModelScope.launch {
-        navigationChannel.send(NavigationAction.NEXT_QUESTION)
+        navigationChannel.send(NavigationAction.GoToNextQuestion)
     }
 
-    fun isCorrectAnswer(response: Boolean): Boolean =
-        _question.value!!.correctAnswer == response
+    fun isCorrectAnswer(userAnswer: Boolean): Boolean =
+        _question.value!!.correctAnswer == userAnswer
 
-    fun isQuizOver(): Boolean =
-        _question.value!!.id == questionCount
+//    fun isQuizOver(): Boolean =
+//        _question.value!!.id == questionCount
+    fun isQuizOver(): Boolean {
+        Log.e(TAG, "call isQuizOver, id: ${_question.value!!.id}, count: $questionCount")
+        return _question.value!!.id == questionCount
+    }
 
     fun showCorrectAnwer() {
         _isAnswerWrong.value = true
@@ -146,9 +152,21 @@ class QuizViewModel @Inject constructor(
     }
 
     fun completeQuiz() = viewModelScope.launch {
-        navigationChannel.send(NavigationAction.COMPLETE_QUIZ)
-        Log.d(TAG, "call complete quiz, current id: $questionId")
         printDatabase()
+        setScore()
+        navigationChannel.send(NavigationAction.CompleteQuizWithScore(score))
+    }
+
+    suspend fun setScore() {
+        var correctCount = 0
+        val questions = dao.getAllQuestions().first()
+        questions.forEach { question ->
+            if (question.isAnswerCorrect) {
+                correctCount++
+            }
+        }
+        score = Score(correctCount, questionCount)
+        //Log.d(TAG, "on quiz completed, generate score: $score")
     }
 
     fun updateQuestion(question: Question) = viewModelScope.launch {
@@ -156,4 +174,5 @@ class QuizViewModel @Inject constructor(
         Log.d(TAG, "data updated: $question")
     }
 }
+
 
