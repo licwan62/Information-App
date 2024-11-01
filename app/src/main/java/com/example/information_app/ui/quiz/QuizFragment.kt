@@ -12,16 +12,13 @@ import com.example.information_app.R
 import com.example.information_app.databinding.FragmentQuizBinding
 import com.example.information_app.ui.ui.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 private const val TAG = "quiz_v"
 
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val viewModel: QuizViewModel by viewModels()
-
-    init {
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
