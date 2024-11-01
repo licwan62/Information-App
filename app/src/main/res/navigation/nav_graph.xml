@@ -8,6 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.information_app.ui.HomeFragment"
+        android:label=" "
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_caregiverFragment"
@@ -41,12 +42,12 @@
     <fragment
         android:id="@+id/caregiverFragment"
         android:name="com.example.information_app.ui.caregivers.CaregiverFragment"
-        android:label="fragment_caregivers"
+        android:label="Legal Rights of Caregivers"
         tools:layout="@layout/fragment_caregivers" />
     <fragment
         android:id="@+id/escortingFragment"
         android:name="com.example.information_app.ui.escort.EscortingFragment"
-        android:label="fragment_escorting"
+        android:label="Escorting"
         tools:layout="@layout/fragment_escorting">
         <action
             android:id="@+id/action_escortingFragment_to_quizFragment"
@@ -64,12 +65,12 @@
     <fragment
         android:id="@+id/informationFragment"
         android:name="com.example.information_app.ui.infomation.InformationFragment"
-        android:label="fragment_information"
+        android:label="Information"
         tools:layout="@layout/fragment_information" />
     <fragment
         android:id="@+id/parentFragment"
         android:name="com.example.information_app.ui.parents.ParentFragment"
-        android:label="fragment_parents"
+        android:label="Legal Rights of Parent"
         tools:layout="@layout/fragment_parents" />
     <fragment
         android:id="@+id/quizFragment"
