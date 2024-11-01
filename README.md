@@ -6,7 +6,8 @@
 
 - Set up MVVM for quiz and result fragments
 - Language button at Home Fragment (REMAIN: get life cycle exception)
-- ![Demo of the feature](description\proto_11-02.gif)
+
+![Demo of the feature](description\proto_11-02.gif)
 
 **TODO**
 
