@@ -19,4 +19,15 @@
     <string name="button_start_quiz">Test Your Knowledge</string>
     <string name="button_retry">Retry</string>
     <string name="button_complete">Complete</string>
+
+    <string name="question_1_text">This is question 1</string>
+    <string name="question_2_text">This is question 2</string>
+    <string name="question_3_text">This is question 3</string>
+    <string name="question_4_text">This is question 4</string>
+    <string name="question_5_text">This is question 5</string>
+    <string name="question_1_explanation">Explaining question 1</string>
+    <string name="question_2_explanation">Explaining question 2</string>
+    <string name="question_3_explanation">Explaining question 3</string>
+    <string name="question_4_explanation">Explaining question 4</string>
+    <string name="question_5_explanation">Explaining question 5</string>
 </resources>

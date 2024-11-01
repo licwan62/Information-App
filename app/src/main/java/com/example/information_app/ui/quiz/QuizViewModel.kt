@@ -78,7 +78,7 @@ class QuizViewModel @Inject constructor(
         navigateOut()
     }
 
-    fun navigateOut() {
+    private fun navigateOut() {
         if (isQuizOver()) {
             completeQuiz()
         } else {
@@ -100,7 +100,7 @@ class QuizViewModel @Inject constructor(
         }
     }
 
-    fun printCurrentQuestionState() {
+    private fun printCurrentQuestionState() {
         if (_question.value != null) {
             Log.i(
                 TAG,
@@ -114,7 +114,7 @@ class QuizViewModel @Inject constructor(
         }
     }
 
-    fun printDatabase() = viewModelScope.launch {
+    private fun printDatabase() = viewModelScope.launch {
         dao.getAllQuestions().collect { questions ->
             if (questions.isNullOrEmpty()) {
                 Log.e(TAG, "empty database")
@@ -127,35 +127,35 @@ class QuizViewModel @Inject constructor(
         }
     }
 
-    fun setQuestionCount() = viewModelScope.launch {
+    private fun setQuestionCount() = viewModelScope.launch {
         questionCount = dao.getCount()
     }
 
-    fun goToNextQuestion() = viewModelScope.launch {
+    private fun goToNextQuestion() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.GoToNextQuestion)
     }
 
-    fun isCorrectAnswer(userAnswer: Boolean): Boolean =
+    private fun isCorrectAnswer(userAnswer: Boolean): Boolean =
         _question.value!!.correctAnswer == userAnswer
 
-    fun isQuizOver(): Boolean {
+    private fun isQuizOver(): Boolean {
         //Log.d(TAG, "call isQuizOver, id: ${_question.value!!.id}, count: $questionCount")
         return _question.value!!.id == questionCount
     }
 
-    fun showCorrectAnwer() {
+    private fun showCorrectAnwer() {
         _isAnswerWrong.value = true
         val string = if (_question.value!!.correctAnswer) "TRUE" else "FALSE"
         _answerReview.value = "Correct Answer: $string"
     }
 
-    fun completeQuiz() = viewModelScope.launch {
+    private fun completeQuiz() = viewModelScope.launch {
         printDatabase()
         setScore()
         navigationChannel.send(NavigationAction.CompleteQuizWithScore(score))
     }
 
-    suspend fun setScore() {
+    private suspend fun setScore() {
         var correctCount = 0
         val questions = dao.getAllQuestions().first()
         questions.forEach { question ->
@@ -167,7 +167,7 @@ class QuizViewModel @Inject constructor(
         //Log.d(TAG, "on quiz completed, generate score: $score")
     }
 
-    fun updateQuestion(question: Question) = viewModelScope.launch {
+    private fun updateQuestion(question: Question) = viewModelScope.launch {
         dao.update(question)
         Log.d(TAG, "data updated: $question")
     }

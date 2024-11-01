@@ -1,43 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:padding="@dimen/my_padding"
     tools:context=".ui.quiz_result.QuizResultFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/quiz_result_item"
+        android:layout_above="@+id/relative_layout_bottom" />
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="to be replaced by a list" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_retry"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_weight="1"
-            android:text="@string/button_retry" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_complete"
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/button_retry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="1"
+                android:text="@string/button_retry" />
+
+            <Button
+                android:id="@+id/button_complete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="1"
+                android:text="@string/button_complete" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_review"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_weight="1"
-            android:text="@string/button_complete" />
+            android:layout_below="@+id/linear_layout"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/default_font_size"
+            tools:text="You got 3 out of 5 correct!" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/text_view_review"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="You got 3 out of 5 correct!"/>
-
-</LinearLayout>
+</RelativeLayout>

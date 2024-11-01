@@ -10,6 +10,7 @@ import kotlinx.android.parcel.Parcelize
 data class Question(
     val text: String,
     val correctAnswer: Boolean, // right answer to the question
+    val explanation: String = "",
     val userAnswer: Boolean = false, // user input answer
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 ) : Parcelable {
