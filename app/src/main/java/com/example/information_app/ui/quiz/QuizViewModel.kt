@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val TAG = "quiz_vm"
+
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val dao: QuestionDao,
@@ -29,8 +31,8 @@ class QuizViewModel @Inject constructor(
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
 
-    private val _isWrong = MutableLiveData<Boolean>()
-    var isWrong: LiveData<Boolean> = _isWrong
+    private val _isAnswerWrong = MutableLiveData<Boolean>()
+    var isAnswerWrong: LiveData<Boolean> = _isAnswerWrong
 
     private val _answerReview = MutableLiveData<String>()
     var answerReview: LiveData<String> = _answerReview
@@ -45,24 +47,24 @@ class QuizViewModel @Inject constructor(
     init {
         //printDatabase()
         setQuestionCount()
-        _isWrong.value = false
+        _isAnswerWrong.value = false
     }
 
     /**
      * get user response to be stored in database
      * compared to answer -if correct go next; if wrong show correct
      */
-    fun onOptionClick(response: Boolean) {
-        val updatedQuestion = _question.value!!.copy(response = response)
-
-        Log.e(
+    fun onOptionClick(userAnswer: Boolean) {
+        val updatedQuestion = _question.value!!.copy(userAnswer = userAnswer)
+        val correctAnswer = _question.value!!.correctAnswer
+        Log.d(
             "quiz_vm",
-            "call onOptionClick, response: $response, correct"
+            "call onOptionClick, userAnswer: $userAnswer, correctAnswer: $correctAnswer"
         )
 
         updateQuestion(updatedQuestion)
 
-        if (isCorrectAnswer(response)) {
+        if (isCorrectAnswer(userAnswer)) {
             navigateOut()
         } else {// wrong answer
             showCorrectAnwer()
@@ -83,34 +85,41 @@ class QuizViewModel @Inject constructor(
 
     fun loadQuestion() = viewModelScope.launch {
         if (questionId == 0) {
-            Log.e("quiz_vm", "invalid zero question ID, arg not sent?")
+            Log.e(TAG, "invalid zero question ID, arg not sent?")
             return@launch
         }
 
         // specify question content - populated in text views
         dao.getQuestion(questionId).collect { question ->
-            if (question != null) {
+            if (question != null)
                 _question.value = question
-                Log.d(
-                    "quiz_vm",
-                    "call loadQuestion, current question: ${_question.value}"
-                )
-            } else {
-                Log.e(
-                    "quiz_vm",
-                    "call loadQuestion, failed to get question, id: $questionId"
-                )
-            }
+        }
+
+        printCurrentQuestionState()
+    }
+
+    fun printCurrentQuestionState() {
+        if (question != null) {
+            Log.d(
+                TAG,
+                "call loadQuestion, loaded question: ${_question.value}"
+            )
+        } else {
+            Log.e(
+                TAG,
+                "call loadQuestion, failed to get question by id: $questionId"
+            )
         }
     }
 
     fun printDatabase() = viewModelScope.launch {
         dao.getAllQuestions().collect { questions ->
             if (questions.isNullOrEmpty()) {
-                Log.e("vm", "empty database")
+                Log.e(TAG, "empty database")
             } else {
+                Log.d(TAG, "call printDatabase")
                 questions.forEach { question ->
-                    Log.d("vm", "$question")
+                    Log.v(TAG, "$question, isCorrect: ${question.isAnswerCorrect}")
                 }
             }
         }
@@ -122,30 +131,29 @@ class QuizViewModel @Inject constructor(
 
     fun goToNextQuestion() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.NEXT_QUESTION)
-        Log.d("vm", "call goToNextQuestion: ${questionId + 1}")
     }
 
     fun isCorrectAnswer(response: Boolean): Boolean =
-        _question.value!!.answer == response
+        _question.value!!.correctAnswer == response
 
     fun isQuizOver(): Boolean =
         _question.value!!.id == questionCount
 
     fun showCorrectAnwer() {
-        _isWrong.value = true
-        val string = if (_question.value!!.answer) "TRUE" else "FALSE"
+        _isAnswerWrong.value = true
+        val string = if (_question.value!!.correctAnswer) "TRUE" else "FALSE"
         _answerReview.value = "Correct Answer: $string"
     }
 
     fun completeQuiz() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.COMPLETE_QUIZ)
-        Log.d("quiz_vm", "call complete quiz, current id: $questionId")
+        Log.d(TAG, "call complete quiz, current id: $questionId")
         printDatabase()
     }
 
     fun updateQuestion(question: Question) = viewModelScope.launch {
         dao.update(question)
-        Log.e("quiz_vm", "data updated: $question")
+        Log.d(TAG, "data updated: $question")
     }
 }
 

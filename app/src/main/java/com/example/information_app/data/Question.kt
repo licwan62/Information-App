@@ -8,11 +8,11 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "question_table")
 @Parcelize
 data class Question(
-    val description: String,
-    val answer: Boolean, // right answer to the question
-    val response: Boolean = false, // user input answer
+    val text: String,
+    val correctAnswer: Boolean, // right answer to the question
+    val userAnswer: Boolean = false, // user input answer
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 ) : Parcelable {
-    var isCorrect: Boolean = false
-        get() = answer == response
+    var isAnswerCorrect: Boolean = false
+        get() = correctAnswer == userAnswer
 }

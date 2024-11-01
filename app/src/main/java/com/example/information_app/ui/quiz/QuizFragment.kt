@@ -13,6 +13,8 @@ import com.example.information_app.databinding.FragmentQuizBinding
 import com.example.information_app.ui.ui.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val TAG = "quiz_v"
+
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val viewModel: QuizViewModel by viewModels()
@@ -34,18 +36,18 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
 
         viewModel.loadQuestion()
-        Log.d("view", "question loaded")
+        Log.i(TAG, "new question loaded")
 
         viewModel.question.observe(viewLifecycleOwner) { question ->
             binding.apply {
-                textViewTitle.text = "Question ${question.id} in " +
-                        "${viewModel.questionCount}"
-                textViewDescription.text = question.description
+                textViewTitle.text =
+                    "Question ${question.id} in ${viewModel.questionCount}"
+                textViewQuestion.text = question.text
             }
 
         }
 
-        viewModel.isWrong.observe(viewLifecycleOwner) {
+        viewModel.isAnswerWrong.observe(viewLifecycleOwner) {
             binding.apply {
                 groupOnWrongAnswer.visibility =
                     if (it) View.VISIBLE else View.GONE
@@ -57,7 +59,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         viewModel.answerReview.observe(viewLifecycleOwner) { review ->
             binding.apply {
                 textViewReview.text = review
-                Log.e("view", "review visi: ${textViewReview.visibility}, text: ${textViewReview.text}")
             }
         }
 
@@ -77,12 +78,12 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                             bundle,
                             navOptions
                         )
-                        Log.d("view", "navigate to next question with arg: $bundle")
+                        Log.i(TAG, "navigate to next question with arg: $bundle")
                     }
                     is QuizViewModel.NavigationAction.COMPLETE_QUIZ -> {
                         val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment()
                         findNavController().navigate(action)
-                        Log.d("view", "navigate to result")
+                        Log.i(TAG, "navigate to result")
                     }
                 }.exhaustive
             }
