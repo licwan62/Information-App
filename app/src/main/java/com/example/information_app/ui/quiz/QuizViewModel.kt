@@ -29,8 +29,11 @@ class QuizViewModel @Inject constructor(
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
 
-    private val _buttonVisibility = MutableLiveData<Boolean>()
-    var buttonVisibility: LiveData<Boolean> = _buttonVisibility
+    private val _isWrong = MutableLiveData<Boolean>()
+    var isWrong: LiveData<Boolean> = _isWrong
+
+    private val _answerReview = MutableLiveData<String>()
+    var answerReview: LiveData<String> = _answerReview
 
     // state stored arguments in NavGraph
     var questionId = state.get<Int>("questionId") ?: 0
@@ -42,7 +45,7 @@ class QuizViewModel @Inject constructor(
     init {
         //printDatabase()
         setQuestionCount()
-        _buttonVisibility.value = false
+        _isWrong.value = false
     }
 
     /**
@@ -52,8 +55,10 @@ class QuizViewModel @Inject constructor(
     fun onOptionClick(response: Boolean) {
         val updatedQuestion = _question.value!!.copy(response = response)
 
-        Log.e("vm", "call onOptionClick, " +
-                "my response: $response, ")
+        Log.e(
+            "quiz_vm",
+            "call onOptionClick, response: $response, correct"
+        )
 
         updateQuestion(updatedQuestion)
 
@@ -78,21 +83,22 @@ class QuizViewModel @Inject constructor(
 
     fun loadQuestion() = viewModelScope.launch {
         if (questionId == 0) {
-            Log.e("vm", "invalid zero question ID, arg not sent?")
+            Log.e("quiz_vm", "invalid zero question ID, arg not sent?")
             return@launch
         }
 
+        // specify question content - populated in text views
         dao.getQuestion(questionId).collect { question ->
             if (question != null) {
                 _question.value = question
-                Log.v(
-                    "vm", "call loadQuestion, " +
-                            "current question: ${_question.value}"
+                Log.d(
+                    "quiz_vm",
+                    "call loadQuestion, current question: ${_question.value}"
                 )
             } else {
                 Log.e(
-                    "vm", "call loadQuestion, " +
-                            "failed to get question, id: $questionId"
+                    "quiz_vm",
+                    "call loadQuestion, failed to get question, id: $questionId"
                 )
             }
         }
@@ -116,33 +122,30 @@ class QuizViewModel @Inject constructor(
 
     fun goToNextQuestion() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.NEXT_QUESTION)
-        Log.v("vm", "call goToNextQuestion: ${questionId + 1}")
+        Log.d("vm", "call goToNextQuestion: ${questionId + 1}")
     }
 
-//    fun isCorrectAnswer(response: Boolean): Boolean =
-//        _question.value!!.isCorrect
-
-    fun isCorrectAnswer(response: Boolean): Boolean {
-        return _question.value!!.answer == response
-    }
+    fun isCorrectAnswer(response: Boolean): Boolean =
+        _question.value!!.answer == response
 
     fun isQuizOver(): Boolean =
         _question.value!!.id == questionCount
 
     fun showCorrectAnwer() {
-        _buttonVisibility.value = true
+        _isWrong.value = true
+        val string = if (_question.value!!.answer) "TRUE" else "FALSE"
+        _answerReview.value = "Correct Answer: $string"
     }
 
     fun completeQuiz() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.COMPLETE_QUIZ)
-        Log.v("vm", "call complete quiz, current id: $questionId")
+        Log.d("quiz_vm", "call complete quiz, current id: $questionId")
         printDatabase()
     }
 
     fun updateQuestion(question: Question) = viewModelScope.launch {
         dao.update(question)
-
-        Log.e("vm", "data updated: $question")
+        Log.e("quiz_vm", "data updated: $question")
     }
 }
 

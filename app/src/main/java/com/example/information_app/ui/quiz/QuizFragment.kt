@@ -45,12 +45,19 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
         }
 
-        viewModel.buttonVisibility.observe(viewLifecycleOwner) { visibility ->
+        viewModel.isWrong.observe(viewLifecycleOwner) {
             binding.apply {
                 groupOnWrongAnswer.visibility =
-                    if (visibility) View.VISIBLE else View.GONE
+                    if (it) View.VISIBLE else View.GONE
                 groupBeforeAnswer.visibility =
-                    if (visibility) View.GONE else View.VISIBLE
+                    if (it) View.GONE else View.VISIBLE
+            }
+        }
+
+        viewModel.answerReview.observe(viewLifecycleOwner) { review ->
+            binding.apply {
+                textViewReview.text = review
+                Log.e("view", "review visi: ${textViewReview.visibility}, text: ${textViewReview.text}")
             }
         }
 
@@ -60,7 +67,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 when (event) {
                     is QuizViewModel.NavigationAction.NEXT_QUESTION -> {
                         val bundle = Bundle().apply {
-                            putInt("questionId", viewModel.questionId+1)
+                            putInt("questionId", viewModel.questionId + 1)
                         }
                         val navOptions = NavOptions.Builder()
                             .setPopUpTo(R.id.quizFragment, true)
@@ -68,7 +75,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         findNavController().navigate(
                             R.id.quizFragment,
                             bundle,
-                            navOptions)
+                            navOptions
+                        )
                         Log.d("view", "navigate to next question with arg: $bundle")
                     }
                     is QuizViewModel.NavigationAction.COMPLETE_QUIZ -> {
