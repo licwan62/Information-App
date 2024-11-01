@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.information_app.R
 import com.example.information_app.data.Question
 import com.example.information_app.databinding.QuizResultItemBinding
 
 private const val TAG = "adapter"
+
 class QuestionAdapter(
     private val questionList: List<Question> = listOf()
 ) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
@@ -50,6 +52,11 @@ class QuestionAdapter(
 
                 textViewReview.text =
                     "Correct Answer: ${question.correctAnswer}, ${question.explanation}"
+
+                val iconRes =
+                    if (question.isAnswerCorrect) R.drawable.ic_tick
+                    else R.drawable.ic_cross
+                imageViewSign.setImageResource(iconRes)
             }
             Log.i(TAG, "question get bound onto view holder: $question")
         }

@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val TAG = "quiz_vm"
+
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val dao: QuestionDao,
@@ -24,6 +25,7 @@ class QuizViewModel @Inject constructor(
 
     sealed class NavigationAction {
         object GoToNextQuestion : NavigationAction()
+
         //object COMPLETE_QUIZ : NavigationAction()
         data class CompleteQuizWithScore(val score: Score) : NavigationAction()
     }
@@ -61,8 +63,9 @@ class QuizViewModel @Inject constructor(
         val updatedQuestion = _question.value!!.copy(userAnswer = userAnswer)
         val correctAnswer = _question.value!!.correctAnswer
         Log.d(
-            "quiz_vm",
-            "call onOptionClick, userAnswer: $userAnswer, correctAnswer: $correctAnswer"
+            TAG,
+            "call onOptionClick, userAnswer: $userAnswer, "
+                    + "correctAnswer: $correctAnswer"
         )
 
         updateQuestion(updatedQuestion)
@@ -81,6 +84,8 @@ class QuizViewModel @Inject constructor(
     private fun navigateOut() {
         if (isQuizOver()) {
             completeQuiz()
+            Log.i(TAG, "complete quiz, current id: ${_question.value!!.id}")
+            //printDatabase()
         } else {
             goToNextQuestion()
         }
@@ -94,8 +99,7 @@ class QuizViewModel @Inject constructor(
 
         // specify question content - populated in text views
         dao.getQuestion(questionId).collect { question ->
-            if (question != null)
-                _question.value = question
+            if (question != null) _question.value = question
             printCurrentQuestionState()
         }
     }
@@ -119,9 +123,11 @@ class QuizViewModel @Inject constructor(
             if (questions.isNullOrEmpty()) {
                 Log.e(TAG, "empty database")
             } else {
-                Log.d(TAG, "call printDatabase")
                 questions.forEach { question ->
-                    Log.v(TAG, "$question, isCorrect: ${question.isAnswerCorrect}")
+                    Log.v(
+                        TAG,
+                        "$question, isCorrect: ${question.isAnswerCorrect}"
+                    )
                 }
             }
         }
@@ -150,7 +156,6 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun completeQuiz() = viewModelScope.launch {
-        printDatabase()
         setScore()
         navigationChannel.send(NavigationAction.CompleteQuizWithScore(score))
     }
