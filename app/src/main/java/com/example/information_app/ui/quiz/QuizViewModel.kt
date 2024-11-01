@@ -138,10 +138,8 @@ class QuizViewModel @Inject constructor(
     fun isCorrectAnswer(userAnswer: Boolean): Boolean =
         _question.value!!.correctAnswer == userAnswer
 
-//    fun isQuizOver(): Boolean =
-//        _question.value!!.id == questionCount
     fun isQuizOver(): Boolean {
-        Log.e(TAG, "call isQuizOver, id: ${_question.value!!.id}, count: $questionCount")
+        //Log.d(TAG, "call isQuizOver, id: ${_question.value!!.id}, count: $questionCount")
         return _question.value!!.id == questionCount
     }
 

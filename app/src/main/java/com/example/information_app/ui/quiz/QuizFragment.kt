@@ -19,8 +19,15 @@ private const val TAG = "quiz_v"
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private val viewModel: QuizViewModel by viewModels()
 
+    init {
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.loadQuestion()
+        //Log.i(TAG, "new question loaded")
 
         val binding = FragmentQuizBinding.bind(view)
         binding.apply {
@@ -35,16 +42,12 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             }
         }
 
-        viewModel.loadQuestion()
-        //Log.i(TAG, "new question loaded")
-
         viewModel.question.observe(viewLifecycleOwner) { question ->
             binding.apply {
                 textViewTitle.text =
                     "Question ${question.id} in ${viewModel.questionCount}"
                 textViewQuestion.text = question.text
             }
-
         }
 
         viewModel.isAnswerWrong.observe(viewLifecycleOwner) {
