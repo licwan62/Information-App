@@ -22,6 +22,7 @@
 
         <TextView
             android:id="@+id/text_view_title"
+            style="@style/title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -32,6 +33,7 @@
 
         <TextView
             android:id="@+id/text_view_question"
+            style="@style/title_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -44,6 +46,7 @@
 
         <TextView
             android:id="@+id/text_view_review"
+            style="@style/title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -60,6 +63,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/button_green"
             android:text="@string/button_yes"
             android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/button_right"
@@ -74,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/button_red"
             android:text="@string/button_no"
             app:layout_constraintBottom_toBottomOf="@+id/button_left"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +90,7 @@
             android:id="@+id/button_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_green"
             android:text="@string/button_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

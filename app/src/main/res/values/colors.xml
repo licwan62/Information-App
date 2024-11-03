@@ -11,4 +11,13 @@
     <color name="darken_white">#FFF2F2F2</color>
     <color name="active_dot">#FF14AE5C</color>
     <color name="inactive_dot">#FFD3D3D3</color>
+    <color name="text_yellow">#d4af37</color>
+    <color name="text_blue">#0099cc</color>
+    <color name="button_green">#4caf50</color>
+    <color name="button_yellow">#d4af37</color>
+    <color name="button_blue">#0e5ead</color>
+    <color name="button_blue_2">#0099cc</color>
+    <color name="button_red">#ec221f</color>
+    <color name="paragraph">#000000</color>
+    <color name="text_grey">#757575</color>
 </resources>

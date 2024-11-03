@@ -69,9 +69,9 @@
         tools:layout="@layout/fragment_information" />
     <fragment
         android:id="@+id/parentFragment"
-        android:name="com.example.information_app.ui.parents.ParentFragment"
+        android:name="com.example.information_app.ui.custodians.CustodiansFragment"
         android:label="Legal Rights of Parent"
-        tools:layout="@layout/fragment_parents" />
+        tools:layout="@layout/fragment_custodians" />
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.information_app.ui.quiz.QuizFragment"
@@ -105,8 +105,8 @@
         <action
             android:id="@+id/action_quizResultFragment_to_escortingFragment2"
             app:destination="@id/escortingFragment"
-            app:enterAnim="@anim/slide_in_top"
-            app:exitAnim="@anim/slide_out_bottom"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
             app:popUpTo="@id/escortingFragment"
             app:popUpToInclusive="true" />
         <argument

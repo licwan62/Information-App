@@ -17,6 +17,7 @@
 
         <TextView
             android:id="@+id/text_view_question"
+            style="@style/title_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -31,8 +32,11 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <!-- TODO imp drawable structure-->
+
             <TextView
                 android:id="@+id/text_view_user_answer"
+                style="@style/title_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Your answer: No" />
@@ -48,6 +52,7 @@
 
         <TextView
             android:id="@+id/text_view_review"
+            style="@style/title_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linear_layout"

@@ -1,25 +1,23 @@
 <resources>
     <string name="app_name">Maori_Information-App</string>
     <string name="home_title">Maori_AWAI...</string>
-    <string name="language_button">Maori</string>
+    <string name="button_change_language">Maori</string>
     <string name="home_description">Maori_your trusted support for Tamariki and Rangatahi</string>
-    <string name="information_button">Maori_Information</string>
-    <string name="escorting_button">Maori_Process Of Escorting</string>
-    <string name="parents_button">Maori_Legal Right of Parents</string>
-    <string name="caregivers_button">Maori_Legal Right Of Caregivers</string>
+    <string name="button_information">Maori_Information</string>
+    <string name="button_escorting">Maori_Process Of Escorting</string>
+    <string name="button_parents">Maori_Legal Right of Parents</string>
+    <string name="button_custodians">Maori_Legal Right Of Caregivers</string>
     <string name="test_long">This is a long test text...This is a long test text...This is a long test text...This is a long test text...This is a long test text...</string>
-
-    <string name="information_content">Content for Information</string>
-    <string name="escorting_content">Content for Escorting</string>
-    <string name="parents_content">Content for Parents</string>
-    <string name="caregivers_content">Content for Caregivers</string>
+    <string name="information_paragraph">Content for Information</string>
+    <string name="escorting_paragraph">Content for Escorting</string>
+    <string name="custodians_paragraph">Content for Parents</string>
+    <string name="caregivers_paragraph">Content for Caregivers</string>
     <string name="button_yes">YES</string>
     <string name="button_no">NO</string>
     <string name="button_next">NEXT QUESTION</string>
     <string name="button_start_quiz">Test Your Knowledge</string>
     <string name="button_retry">Retry</string>
     <string name="button_complete">Complete</string>
-
     <string name="question_1_text">This is question 1</string>
     <string name="question_2_text">This is question 2</string>
     <string name="question_3_text">This is question 3</string>

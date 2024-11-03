@@ -10,8 +10,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/quiz_result_item"
-        android:layout_above="@+id/relative_layout_bottom" />
+        android:layout_above="@+id/relative_layout_bottom"
+        tools:listitem="@layout/quiz_result_item" />
 
     <RelativeLayout
         android:id="@+id/relative_layout_bottom"
@@ -20,38 +20,41 @@
         android:layout_alignParentBottom="true"
         android:layout_marginVertical="10dp">
 
+        <TextView
+            android:id="@+id/text_view_review"
+            style="@style/title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            tools:text="You got 3 out of 5 correct!" />
+
         <LinearLayout
             android:id="@+id/linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_review"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_retry"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/button_green"
+                android:singleLine="true"
                 android:text="@string/button_retry" />
 
             <Button
                 android:id="@+id/button_complete"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/button_blue_2"
+                android:singleLine="true"
                 android:text="@string/button_complete" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_view_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear_layout"
-            android:layout_centerHorizontal="true"
-            android:textSize="@dimen/default_font_size"
-            tools:text="You got 3 out of 5 correct!" />
 
     </RelativeLayout>
 
