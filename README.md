@@ -20,7 +20,7 @@
 - Set up MVVM for quiz and result fragments
 - Language button at Home Fragment (REMAIN: get life cycle exception)
 
-<img src="description\demo_1102.gif" alt="demo_1102" style="zoom: 50%;" />
+<img src="description\demo_1102.gif" alt="demo_1102" style="zoom: 25%;" />
 
 ## Update at 11-4
 
@@ -37,4 +37,4 @@
 
 
 
-<img src="description\demo_1104.gif" alt="demo_1104" style="zoom:50%;" />
+<img src="description\demo_1104.gif" alt="demo_1104" style="zoom: 25%;" />
