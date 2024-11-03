@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/darken_white"
-    android:orientation="vertical"
-    android:padding="@dimen/my_padding"
+    style="@style/FragmentRootLayout"
     tools:context=".ui.caregivers.CaregiverFragment">
 
     <Button
         android:id="@+id/button_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/LanguageButton"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/button_yellow"
         android:text="@string/button_change_language" />
 
-    <ScrollView
-        android:id="@+id/scroll_view_content"
+    <androidx.cardview.widget.CardView
+        style="@style/RoundedShadowCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/button_language"
-        android:background="@color/white">
+        android:layout_below="@+id/button_language">
 
-        <TextView
-            style="@style/BasicParagraph"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/caregivers_paragraph" />
+            android:layout_height="match_parent">
 
-    </ScrollView>
+            <TextView
+                style="@style/ParagraphText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/caregivers_paragraph" />
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

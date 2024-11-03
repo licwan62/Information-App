@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/text_view_title"
-            style="@style/title_1"
+            style="@style/GreyTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/text_view_question"
-            style="@style/title_2"
+            style="@style/BlackTitleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -46,7 +46,7 @@
 
         <TextView
             android:id="@+id/text_view_review"
-            style="@style/title_1"
+            style="@style/GreyTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"

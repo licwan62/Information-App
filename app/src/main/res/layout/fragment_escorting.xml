@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darken_white"
-    android:padding="@dimen/my_padding"
     tools:context=".ui.escort.EscortingFragment">
 
     <Button
         android:id="@+id/button_language"
         style="@style/LanguageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/button_yellow"
         android:text="@string/button_change_language" />
 
-    <ScrollView
-        android:id="@+id/scroll_view_content"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/button_quiz"
         android:layout_below="@+id/button_language"
-        android:background="@color/white">
+        style="@style/RoundedShadowCardView">
 
-        <TextView
-            android:id="@+id/text_view_paragraph"
-            style="@style/BasicParagraph"
+        <ScrollView
+            android:id="@+id/scroll_view_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="@string/escorting_paragraph" />
+            android:layout_height="match_parent">
 
-    </ScrollView>
+            <TextView
+                android:id="@+id/text_view_paragraph"
+                style="@style/ParagraphText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/escorting_paragraph" />
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_quiz"
