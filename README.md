@@ -4,9 +4,7 @@
 
 **Frontend** XML layouts are placed in `frontend-layout` directory
 
-![Demo of the feature](description\team_remind.jpeg)
-
-
+![Demo of the feature](description/team_remind.jpeg)
 
 ## Update at 11-2
 
