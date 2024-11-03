@@ -15,16 +15,17 @@ private const val TAG = "result_v"
 
 @AndroidEntryPoint
 class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
+
     private val viewModel: QuizResultViewModel by viewModels()
+    private lateinit var binding: FragmentQuizResultBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.generateQuestionList()
-        var adapter = QuestionAdapter()
+        var adapter = QuestionAdapter(requireContext())
 
-
-        val binding = FragmentQuizResultBinding.bind(view)
+        binding = FragmentQuizResultBinding.bind(view)
         binding.apply {
             buttonRetry.setOnClickListener {
                 val action =
@@ -46,8 +47,9 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             recyclerView.setHasFixedSize(true)
         }
 
+        // dynamical applying adapter
         viewModel.questionList.observe(viewLifecycleOwner) { questions ->
-            adapter = QuestionAdapter(questions)
+            adapter = QuestionAdapter(requireContext(), questions)
             binding.apply {
                 recyclerView.adapter = adapter
             }
