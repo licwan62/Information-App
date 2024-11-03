@@ -6,21 +6,21 @@
 
 XML layouts could be placed in `frontend-layout` directory, then I will cooperate them into project
 
-<img src="description/team_remind.jpeg" alt="Team reminder"  />
+![Team reminder](description/team_remind.jpeg)
 
 Modify styles that referred from views in `theme.xml`
 
-![team_reminder_4](description\team_reminder_4.jpeg)****
+![team_reminder_4](description/team_reminder_4.jpeg)
 
 **Research** 
 
 Upload Text file in `description` directory, better to have HTML file to specify color and size (only big and small for respectively 20% larger and smaller compared to normal size)
 
-![team_reminder_3](description\team_reminder_3.jpeg)
+![team_reminder_3](description/team_reminder_3.jpeg)
 
 Modify references for every texts of views in`string.xml`, Then open Translation Editor
 
-![team_reminder_2](description\team_reminder_2.jpeg)
+![team_reminder_2](description/team_reminder_2.jpeg)
 
 ## TODO LIST
 
