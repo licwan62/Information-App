@@ -32,8 +32,8 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_homeFragment_to_parentFragment"
-            app:destination="@id/parentFragment"
+            android:id="@+id/action_homeFragment_to_custodiansFragment"
+            app:destination="@id/custodiansFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -68,9 +68,9 @@
         android:label="Information"
         tools:layout="@layout/fragment_information" />
     <fragment
-        android:id="@+id/parentFragment"
+        android:id="@+id/custodiansFragment"
         android:name="com.example.information_app.ui.custodians.CustodiansFragment"
-        android:label="Legal Rights of Parent"
+        android:label="Legal Rights of Custodians"
         tools:layout="@layout/fragment_custodians" />
     <fragment
         android:id="@+id/quizFragment"
@@ -86,8 +86,7 @@
             app:destination="@id/quizResultFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/quizFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -98,16 +97,16 @@
         <action
             android:id="@+id/action_quizResultFragment_to_quizFragment"
             app:destination="@id/quizFragment"
-            app:enterAnim="@anim/slide_in_top"
-            app:exitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/quizFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/quizResultFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_quizResultFragment_to_escortingFragment2"
             app:destination="@id/escortingFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/escortingFragment"
+            app:popUpTo="@id/quizResultFragment"
             app:popUpToInclusive="true" />
         <argument
             android:name="score"

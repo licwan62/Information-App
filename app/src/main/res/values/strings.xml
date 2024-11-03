@@ -31,13 +31,13 @@
     <string name="button_change_language">English</string>
     <string name="button_information">About</string>
     <string name="button_escorting">Process Of Escorting</string>
-    <string name="button_parents">Legal Right of Parents</string>
-    <string name="button_custodians">Legal Right Of Caregivers</string>
+    <string name="button_custodians">Legal Right of Custodians</string>
+    <string name="button_caregivers">Legal Right Of Caregivers</string>
     <string name="button_yes">YES</string>
     <string name="button_no">NO</string>
     <string name="button_next">NEXT QUESTION</string>
     <string name="button_start_quiz">Test Your Knowledge</string>
-    <string name="button_retry">Retry</string>
+    <string name="button_retry">RETRY</string>
     <string name="button_complete">COMPLETE</string>
 
     <!-- TODO: set questions text -->
