@@ -32,19 +32,7 @@
 
 **Screenshots**
 
-**Home**
-
-![](description/Screenshot_04_home.png)
-
-**Escorting**
-
-![](description/Screenshot_04_escorting.png)
-
-**Quiz - Ready to answer**
-
-![](description/Screenshot_04_quiz_checked.png)
-
-**Result**
-
-![](description/Screenshot_04_result.png)
+| Home                                                         | Escorting                                                    | Quiz - Ready to answer                                       | Result                                                       |
+| :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
 
