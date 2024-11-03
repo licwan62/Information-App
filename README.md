@@ -55,4 +55,4 @@
 
 ## Latest Demo
 
-![demo_1104](description\demo_1104.gif)
+![demo_1104](description/demo_1104.gif)
