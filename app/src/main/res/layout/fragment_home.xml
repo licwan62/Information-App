@@ -43,13 +43,13 @@
         android:text="@string/button_escorting" />
 
     <Button
-        android:id="@+id/button_parents"
+        android:id="@+id/button_custodians"
         style="@style/HomeButton"
-        android:text="@string/button_parents" />
+        android:text="@string/button_custodians" />
 
     <Button
         android:id="@+id/button_caregivers"
         style="@style/HomeButton"
-        android:text="@string/button_custodians" />
+        android:text="@string/button_caregivers" />
 
 </LinearLayout>

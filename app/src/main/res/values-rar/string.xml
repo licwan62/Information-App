@@ -5,8 +5,8 @@
     <string name="home_description">Maori_your trusted support for Tamariki and Rangatahi</string>
     <string name="button_information">Maori_Information</string>
     <string name="button_escorting">Maori_Process Of Escorting</string>
-    <string name="button_parents">Maori_Legal Right of Parents</string>
-    <string name="button_custodians">Maori_Legal Right Of Caregivers</string>
+    <string name="button_custodians">Maori_Legal Right of Parents</string>
+    <string name="button_caregivers">Maori_Legal Right Of Caregivers</string>
     <string name="test_long">This is a long test text...This is a long test text...This is a long test text...This is a long test text...This is a long test text...</string>
     <string name="information_paragraph">Content for Information</string>
     <string name="escorting_paragraph">Content for Escorting</string>

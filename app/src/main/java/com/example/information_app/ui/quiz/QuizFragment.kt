@@ -72,6 +72,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         }
                         val navOptions = NavOptions.Builder()
                             .setPopUpTo(R.id.quizFragment, true)
+                            .setLaunchSingleTop(true)
+                            .setEnterAnim(R.anim.slide_in_right)
+                            .setExitAnim(R.anim.slide_out_left)
                             .build()
                         findNavController().navigate(
                             R.id.quizFragment,
@@ -92,8 +95,5 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
     }
 
-    /*override fun onDestroy() {
-        super.onDestroy()
-
-    }*/
+    // TODO persist data in lifecycle
 }

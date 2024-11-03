@@ -64,9 +64,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     .actionHomeFragmentToEscortingFragment()
                 findNavController().navigate(action)
             }
-            buttonParents.setOnClickListener {
+            buttonCaregivers.setOnClickListener {
                 val action = HomeFragmentDirections
-                    .actionHomeFragmentToParentFragment()
+                    .actionHomeFragmentToCustodiansFragment()
                 findNavController().navigate(action)
             }
         }

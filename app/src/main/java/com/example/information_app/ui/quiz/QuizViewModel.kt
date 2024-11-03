@@ -98,22 +98,24 @@ class QuizViewModel @Inject constructor(
         }
 
         // specify question content - populated in text views
-        dao.getQuestion(questionId).collect { question ->
+        /*dao.getQuestion(questionId).collect { question ->
             if (question != null) _question.value = question
             printCurrentQuestionState()
-        }
+        }*/
+        _question.value = dao.getQuestion(questionId).first()
+        printCurrentQuestionState()
     }
 
     private fun printCurrentQuestionState() {
         if (_question.value != null) {
             Log.i(
                 TAG,
-                "call loadQuestion, loaded question: ${_question.value}"
+                "question loaded: ${_question.value}"
             )
         } else {
             Log.e(
                 TAG,
-                "call loadQuestion, failed to get question by id: $questionId"
+                "failed to load question - id: $questionId"
             )
         }
     }

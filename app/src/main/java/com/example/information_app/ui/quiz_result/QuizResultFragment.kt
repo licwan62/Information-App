@@ -1,5 +1,6 @@
 package com.example.information_app.ui.quiz_result
 
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -32,6 +33,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                     QuizResultFragmentDirections
                         .actionQuizResultFragmentToQuizFragment(1)
                 findNavController().navigate(action)
+                Log.i(TAG, "on click button retry")
             }
             buttonComplete.setOnClickListener {
                 val score = viewModel.score
@@ -39,6 +41,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                     QuizResultFragmentDirections
                         .actionQuizResultFragmentToEscortingFragment2(score)
                 findNavController().navigate(action)
+                Log.i(TAG, "on click button complete")
             }
             textViewReview.text = getScoreText()
 
