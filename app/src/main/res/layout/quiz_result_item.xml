@@ -32,21 +32,13 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <!-- TODO imp drawable structure-->
-
             <TextView
                 android:id="@+id/text_view_user_answer"
                 style="@style/title_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                tools:drawableEnd="@drawable/ic_cross"
                 tools:text="Your answer: No" />
-
-            <ImageView
-                android:id="@+id/image_view_sign"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                tools:src="@drawable/ic_cross" />
 
         </LinearLayout>
 
@@ -58,7 +50,6 @@
             android:layout_below="@id/linear_layout"
             android:textAlignment="center"
             tools:text="Correct Answer: Yes, explain answer...." />
-
 
     </RelativeLayout>
 

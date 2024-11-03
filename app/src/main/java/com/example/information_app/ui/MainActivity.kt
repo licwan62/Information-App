@@ -43,24 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-/*fun setLocale(languageCode: String) {
-    val context = requireContext()
-    val locale = Locale(languageCode)
-    Locale.setDefault(locale)
-
-    val config = context.resources.configuration
-    config.setLocale(locale)
-
-    context.resources.updateConfiguration(
-        config,
-        context.resources.displayMetrics
-    )
-    binding.apply {
-        activity?.recreate()
-    }
-    val msg = "language changed to $languageCode"
-    Snackbar.make(requireView(), msg, Snackbar.LENGTH_LONG).show()
-}*/
-
 val languages = arrayOf("es", "rar")
 var languageIdx = 0
+
+// FIXME life cycle exception
