@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="@dimen/my_padding"
     tools:context=".ui.custodians.CustodiansFragment">
 
     <Button
         android:id="@+id/button_language"
         style="@style/LanguageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/button_yellow"
         android:text="@string/button_change_language" />
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        style="@style/RoundedShadowCardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/button_language"
-        android:background="@color/white">
+        android:layout_below="@id/button_language">
 
-        <TextView
-            style="@style/BasicParagraph"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/custodians_paragraph" />
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+            <TextView
+                style="@style/ParagraphText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custodians_paragraph" />
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

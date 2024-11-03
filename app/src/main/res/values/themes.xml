@@ -13,7 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="materialButtonStyle">@style/BasicButton</item>
+        <item name="materialButtonStyle">@style/DefaultButton</item>
     </style>
 
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
@@ -21,51 +21,77 @@
         <item name="android:textColorSecondary">@android:color/black</item>
     </style>
 
-    <!-- basic style for all buttons, background will be set explicitly -->
-    <style name="BasicButton" parent="Widget.MaterialComponents.Button">
+    <!-- basic generic style for all buttons, background will be set explicitly -->
+    <style name="DefaultButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">25sp</item>
         <item name="fontFamily">@font/itim</item>
         <item name="android:padding">10dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="shapeAppearance">@style/MyButtonShapeAppearance</item>
+        <item name="shapeAppearance">@style/RoundedButtonShapeAppearance</item>
         <item name="android:textColor">@color/white</item>
         <item name="textAllCaps">false</item>
     </style>
 
     <style name="LanguageButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="backgroundTint">@color/button_yellow</item>
         <item name="fontFamily">@font/itim</item>
         <item name="android:padding">10dp</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="shapeAppearance">@style/MyButtonShapeAppearance</item>
+        <item name="shapeAppearance">@style/RoundedButtonShapeAppearance</item>
         <item name="android:textAlignment">center</item>
         <item name="textAllCaps">true</item>
     </style>
 
-    <!-- stylize buttons-->
-    <style name="MyButtonShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <style name="HomeButton" parent="DefaultButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/button_blue</item>
+    </style>
+
+    <!-- stylize buttons radius-->
+    <style name="RoundedButtonShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerSize">15dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
 
     <!-- basic style for paragraph texts, color will be override by CDATA in string res -->
-    <style name="BasicParagraph">
+    <style name="ParagraphText">
         <item name="android:padding">15dp</item>
         <item name="android:textSize">25sp</item>
         <item name="android:fontFamily">@font/itim</item>
         <item name="android:textColor">@color/paragraph</item>
     </style>
 
-    <style name="title_1">
+    <!-- stylize text views -->
+    <style name="GreyTitleText">
         <item name="android:textSize">30sp</item>
         <item name="fontFamily">@font/itim</item>
         <item name="android:textColor">@color/text_grey</item>
     </style>
 
-    <style name="title_2">
+    <style name="BlackTitleText">
         <item name="android:textSize">30sp</item>
         <item name="fontFamily">@font/itim</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- stylize card views-->
+    <style name="RoundedShadowCardView">
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardElevation">10dp</item>
+    </style>
+
+    <style name="FragmentRootLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/darken_white</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingLeft">@dimen/my_padding</item>
+        <item name="android:paddingRight">@dimen/my_padding</item>
+        <item name="android:paddingBottom">@dimen/my_padding</item>
+        <item name="android:paddingTop">0dp</item>
     </style>
 </resources>
