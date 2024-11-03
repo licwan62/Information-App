@@ -12,8 +12,8 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-private val languages = arrayOf("es", "rar")
-private var languageIdx = 0
+//private val languages = arrayOf("es", "rar")
+//private var languageIdx = 0
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -32,11 +32,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             config,
             context.resources.displayMetrics
         )
-
         binding.apply {
             activity?.recreate()
         }
-
         val msg = "language changed to $languageCode"
         Snackbar.make(requireView(), msg, Snackbar.LENGTH_LONG).show()
     }
@@ -49,7 +47,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             buttonLanguage.setOnClickListener {
                 languageIdx += 1
                 languageIdx %= languages.count()
-                Log.i("inf", "idx: $languageIdx")
                 setLocale(languages[languageIdx])
             }
             buttonCaregivers.setOnClickListener {

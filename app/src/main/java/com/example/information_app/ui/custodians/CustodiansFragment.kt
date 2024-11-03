@@ -1,12 +1,11 @@
-package com.example.information_app.ui.escort
+package com.example.information_app.ui.custodians
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
-import com.example.information_app.databinding.FragmentEscortingBinding
+import com.example.information_app.databinding.FragmentCaregiversBinding
+import com.example.information_app.databinding.FragmentCustodiansBinding
 import com.example.information_app.ui.languageIdx
 import com.example.information_app.ui.languages
 import com.google.android.material.snackbar.Snackbar
@@ -14,23 +13,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class EscortingFragment : Fragment(R.layout.fragment_escorting) {
-    private lateinit var binding: FragmentEscortingBinding
+class CustodiansFragment : Fragment(R.layout.fragment_custodians) {
+    private lateinit var binding: FragmentCustodiansBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentEscortingBinding.bind(view)
+        binding = FragmentCustodiansBinding.bind(view)
         binding.apply {
-            buttonQuiz.setOnClickListener {
-                val action = EscortingFragmentDirections.actionEscortingFragmentToQuizFragment(1)
-                findNavController().navigate(action)
-            }
-            textViewParagraph.text =
-                HtmlCompat.fromHtml(
-                    getString(R.string.escorting_paragraph),
-                    HtmlCompat.FROM_HTML_MODE_LEGACY
-                )
             buttonLanguage.setOnClickListener {
                 languageIdx += 1
                 languageIdx %= languages.count()

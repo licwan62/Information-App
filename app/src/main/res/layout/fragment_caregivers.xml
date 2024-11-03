@@ -12,8 +12,9 @@
         android:id="@+id/button_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        tools:text="English" />
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/button_yellow"
+        android:text="@string/button_change_language" />
 
     <ScrollView
         android:id="@+id/scroll_view_content"
@@ -23,9 +24,10 @@
         android:background="@color/white">
 
         <TextView
+            style="@style/BasicParagraph"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/caregivers_content" />
+            android:text="@string/caregivers_paragraph" />
 
     </ScrollView>
 

@@ -9,10 +9,12 @@
 
     <Button
         android:id="@+id/button_language"
+        style="@style/LanguageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        tools:text="English" />
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/button_yellow"
+        android:text="@string/button_change_language" />
 
     <ScrollView
         android:id="@+id/scroll_view_content"
@@ -23,17 +25,20 @@
         android:background="@color/white">
 
         <TextView
+            android:id="@+id/text_view_paragraph"
+            style="@style/BasicParagraph"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/escorting_content" />
+            android:layout_height="wrap_content"
+            tools:text="@string/escorting_paragraph" />
 
     </ScrollView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/button_green"
         android:text="@string/button_start_quiz" />
 
 </RelativeLayout>

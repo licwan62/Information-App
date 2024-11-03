@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="50dp"
+    android:padding="@dimen/my_padding"
     tools:context=".ui.HomeFragment">
 
     <LinearLayout
@@ -32,39 +32,35 @@
 
         <Button
             android:id="@+id/button_language"
+            style="@style/LanguageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/language_button"
-            tools:text="English" />
+            android:text="@string/button_change_language" />
 
         <Button
             android:id="@+id/button_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/information_button"
-            tools:text="Information" />
+            android:text="@string/button_information" />
 
         <Button
             android:id="@+id/button_escorting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/escorting_button"
-            tools:text="Process Of Escorting" />
+            android:text="@string/button_escorting" />
 
         <Button
             android:id="@+id/button_parents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/parents_button"
-            tools:text="Legal Rights Of Parent" />
+            android:text="@string/button_parents" />
 
         <Button
             android:id="@+id/button_caregivers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/caregivers_button"
-            tools:text="Legal Rights Of Caregivers" />
+            android:text="@string/button_custodians" />
 
     </LinearLayout>
 
