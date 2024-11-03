@@ -1,12 +1,12 @@
-# Prototype of Information App for Assessment2
+# Information App
 
 ## Team Work
 
 **Frontend** XML layouts are placed in `frontend-layout` directory
 
-![Team reminder](description/team_remind.jpeg)
+<img src="description/team_remind.jpeg" alt="Team reminder"  />
 
-## TODO List
+## TODO LIST
 
 - [ ] Fill up contents
 - [x] Stylize fonts, colors and backgrounds
@@ -15,14 +15,16 @@
 
 ## Update at 11-2
 
-**COMPLETE**
+### COMPLETE
 
 - Set up MVVM for quiz and result fragments
 - Language button at Home Fragment (REMAIN: get life cycle exception)
 
-## Update at 11-3
+<img src="description\demo_1102.gif" alt="demo_1102" style="zoom: 50%;" />
 
-**COMPLETE**
+## Update at 11-4
+
+### COMPLETE
 
 - Improve layouts structure
   - Colorful HTML paragraph
@@ -30,9 +32,9 @@
   - Better font
 - Animate navigations
 
-**Screenshots**
-
-| Home                                                         | Escorting                                                    | Quiz - Ready to answer                                       | Result                                                       |
-| :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+
+
+<img src="description\demo_1104.gif" alt="demo_1104" style="zoom:50%;" />
