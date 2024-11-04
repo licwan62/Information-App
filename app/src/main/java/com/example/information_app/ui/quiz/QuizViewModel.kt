@@ -3,11 +3,10 @@ package com.example.information_app.ui.quiz
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.information_app.data.Question
-import com.example.information_app.data.QuestionDao
+import com.example.information_app.data.QuestionRepository
 import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +15,7 @@ private const val TAG = "quiz_vm"
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
-    private val dao: QuestionDao,
+    private val repository: QuestionRepository,
     private val state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
@@ -97,12 +96,12 @@ class QuizViewModel @Inject constructor(
             Log.e(TAG, "invalid zero question ID, arg not sent?")
             return@launch
         }
-
-        _question.value = dao.getQuestion(questionId).first()
-        printCurrentQuestionState()
+        repository.getQuestionById(questionId).collect { question ->
+            _question.value = question
+        }
     }
 
-    private fun printCurrentQuestionState() {
+    /*fun printCurrentQuestionState() {
         if (_question.value != null) {
             Log.i(
                 TAG,
@@ -114,25 +113,16 @@ class QuizViewModel @Inject constructor(
                 "failed to load question - id: $questionId"
             )
         }
-    }
+    }*/
 
     private fun printDatabase() = viewModelScope.launch {
-        dao.getAllQuestions().collect { questions ->
-            if (questions.isEmpty()) {
-                Log.e(TAG, "empty database")
-            } else {
-                questions.forEach { question ->
-                    Log.v(
-                        TAG,
-                        "$question, isCorrect: ${question.isAnswerCorrect}"
-                    )
-                }
-            }
+        repository.getAllQuestions().forEach { question ->
+            Log.v(TAG, "$question, isCorrect: ${question.isAnswerCorrect}")
         }
     }
 
     private fun setQuestionCount() = viewModelScope.launch {
-        questionCount = dao.getCount()
+        questionCount = repository.getQuestionTotal()
     }
 
     private fun goToNextQuestion() = viewModelScope.launch {
@@ -158,7 +148,7 @@ class QuizViewModel @Inject constructor(
 
     private suspend fun setScore() {
         var correctCount = 0
-        val questions = dao.getAllQuestions().first()
+        val questions = repository.getAllQuestions()
         questions.forEach { question ->
             if (question.isAnswerCorrect)
                 correctCount++
@@ -168,7 +158,7 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun updateQuestion(question: Question) = viewModelScope.launch {
-        dao.update(question)
+        repository.updateQuestion(question)
         Log.d(TAG, "data updated: $question")
     }
 }

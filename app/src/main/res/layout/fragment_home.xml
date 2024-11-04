@@ -14,6 +14,7 @@
         style="@style/BlackTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
         android:text="@string/home_title"
         android:textAlignment="center"
         android:textSize="50sp" />
@@ -23,10 +24,11 @@
         style="@style/GreyTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
         android:text="@string/home_description"
         android:textAlignment="center" />
 
-    <Button
+    <com.example.information_app.ui.util.LanguageButton
         android:id="@+id/button_language"
         style="@style/LanguageButton"
         android:layout_gravity="end"
@@ -35,21 +37,25 @@
     <Button
         android:id="@+id/button_information"
         style="@style/HomeButton"
+        android:freezesText="true"
         android:text="@string/button_information" />
 
     <Button
         android:id="@+id/button_escorting"
         style="@style/HomeButton"
+        android:freezesText="true"
         android:text="@string/button_escorting" />
 
     <Button
         android:id="@+id/button_custodians"
         style="@style/HomeButton"
+        android:freezesText="true"
         android:text="@string/button_custodians" />
 
     <Button
         android:id="@+id/button_caregivers"
         style="@style/HomeButton"
+        android:freezesText="true"
         android:text="@string/button_caregivers" />
 
 </LinearLayout>

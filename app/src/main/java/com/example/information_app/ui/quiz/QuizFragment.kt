@@ -10,7 +10,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentQuizBinding
-import com.example.information_app.ui.ui.exhaustive
+import com.example.information_app.ui.util.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "quiz_v"

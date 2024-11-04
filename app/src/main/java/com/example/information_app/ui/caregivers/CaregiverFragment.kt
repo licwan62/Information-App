@@ -5,9 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentCaregiversBinding
-import com.example.information_app.databinding.FragmentInformationBinding
-import com.example.information_app.ui.languageIdx
-import com.example.information_app.ui.languages
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -22,11 +19,7 @@ class CaregiverFragment : Fragment(R.layout.fragment_caregivers) {
 
         binding = FragmentCaregiversBinding.bind(view)
         binding.apply {
-            buttonLanguage.setOnClickListener {
-                languageIdx += 1
-                languageIdx %= languages.count()
-                setLocale(languages[languageIdx])
-            }
+
         }
     }
 

@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentCaregiversBinding
 import com.example.information_app.databinding.FragmentCustodiansBinding
-import com.example.information_app.ui.languageIdx
-import com.example.information_app.ui.languages
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -20,13 +18,7 @@ class CustodiansFragment : Fragment(R.layout.fragment_custodians) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentCustodiansBinding.bind(view)
-        binding.apply {
-            buttonLanguage.setOnClickListener {
-                languageIdx += 1
-                languageIdx %= languages.count()
-                setLocale(languages[languageIdx])
-            }
-        }
+
     }
 
     private fun setLocale(languageCode: String) {

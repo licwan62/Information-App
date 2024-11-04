@@ -9,7 +9,9 @@ import com.example.information_app.data.QuestionRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -22,7 +24,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApplicationContext(app: Application): Context = app.applicationContext
+    fun provideApplicationContext(app: Application): Context =
+        app.applicationContext
 
     @Provides
     @Singleton
@@ -30,7 +33,7 @@ object AppModule {
         app: Application,
         callback: QuestionDatabase.Callback
     ) = Room.databaseBuilder(app, QuestionDatabase::class.java, "question_database")
-        .fallbackToDestructiveMigration()
+        .fallbackToDestructiveMigration()// destroy data on database recreated
         .addCallback(callback)// trigger onCreate in Callback
         .build()
 
