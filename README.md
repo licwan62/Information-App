@@ -1,11 +1,9 @@
 <div align="center">
-
-
 # Information App
 
 The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting tamariki and rangatahi from their current place of care. 
 
-![demo_1104](description/demo_1104.gif)
+[Demo Animation](description/demo_1104.gif)
 
 </div>
 
@@ -47,10 +45,12 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 
 ## TODO LIST
 
-- [ ] Fill up contents
+- [ ] Research contents for paragraph, quiz, explanation
 - [x] Stylize fonts, colors and backgrounds
 - [x] Language buttons at other fragments
 - [ ] Fix exception for language switching
+- [ ] Implement User Profile
+- [ ] Entry for User Profile (From Bottom slides?)
 
 
 ## TEAM REMINDER
@@ -97,3 +97,11 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 | <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+## Update at 11-5
+
+### COMPLETE
+
+- Persist data - language code - across lifecycle
+- Better Language switching looks
+- Add the Landscape layout for Home
+- Modify the language button implementation
