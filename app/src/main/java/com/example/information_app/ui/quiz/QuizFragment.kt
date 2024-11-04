@@ -12,7 +12,6 @@ import com.example.information_app.R
 import com.example.information_app.databinding.FragmentQuizBinding
 import com.example.information_app.ui.ui.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Locale
 
 private const val TAG = "quiz_v"
 
@@ -40,9 +39,12 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
 
         viewModel.question.observe(viewLifecycleOwner) { question ->
+            if (question == null){
+                Log.e(TAG, "empty question to show!")
+            }
             binding.apply {
                 textViewTitle.text =
-                    "Question ${question.id} in ${viewModel.questionCount}"
+                    getString(R.string.question_idx_in_total, question.id, viewModel.questionCount)
                 textViewQuestion.text = question.text
             }
         }
@@ -72,7 +74,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         }
                         val navOptions = NavOptions.Builder()
                             .setPopUpTo(R.id.quizFragment, true)
-                            .setLaunchSingleTop(true)
                             .setEnterAnim(R.anim.slide_in_right)
                             .setExitAnim(R.anim.slide_out_left)
                             .build()

@@ -3,6 +3,7 @@ package com.example.information_app.ui.quiz_result
 import androidx.lifecycle.*
 import com.example.information_app.data.Question
 import com.example.information_app.data.QuestionDao
+import com.example.information_app.data.QuestionRepository
 import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
@@ -11,6 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class QuizResultViewModel @Inject constructor(
     private val dao: QuestionDao,
+    private val repository: QuestionRepository,
     private val state: SavedStateHandle
 ) : ViewModel() {
 
@@ -24,5 +26,10 @@ class QuizResultViewModel @Inject constructor(
     fun generateQuestionList() = viewModelScope.launch{
         _questionList.value = dao.getAllQuestions().first()
     }
+
+    /*fun initDatabase(onInitialized: () -> Unit) = viewModelScope.launch{
+        repository.initDatabase()
+        onInitialized()
+    }*/
 }
 

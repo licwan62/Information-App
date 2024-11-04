@@ -31,7 +31,7 @@ class QuizViewModel @Inject constructor(
     }
 
     var questionCount = 0
-    var score = Score()
+    private var score = Score()
 
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
@@ -46,7 +46,7 @@ class QuizViewModel @Inject constructor(
     var questionId = state.get<Int>("questionId") ?: 0
         set(value) {
             field = value
-            state.set("questionId", value)
+            state["questionId"] = value
         }
 
     init {
@@ -64,8 +64,9 @@ class QuizViewModel @Inject constructor(
         val correctAnswer = _question.value!!.correctAnswer
         Log.d(
             TAG,
-            "call onOptionClick, userAnswer: $userAnswer, "
-                    + "correctAnswer: $correctAnswer"
+            "onOptionClick, " +
+                    "userAnswer: $userAnswer, " +
+                    "correctAnswer: $correctAnswer"
         )
 
         updateQuestion(updatedQuestion)
@@ -73,7 +74,7 @@ class QuizViewModel @Inject constructor(
         if (isCorrectAnswer(userAnswer)) {
             navigateOut()
         } else {// wrong answer
-            showCorrectAnwer()
+            showCorrectAnswer()
         }
     }
 
@@ -97,11 +98,6 @@ class QuizViewModel @Inject constructor(
             return@launch
         }
 
-        // specify question content - populated in text views
-        /*dao.getQuestion(questionId).collect { question ->
-            if (question != null) _question.value = question
-            printCurrentQuestionState()
-        }*/
         _question.value = dao.getQuestion(questionId).first()
         printCurrentQuestionState()
     }
@@ -122,7 +118,7 @@ class QuizViewModel @Inject constructor(
 
     private fun printDatabase() = viewModelScope.launch {
         dao.getAllQuestions().collect { questions ->
-            if (questions.isNullOrEmpty()) {
+            if (questions.isEmpty()) {
                 Log.e(TAG, "empty database")
             } else {
                 questions.forEach { question ->
@@ -146,12 +142,10 @@ class QuizViewModel @Inject constructor(
     private fun isCorrectAnswer(userAnswer: Boolean): Boolean =
         _question.value!!.correctAnswer == userAnswer
 
-    private fun isQuizOver(): Boolean {
-        //Log.d(TAG, "call isQuizOver, id: ${_question.value!!.id}, count: $questionCount")
-        return _question.value!!.id == questionCount
-    }
+    private fun isQuizOver(): Boolean =
+        _question.value!!.id == questionCount
 
-    private fun showCorrectAnwer() {
+    private fun showCorrectAnswer() {
         _isAnswerWrong.value = true
         val string = if (_question.value!!.correctAnswer) "TRUE" else "FALSE"
         _answerReview.value = "Correct Answer: $string"
@@ -166,12 +160,11 @@ class QuizViewModel @Inject constructor(
         var correctCount = 0
         val questions = dao.getAllQuestions().first()
         questions.forEach { question ->
-            if (question.isAnswerCorrect) {
+            if (question.isAnswerCorrect)
                 correctCount++
-            }
         }
         score = Score(correctCount, questionCount)
-        //Log.d(TAG, "on quiz completed, generate score: $score")
+        //Log.d(TAG, "on setScore, score: $score")
     }
 
     private fun updateQuestion(question: Question) = viewModelScope.launch {
