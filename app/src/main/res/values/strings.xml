@@ -1,9 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <!-- TODO set home text -->
     <string name="app_name">Information-App</string>
     <string name="home_title">AWAI</string>
     <string name="home_description">your trusted support for Tamariki and Rangatahi</string>
-    <string name="test_long">This is a long test text…This is a long test text…This is a long test text...
-        This is a long test text...This is a long test text...</string>
+    <string name="test_long">This is a long test text…This is a long test text…This is a long test text…
+        This is a long test text…This is a long test text…</string>
 
     <!-- TODO: set PARAGRAPH text in four layouts -->
     <string name="information_paragraph">Content for Information</string>
@@ -41,6 +43,7 @@
     <string name="button_complete">COMPLETE</string>
 
     <!-- TODO: set questions text -->
+    <string name="question_idx_in_total">Question %1$d in %2$d</string>
     <string name="question_1_text">This is question 1</string>
     <string name="question_2_text">This is question 2</string>
     <string name="question_3_text">This is question 3</string>

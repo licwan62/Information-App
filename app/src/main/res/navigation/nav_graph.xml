@@ -102,12 +102,13 @@
             app:popUpTo="@id/quizResultFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_quizResultFragment_to_escortingFragment2"
+            android:id="@+id/action_quizResultFragment_to_escortingFragment"
             app:destination="@id/escortingFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/quizResultFragment"
-            app:popUpToInclusive="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/escortingFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="score"
             app:argType="com.example.information_app.data.Score" />

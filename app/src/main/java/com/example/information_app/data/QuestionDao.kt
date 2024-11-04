@@ -21,11 +21,17 @@ interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(question: Question)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(questions: List<Question>)
+
     @Update
     suspend fun update(question: Question)
 
     @Delete
     suspend fun delete(question: Question)
+
+    @Query("DELETE FROM question_table")
+    suspend fun clear()
 
     @Query("SELECT COUNT(*) FROM question_table")
     suspend fun getCount(): Int
