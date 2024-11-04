@@ -4,9 +4,9 @@
 
 ![demo_1104](description/demo_1104.gif)
 
-### Guideline
+The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting tamariki and rangatahi from their current place of care. 
 
-The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting tamariki and rangatahi from their current place of care. The app should provide information to caregiver’s for the following sections: 
+</div>
 
 1.	**Information.** 
    1.	What is Escorting? 
@@ -48,7 +48,6 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 - [x] Language buttons at other fragments
 - [ ] Fix exception for language switching
 
-</div>
 
 ## TEAM REMINDER
 
