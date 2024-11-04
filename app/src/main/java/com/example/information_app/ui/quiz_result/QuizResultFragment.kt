@@ -45,6 +45,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                     findNavController().navigate(action)
                     Log.i(TAG, "on click button complete")
                 }*/
+
                 // navigate to quiz, ensure navigation execute after database init
                 val score = viewModel.score
                 val action =

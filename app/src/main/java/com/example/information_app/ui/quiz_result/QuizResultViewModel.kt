@@ -27,9 +27,9 @@ class QuizResultViewModel @Inject constructor(
         _questionList.value = dao.getAllQuestions().first()
     }
 
-    /*fun initDatabase(onInitialized: () -> Unit) = viewModelScope.launch{
+    fun initDatabase(onInitialized: () -> Unit) = viewModelScope.launch{
         repository.initDatabase()
         onInitialized()
-    }*/
+    }
 }
 

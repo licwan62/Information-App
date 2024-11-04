@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentEscortingBinding
-import com.example.information_app.ui.languageIdx
-import com.example.information_app.ui.languages
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -31,11 +29,7 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
                     getString(R.string.escorting_paragraph),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
-            buttonLanguage.setOnClickListener {
-                languageIdx += 1
-                languageIdx %= languages.count()
-                setLocale(languages[languageIdx])
-            }
+
         }
     }
 

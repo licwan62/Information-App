@@ -1,75 +1,57 @@
 package com.example.information_app.ui
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
+import com.example.information_app.data.LanguageCode
 import com.example.information_app.databinding.FragmentHomeBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.information_app.ui.util.LanguageButtonViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
-
-//private val languages = arrayOf("es", "rar")
-//private var languageIdx = 0
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    lateinit var binding: FragmentHomeBinding
-
-    private fun setLocale(languageCode: String) {
-        val context = requireContext()
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val config = context.resources.configuration
-        config.setLocale(locale)
-
-        context.resources.updateConfiguration(
-            config,
-            context.resources.displayMetrics
-        )
-        binding.apply {
-            activity?.recreate()
-        }
-        val msg = "language changed to $languageCode"
-        Snackbar.make(requireView(), msg, Snackbar.LENGTH_LONG).show()
-    }
+    private lateinit var binding: FragmentHomeBinding
+    private val languageButtonViewModel: LanguageButtonViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentHomeBinding.bind(view)
+
         binding.apply {
+            buttonLanguage.bind(languageButtonViewModel, viewLifecycleOwner, requireActivity())
+
             buttonLanguage.setOnClickListener {
-                languageIdx += 1
-                languageIdx %= languages.count()
-                setLocale(languages[languageIdx])
+                languageButtonViewModel.updateLanguageCode(requireActivity())
             }
+
             buttonCaregivers.setOnClickListener {
                 val action = HomeFragmentDirections
                     .actionHomeFragmentToCaregiverFragment()
                 findNavController().navigate(action)
             }
+
             buttonInformation.setOnClickListener {
                 val action = HomeFragmentDirections
                     .actionHomeFragmentToInformationFragment()
                 findNavController().navigate(action)
             }
+
             buttonEscorting.setOnClickListener {
                 val action = HomeFragmentDirections
                     .actionHomeFragmentToEscortingFragment()
                 findNavController().navigate(action)
             }
-            buttonCaregivers.setOnClickListener {
+
+            buttonCustodians.setOnClickListener {
                 val action = HomeFragmentDirections
                     .actionHomeFragmentToCustodiansFragment()
                 findNavController().navigate(action)
             }
         }
     }
-
 }
