@@ -2,7 +2,7 @@
 <resources>
 
     <!-- space between paragraph layout and container -->
-    <dimen name="my_padding">15dp</dimen>
+    <dimen name="my_space_medium">15dp</dimen>
     <dimen name="default_font_size">20sp</dimen>
 
 </resources>
