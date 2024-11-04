@@ -6,17 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.custodians.CustodiansFragment">
 
-    <Button
-        android:id="@+id/button_language"
-        style="@style/LanguageButton"
-        android:layout_alignParentEnd="true"
-        android:text="@string/button_change_language" />
-
     <androidx.cardview.widget.CardView
         style="@style/RoundedShadowCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/button_language">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="match_parent"

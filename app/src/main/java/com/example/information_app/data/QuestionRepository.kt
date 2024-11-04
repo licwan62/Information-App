@@ -15,7 +15,7 @@ class QuestionRepository @Inject constructor(
     //private val databaseInitialized = CompletableDeferred(Unit)
 
     suspend fun initDatabase() {
-        dao.clear()
+        //dao.clear()
         dao.insertAll(defaultQuestions)
         Log.d("_repo", "database init: ${dao.getAllQuestions().first()}")
     }

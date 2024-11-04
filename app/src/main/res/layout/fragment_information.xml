@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".ui.infomation.InformationFragment">
 
-    <Button
-        android:id="@+id/button_language"
-        style="@style/LanguageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="@string/button_change_language" />
-
-    <ScrollView
+    <androidx.cardview.widget.CardView
+        style="@style/RoundedShadowCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/button_language">
+        android:layout_height="match_parent">
 
-        <TextView
-            style="@style/ParagraphText"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/information_paragraph" />
+            android:layout_height="match_parent">
 
-    </ScrollView>
+            <TextView
+                style="@style/ParagraphText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/information_paragraph" />
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
