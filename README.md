@@ -9,17 +9,19 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 </div>
 ### [Oranga Tamariki](https://practice.orangatamariki.govt.nz/policy/escorting-tamariki-and-rangatahi/) 
+
 This site has a lot of unnecessary information therefore, you are advised to look for information under the sections provided. 
 
-### [Community Law organization for NZ](https://communitylaw.org.nz/community-law-manual/chapter-13-dealing-with-oranga-tamariki-ministry-for-children/dealing-with-oranga-tamariki-ministry-for-children/)  
+### [Community Law organization for NZ](https://communitylaw.org.nz/community-law-manual/chapter-13-dealing-with-oranga-tamariki-ministry-for-children/dealing-with-oranga-tamariki-ministry-for-children/) 
+
 This site provides a lot of legal processes and advice; therefore you are advised to look for information under the sections provided that focus on escorting, but include information that could help and assist. 
 
 ## Features
 
 ### Information
 
-1.	What is Escorting? 
-2.	Types of Escorts? 
+1. What is Escorting? 
+2. Types of Escorts? 
 
 ### The Process of Escorting
 
