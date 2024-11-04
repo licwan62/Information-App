@@ -1,5 +1,6 @@
 <div align="center">
 
+
 # Information App
 
 ![demo_1104](description/demo_1104.gif)
@@ -8,38 +9,37 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 </div>
 
-1.	**Information.** 
-   1.	What is Escorting? 
-   2.	Types of Escorts? 
+### Information
 
-2.	The **Process of Escorting**. The following is a guideline for when escorting has been actioned. 
-   An assessment is made when the environment has been identified as a risk, meaning escorting is necessary. 
-   1.	Oranga Tamariki becomes the custodians of children when escorting is in action. 
-   2.	Oranga Tamariki are NOT custodians of children WHEN others have assumed responsibility. 
-   3.	Escorting is authorized by someone in charge – also, provide information on the conditions. 
-   4.	The Informed Escort Strategy and who it is provided to. 
+1.	What is Escorting? 
+2.	Types of Escorts? 
 
-3.	**Legal Rights of Parents.** 
-   1.	Legal rights for parents shall refer to Escorting and/or the Escorting process, NOT legal rights in general. 
+### The Process of Escorting
 
-4.	**Legal Rights of Caregivers.** 
-   1.	Legal rights for Caregivers shall refer to Escorting and/or the Escorting process, NOT legal rights in general. 
+The following is a guideline for when escorting has been actioned. 
+An assessment is made when the environment has been identified as a risk, meaning escorting is necessary. 
 
+1.	Oranga Tamariki becomes the custodians of children when escorting is in action. 
+2.	Oranga Tamariki are NOT custodians of children WHEN others have assumed responsibility. 
+3.	Escorting is authorized by someone in charge – also, provide information on the conditions. 
+4.	The Informed Escort Strategy and who it is provided to. 
+### Legal Rights of Parents
+Legal rights for parents shall refer to Escorting and/or the Escorting process, NOT legal rights in general. 
 
-### What the app should provide? 
+### Legal Rights of Caregivers
+Legal rights for Caregivers shall refer to Escorting and/or the Escorting process, NOT legal rights in general. 
+
+## Features
 
 1.	**Target Audience:** Parents, Caregivers 
-2.	For each section: 
-   1.	Provide details and summarise information in the context of a mobile app. 
-   2.	Provide links for users for further information. 
-3.	You can obtain most of the information from: 
-   1.	[Oranga Tamariki](https://practice.orangatamariki.govt.nz/policy/escorting-tamariki-and-rangatahi/) 
-      1.	This site has a lot of unnecessary information therefore, you are advised to look for information under the sections provided. 
+2.	Provide details and summarise information in the context of a mobile app. 
+3.  Provide links for users for further information. 
 
-   2.	[Community Law organization for NZ](https://communitylaw.org.nz/community-law-manual/chapter-13-dealing-with-oranga-tamariki-ministry-for-children/dealing-with-oranga-tamariki-ministry-for-children/) 
-      1.	This site provides a lot of legal processes and advice; therefore you are advised to look for information under the sections provided that focus on escorting, but include information that could help and assist.  
+## Most of the information from
 
+1.	[**Oranga Tamariki**](https://practice.orangatamariki.govt.nz/policy/escorting-tamariki-and-rangatahi/)  This site has a lot of unnecessary information therefore, you are advised to look for information under the sections provided. 
 
+2.	[**Community Law organization for NZ**](https://communitylaw.org.nz/community-law-manual/chapter-13-dealing-with-oranga-tamariki-ministry-for-children/dealing-with-oranga-tamariki-ministry-for-children/)  This site provides a lot of legal processes and advice; therefore you are advised to look for information under the sections provided that focus on escorting, but include information that could help and assist. 
 
 ## TODO LIST
 
