@@ -6,9 +6,13 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 </div>
 
+<div align="right">
+
 ### [Demo Animation](description/demo_1104.gif)
 
 Update on 11-4
+
+</div>
 
 ### [Oranga Tamariki](https://practice.orangatamariki.govt.nz/policy/escorting-tamariki-and-rangatahi/) 
 
@@ -29,8 +33,8 @@ This site provides a lot of legal processes and advice; therefore you are advise
 
 The following is a guideline for when escorting has been actioned. 
 1. An assessment is made when the environment has been identified as a risk, meaning escorting is necessary. 
-2. Oranga Tamariki becomes the custodians of children when escorting is in action. 
-3. Oranga Tamariki are NOT custodians of children WHEN others have assumed responsibility. 
+2. **Oranga Tamariki** becomes the custodians of children when escorting is in action. 
+3. **Oranga Tamariki** are **NOT** custodians of children WHEN others have assumed responsibility. 
 4. Escorting is authorized by someone in charge – also, provide information on the conditions. 
 5. The Informed Escort Strategy and who it is provided to. 
 
@@ -52,8 +56,6 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 - [x] Stylize fonts, colors and backgrounds
 - [x] Language buttons at other fragments
 - [ ] Fix exception for language switching
-- [ ] Implement User Profile
-- [ ] Entry for User Profile (From Bottom slides?)
 
 
 ## TEAM REMINDER

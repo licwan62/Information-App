@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/text_view_question"
-            style="@style/BlackTitleText"
+            style="@style/QuestionDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -43,6 +43,7 @@
         <TextView
             android:id="@+id/text_view_review"
             style="@style/GreyTitleText"
+            android:textSize="@dimen/small_title_font_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linear_layout"

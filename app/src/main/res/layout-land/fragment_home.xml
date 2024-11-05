@@ -4,7 +4,7 @@
     style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:text="@string/home_description"
             android:textAlignment="center" />
 
-        <com.example.information_app.ui.util.LanguageButton
+        <com.example.information_app.ui.language_button.LanguageButton
             android:id="@+id/button_language"
             style="@style/LanguageButton"
             android:layout_gravity="end"

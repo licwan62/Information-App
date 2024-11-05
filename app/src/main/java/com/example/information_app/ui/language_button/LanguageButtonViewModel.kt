@@ -1,4 +1,4 @@
-package com.example.information_app.ui.util
+package com.example.information_app.ui.language_button
 
 import android.app.Activity
 import android.util.Log
@@ -44,7 +44,7 @@ class LanguageButtonViewModel @Inject constructor(
         //activity.createConfigurationContext(config)
         activity.resources.updateConfiguration(config, activity.resources.displayMetrics)
 
-        Log.e("LanguageButton", "on setLocale to: $languageCode")
+        Log.i("LanguageButton", "on setLocale to: $languageCode")
 
         displayNewLanguage()
     }

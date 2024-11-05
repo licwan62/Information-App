@@ -1,4 +1,4 @@
-package com.example.information_app.ui
+package com.example.information_app.ui.home
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
-import com.example.information_app.data.LanguageCode
 import com.example.information_app.databinding.FragmentHomeBinding
-import com.example.information_app.ui.util.LanguageButtonViewModel
+import com.example.information_app.ui.language_button.LanguageButtonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

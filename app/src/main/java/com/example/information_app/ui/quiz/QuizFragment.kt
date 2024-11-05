@@ -17,7 +17,9 @@ private const val TAG = "quiz_v"
 
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
+
     private val viewModel: QuizViewModel by viewModels()
+    private lateinit var binding: FragmentQuizBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,21 +27,24 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         viewModel.loadQuestion()
         //Log.i(TAG, "new question loaded")
 
-        val binding = FragmentQuizBinding.bind(view)
+        binding = FragmentQuizBinding.bind(view)
         binding.apply {
+
             buttonNext.setOnClickListener {
                 viewModel.onNextClick()
             }
+
             buttonLeft.setOnClickListener {
                 viewModel.onOptionClick(true)
             }
+
             buttonRight.setOnClickListener {
                 viewModel.onOptionClick(false)
             }
         }
 
         viewModel.question.observe(viewLifecycleOwner) { question ->
-            if (question == null){
+            if (question == null) {
                 Log.e(TAG, "empty question to show!")
             }
             binding.apply {
