@@ -19,16 +19,6 @@ class QuizViewModel @Inject constructor(
     private val state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
-    private val navigationChannel = Channel<NavigationAction>()
-    val navigationFlow = navigationChannel.receiveAsFlow()
-
-    sealed class NavigationAction {
-        object GoToNextQuestion : NavigationAction()
-
-        //object COMPLETE_QUIZ : NavigationAction()
-        data class CompleteQuizWithScore(val score: Score) : NavigationAction()
-    }
-
     var questionCount = 0
     private var score = Score()
 
@@ -160,6 +150,14 @@ class QuizViewModel @Inject constructor(
     private fun updateQuestion(question: Question) = viewModelScope.launch {
         repository.updateQuestion(question)
         Log.d(TAG, "data updated: $question")
+    }
+
+    private val navigationChannel = Channel<NavigationAction>()
+    val navigationFlow = navigationChannel.receiveAsFlow()
+
+    sealed class NavigationAction {
+        object GoToNextQuestion : NavigationAction()
+        data class CompleteQuizWithScore(val score: Score) : NavigationAction()
     }
 }
 

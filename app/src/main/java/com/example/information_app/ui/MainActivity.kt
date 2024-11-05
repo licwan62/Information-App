@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainActivityViewModel by viewModels()
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var navController: NavController
 

@@ -1,7 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation,TypographyEllipsis">
 
     <!-- TODO set home text -->
-    <string name="app_name">Information-App</string>
+    <string name="app_name">Information</string>
     <string name="home_title">AWAI</string>
     <string name="home_description">your trusted support for Tamariki and Rangatahi</string>
     <string name="test_long">This is a long test text…This is a long test text…This is a long test text…
@@ -11,18 +11,21 @@
     <string name="information_paragraph">Content for Information</string>
     <string name="escorting_paragraph">
         <![CDATA[
-            <big><font color="#007bb5"><b>What is Escorting?</b></font></big><br/><br/>
-
-            <font color="#f5b10a"><b>Definition of Escorting</b></font><br/>
-            Escorting refers to the process of removing, relocating, and uplifting tamariki (children) and rangatahi (young
-            people) from their current place of care when necessary...<br/><br/>
-
-            <font color="#007bb5"><b>Types of Escorts</b></font><br/><br/>
-
-            <small><font color="#f5b10a"><b>Voluntary Escorts</b></font></small><br/>
-            These occur when caregivers or parents agree...<br/><br/>
-
-            <small><font color="#f5b10a"><b>Involuntary Escorts</b></font></small><br/>
+            <big><font color="#007bb5"><b>What is Escorting?</b></font></big>
+            <br/><br/>
+            <font color="#f5b10a"><b>Definition of Escorting</b></font>
+            <br/>
+            Escorting refers to the process of removing, relocating, and uplifting Tamariki (children)
+            and Rangatahi (young people) from their current place of care when necessary...
+            <br/><br/>
+            <font color="#007bb5"><b>Types of Escorts</b></font>
+            <br/><br/>
+            <small><font color="#f5b10a"><b>Voluntary Escorts</b></font></small>
+            <br/>
+            These occur when caregivers or parents agree...
+            <br/><br/>
+            <small><font color="#f5b10a"><b>Involuntary Escorts</b></font></small>
+            <br/>
             In these cases, escorting is carried out without the consent of the caregiver or parent...
         ]]>
     </string>

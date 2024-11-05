@@ -4,5 +4,9 @@
     <!-- space between paragraph layout and container -->
     <dimen name="my_space_medium">15dp</dimen>
     <dimen name="default_font_size">20sp</dimen>
+    <dimen name="small_title_font_size">20sp</dimen>
+    <dimen name="median_title_font_size">25sp</dimen>
+    <dimen name="large_title_font_size">30sp</dimen>
+    <dimen name="cross_dimen">35dp</dimen>
 
 </resources>

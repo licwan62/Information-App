@@ -1,12 +1,16 @@
-package com.example.information_app.ui.util
+package com.example.information_app.ui.language_button
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.example.information_app.data.LanguageCode
+import com.example.information_app.ui.util.exhaustive
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
@@ -17,11 +21,7 @@ class LanguageButton @JvmOverloads constructor(
     defStyle: Int = 0
 ) : MaterialButton(context, attrs, defStyle) {
 
-    private var viewModel: LanguageButtonViewModel? = null
-
-    init {
-        text = LanguageCode.EN.name
-    }
+    private lateinit var viewModel: LanguageButtonViewModel
 
     fun bind(
         viewModel: LanguageButtonViewModel,
@@ -45,14 +45,7 @@ class LanguageButton @JvmOverloads constructor(
                     is LanguageButtonViewModel.LanguageChangingAction.LanguageChanged -> {
 
                         // Display the snack-bar
-                        val newLanguageCode = viewModel.languageCode.value
-                        if (newLanguageCode != null) {
-                            popupSnackbar(newLanguageCode, activity as Activity)
-                        } else {
-                            Log.e("LanguageButton", "null language code")
-                        }
-
-                        delay(500)
+                        popupMessage(viewModel.languageCode.value, activity)
 
                         // Recreate the activity
                         restartActivity(activity)
@@ -62,7 +55,12 @@ class LanguageButton @JvmOverloads constructor(
         }
     }
 
-    private fun popupSnackbar(newLanguageCode: LanguageCode, activity: Activity) {
+    private fun popupMessage(newLanguageCode: LanguageCode?, activity: Activity) {
+        if (newLanguageCode == null) {
+            Log.e("LanguageButton", "null language code")
+            return
+        }
+
         Snackbar.make(
             activity.findViewById(android.R.id.content),
             "Language changed to ${newLanguageCode.name}",
@@ -70,14 +68,17 @@ class LanguageButton @JvmOverloads constructor(
         ).show()
     }
 
-    private fun restartActivity(activity: Activity) {
-        val intent = activity.intent
+    private suspend fun restartActivity(activity: Activity) {
+        delay(1000)
         activity.finish()
-        activity.startActivity(intent)
-        activity.overridePendingTransition(
-            0,
-            0
-        ) // Optional: remove transition for smoother experience
-        Log.i("LanguageButton", "on activity restart")
+
+        val intent = activity.intent
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+
+        // Add a small delay to allow the system to properly process the finish
+        Handler(Looper.getMainLooper()).postDelayed({
+            activity.startActivity(intent)
+            Log.i("LanguageButton", "on activity restart")
+        }, 50) // Delay in milliseconds (e.g., 50ms)
     }
 }
