@@ -7,6 +7,7 @@ import com.example.information_app.data.QuestionRepository
 import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,18 +29,9 @@ class QuizViewModel @Inject constructor(
     private val _questionsCount = MutableLiveData<Int>()
     var questionsCount = _questionsCount
 
-    private var score = Score()
-
     // frontend determined question id through arguments in NavGraph
     private var _currentQuestionId = state.get<Int>("questionId") ?: 0
-    var currentQuestionId: Int = 0
-        get() = _currentQuestionId
-        set(value) {
-            field = value
-            _currentQuestionId = value
-            state["questionId"] = value
-            Log.e(TAG, "questionID set to: $value")
-        }
+    var currentQuestionId = _currentQuestionId
 
     // respective question item to questionID
     private val lastQuestion = MutableLiveData<Question>()
@@ -57,20 +49,19 @@ class QuizViewModel @Inject constructor(
     }
 
     init {
-        //printDatabase
         viewModelScope.launch {
-            questionsCount.value = repository.getQuestionTotal()
-        }
-    }
-
-    fun loadQuestion() = viewModelScope.launch {
-        if (_currentQuestionId == 0) {
-            Log.e(TAG, "zero question ID, invalid arg not received")
-            return@launch
-        }
-        Log.i(TAG, "current question ID: $_currentQuestionId")
-        repository.getQuestionById(_currentQuestionId).collect { question ->
-            _currentQuestion.value = question
+            launch {
+                repository.getQuestionTotal().collect{count->
+                    _questionsCount.value = count
+//                    Log.i(TAG, "count updated: $count")
+                }
+            }
+            launch {
+                repository.getQuestionById(_currentQuestionId).collect { question ->
+                    _currentQuestion.value = question
+//                    Log.i(TAG, "question loaded: ${_currentQuestion.value}")
+                }
+            }
         }
     }
 
@@ -139,17 +130,17 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun completeQuiz() = viewModelScope.launch {
-        setScore()
+        val score = getScore()
         navigationChannel.send(NavigationAction.CompleteQuizWithScore(score))
     }
 
-    private suspend fun setScore() {
+    private suspend fun getScore(): Score {
         var correctCount = 0
         val questions = repository.getAllQuestions()
         questions.forEach { question ->
             if (question.isAnswerCorrect) correctCount++
         }
-        score = Score(correctCount, _questionsCount.value!!)
+        return Score(correctCount, _questionsCount.value!!)
         //Log.d(TAG, "on setScore, score: $score")
     }
 

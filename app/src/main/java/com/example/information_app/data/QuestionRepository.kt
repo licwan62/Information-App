@@ -14,9 +14,10 @@ class QuestionRepository @Inject constructor(
 ) {
     suspend fun initDatabase() {
         dao.clear()
-        Log.d("repo", "database cleared, items : ${dao.getCount()}")
+        Log.d("repo", "database cleared")
         dao.insertAll(defaultQuestions(context))
-        Log.d("repo", "database init, items : ${dao.getCount()},  ${dao.getAllQuestions().first()}")
+        Log.d("repo", "database init, items : " +
+                "${dao.getCount().first()},  ${dao.getAllQuestions().first()}")
     }
 
     fun getQuestionById(id: Int): Flow<Question> =
@@ -30,7 +31,7 @@ class QuestionRepository @Inject constructor(
         return dao.update(question)
     }
 
-    suspend fun getQuestionTotal(): Int =
+    suspend fun getQuestionTotal(): Flow<Int> =
         dao.getCount()
 
     companion object {

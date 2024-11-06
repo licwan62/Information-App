@@ -42,7 +42,6 @@ class LanguageButton @JvmOverloads constructor(
             viewModel.languageChangingFlow.collect { event ->
                 when (event) {
                     is LanguageButtonViewModel.LanguageChangingAction.LanguageChanged -> {
-
                         // Display the snack-bar
                         popupMessage(viewModel.languageCode.value, activity)
 
@@ -61,7 +60,6 @@ class LanguageButton @JvmOverloads constructor(
             Log.e("LanguageButton", "null language code")
             return
         }
-
         Snackbar.make(
             activity.findViewById(android.R.id.content),
             "Language changed to ${newLanguageCode.name}",

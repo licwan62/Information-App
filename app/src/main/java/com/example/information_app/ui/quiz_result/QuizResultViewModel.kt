@@ -30,12 +30,10 @@ class QuizResultViewModel @Inject constructor(
     val isDatabaseInitialized: LiveData<Boolean> get() = _isDatabaseInitialized
 
     init {
-        generateQuestionList()
-    }
-
-    private fun generateQuestionList() = viewModelScope.launch {
-        dao.getAllQuestions().collect { questions ->
-            _questionList.value = questions
+        viewModelScope.launch {
+            dao.getAllQuestions().collect { questions ->
+                _questionList.value = questions
+            }
         }
     }
 

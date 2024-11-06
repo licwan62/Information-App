@@ -26,9 +26,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadQuestion()
-        //Log.i(TAG, "new question loaded")
-
         binding = FragmentQuizBinding.bind(view)
         binding.apply {
             groupBeforeAnswer.visibility = View.VISIBLE
@@ -59,22 +56,6 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 textViewQuestion.text = question.text
             }
         }
-
-        /*viewModel.isAnswered.observe(viewLifecycleOwner) {
-            binding.apply {
-                groupOnWrongAnswer.visibility =
-                    if (it) View.VISIBLE else View.GONE
-
-                groupBeforeAnswer.visibility =
-                    if (it) View.GONE else View.VISIBLE
-            }
-        }
-
-        viewModel.answerReview.observe(viewLifecycleOwner) { review ->
-            binding.apply {
-                textViewReview.text = review
-            }
-        }*/
 
         // handle navigation, event sent after button click
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
