@@ -9,10 +9,17 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import com.example.information_app.R
 import com.example.information_app.data.LanguageCode
+import com.example.information_app.ui.MainActivity
 import com.example.information_app.ui.util.exhaustive
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
+import java.lang.Thread.sleep
+import kotlin.math.log
+
+const val TAG = "LanguageButton"
 
 class LanguageButton @JvmOverloads constructor(
     context: Context,
@@ -34,7 +41,7 @@ class LanguageButton @JvmOverloads constructor(
         }
 
         viewModel.languageCode.observe(lifecycleOwner) { languageCode ->
-            Log.d("LanguageButton", "on observe changes on languageCode: ${languageCode.name}")
+            Log.d(TAG, "on observe changes on languageCode: ${languageCode.name}")
             text = languageCode.name
         }
 
@@ -42,41 +49,27 @@ class LanguageButton @JvmOverloads constructor(
             viewModel.languageChangingFlow.collect { event ->
                 when (event) {
                     is LanguageButtonViewModel.LanguageChangingAction.LanguageChanged -> {
-                        // Display the snack-bar
-                        popupMessage(viewModel.languageCode.value, activity)
-
                         // Recreate the activity
                         Handler(Looper.getMainLooper()).postDelayed({
                             restartActivity(activity)
-                        }, 500)
+                        }, 250)
                     }
                 }.exhaustive
             }
         }
     }
 
-    private fun popupMessage(newLanguageCode: LanguageCode?, activity: Activity) {
-        if (newLanguageCode == null) {
-            Log.e("LanguageButton", "null language code")
-            return
-        }
-        Snackbar.make(
-            activity.findViewById(android.R.id.content),
-            "Language changed to ${newLanguageCode.name}",
-            Snackbar.LENGTH_SHORT
-        ).show()
-    }
-
     private fun restartActivity(activity: Activity) {
-        activity.finish()
-
         val intent = activity.intent
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+
+        MainActivity.languageChanged = true
+        Log.i(TAG, "language flag set to : ${MainActivity.languageChanged}")
+
+        activity.finish()
 
         // Add a small delay to allow the system to properly process the finish
         Handler(Looper.getMainLooper()).postDelayed({
             activity.startActivity(intent)
-            Log.i("LanguageButton", "on activity restart")
-        }, 50) // Delay in milliseconds (e.g., 50ms)
+        }, 50)
     }
 }

@@ -33,7 +33,7 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
         dataStore.edit { preferences ->
             // persist a string at key: LANGUAGE_CODE
             preferences[LANGUAGE_CODE] = languageCode.name
-            Log.d("LanguageButton", "input ${languageCode.name} into preference")
+//            Log.d("LanguageButton", "input ${languageCode.name} into preference")
         }
     }
 
@@ -49,7 +49,7 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
             // emit data for LANGUAGE_CODE, and convert it into enum item
             val data = preferences[LANGUAGE_CODE] ?: LanguageCode.EN.name
             val languageCode = LanguageCode.valueOf(data)
-            Log.d("LanguageButton", "preference emit code: ${languageCode.name}")
+//            Log.d("LanguageButton", "preference emit code: ${languageCode.name}")
             languageCode
         }
 

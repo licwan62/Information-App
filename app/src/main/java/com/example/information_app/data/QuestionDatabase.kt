@@ -21,7 +21,6 @@ abstract class QuestionDatabase : RoomDatabase() {
     class Callback @Inject constructor(
         private val database: Provider<QuestionDatabase>, // lazy init until this Database created
         private val repository: Provider<QuestionRepository>,
-        @ApplicationContext private val context: Context,
         @ApplicationScope private val applicationScope: CoroutineScope
     ) : RoomDatabase.Callback() {
 

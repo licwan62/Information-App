@@ -31,7 +31,7 @@ class QuestionRepository @Inject constructor(
         return dao.update(question)
     }
 
-    suspend fun getQuestionTotal(): Flow<Int> =
+    fun getQuestionTotal(): Flow<Int> =
         dao.getCount()
 
     companion object {
