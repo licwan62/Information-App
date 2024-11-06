@@ -1,6 +1,5 @@
 package com.example.information_app.ui.quiz_result
 
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -23,7 +22,6 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.generateQuestionList()
         var adapter = QuestionAdapter(requireContext())
 
         binding = FragmentQuizResultBinding.bind(view)
@@ -36,23 +34,20 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                 Log.i(TAG, "on click button retry")
             }
             buttonComplete.setOnClickListener {
-                /*viewModel.initDatabase{
-                    // navigate to quiz, ensure navigation execute after database init
-                    val score = viewModel.score
-                    val action =
-                        QuizResultFragmentDirections
-                            .actionQuizResultFragmentToEscortingFragment(score)
-                    findNavController().navigate(action)
-                    Log.i(TAG, "on click button complete")
-                }*/
-
-                // navigate to quiz, ensure navigation execute after database init
-                val score = viewModel.score
-                val action =
-                    QuizResultFragmentDirections
-                        .actionQuizResultFragmentToEscortingFragment(score)
-                findNavController().navigate(action)
                 Log.i(TAG, "on click button complete")
+
+                viewModel.initDatabase()
+
+                // navigate to quiz, ensured navigation after database init
+                viewModel.isDatabaseInitialized.observe(viewLifecycleOwner) { isInit ->
+                    if (isInit) {
+                        val score = viewModel.score
+                        val action =
+                            QuizResultFragmentDirections
+                                .actionQuizResultFragmentToEscortingFragment(score)
+                        findNavController().navigate(action)
+                    }
+                }
             }
             textViewReview.text = getScoreText()
 

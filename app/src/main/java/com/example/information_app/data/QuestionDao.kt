@@ -31,8 +31,16 @@ interface QuestionDao {
     suspend fun delete(question: Question)
 
     @Query("DELETE FROM question_table")
-    suspend fun clear()
+    suspend fun deleteTable()
+
+    @Query("DELETE FROM sqlite_sequence WHERE name = 'question_table'")
+    suspend fun resetId()
 
     @Query("SELECT COUNT(*) FROM question_table")
     suspend fun getCount(): Int
+
+    suspend fun clear(){
+        deleteTable()
+        resetId()
+    }
 }

@@ -13,7 +13,6 @@ import com.example.information_app.data.LanguageCode
 import com.example.information_app.ui.util.exhaustive
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.delay
 
 class LanguageButton @JvmOverloads constructor(
     context: Context,
@@ -48,7 +47,9 @@ class LanguageButton @JvmOverloads constructor(
                         popupMessage(viewModel.languageCode.value, activity)
 
                         // Recreate the activity
-                        restartActivity(activity)
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            restartActivity(activity)
+                        }, 500)
                     }
                 }.exhaustive
             }
@@ -68,8 +69,7 @@ class LanguageButton @JvmOverloads constructor(
         ).show()
     }
 
-    private suspend fun restartActivity(activity: Activity) {
-        delay(1000)
+    private fun restartActivity(activity: Activity) {
         activity.finish()
 
         val intent = activity.intent
