@@ -2,7 +2,12 @@
 
 # Information App
 
-The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting tamariki and rangatahi from their current place of care. 
+The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting Tamariki and Rangatahi from their current place of care. 
+
+### SCREENSHOT
+
+| <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 </div>
 
@@ -96,11 +101,6 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
   - Card View layout
   - Better font
 - Animate navigations
-
-### SCREENSHOT
-
-| <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 ## Update at 11-5
 

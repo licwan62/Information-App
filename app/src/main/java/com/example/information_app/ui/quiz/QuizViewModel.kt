@@ -13,35 +13,65 @@ import javax.inject.Inject
 
 private const val TAG = "quiz_vm"
 
+data class AnswerSheet(
+    val question: Question,
+    val isAnswerWrong: Boolean,
+    val answerReview: String
+)
+
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val repository: QuestionRepository,
     private val state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
-    var questionCount = 0
+    private val _questionsCount = MutableLiveData<Int>()
+    var questionsCount = _questionsCount
+
     private var score = Score()
 
-    private val _question = MutableLiveData<Question>()
-    var question: LiveData<Question> = _question
-
-    private val _isAnswerWrong = MutableLiveData<Boolean>()
-    var isAnswerWrong: LiveData<Boolean> = _isAnswerWrong
-
-    private val _answerReview = MutableLiveData<String>()
-    var answerReview: LiveData<String> = _answerReview
-
-    // state stored arguments in NavGraph
-    var questionId = state.get<Int>("questionId") ?: 0
+    // frontend determined question id through arguments in NavGraph
+    private var _currentQuestionId = state.get<Int>("questionId") ?: 0
+    var currentQuestionId: Int = 0
+        get() = _currentQuestionId
         set(value) {
             field = value
+            _currentQuestionId = value
             state["questionId"] = value
+            Log.e(TAG, "questionID set to: $value")
         }
 
+    // respective question item to questionID
+    private val lastQuestion = MutableLiveData<Question>()
+    private val _currentQuestion = MutableLiveData<Question>()
+    var currentQuestion = Transformations.switchMap(_currentQuestion) { q ->
+        if (q == null) {
+            Log.e(TAG, "null question, question remain: ${lastQuestion.value}")
+            // keep question
+            lastQuestion
+        } else {
+            lastQuestion.value = q
+            Log.d(TAG, "update current question: $q")
+            MutableLiveData(q)
+        }
+    }
+
     init {
-        //printDatabase()
-        setQuestionCount()
-        _isAnswerWrong.value = false
+        //printDatabase
+        viewModelScope.launch {
+            questionsCount.value = repository.getQuestionTotal()
+        }
+    }
+
+    fun loadQuestion() = viewModelScope.launch {
+        if (_currentQuestionId == 0) {
+            Log.e(TAG, "zero question ID, invalid arg not received")
+            return@launch
+        }
+        Log.i(TAG, "current question ID: $_currentQuestionId")
+        repository.getQuestionById(_currentQuestionId).collect { question ->
+            _currentQuestion.value = question
+        }
     }
 
     /**
@@ -49,22 +79,17 @@ class QuizViewModel @Inject constructor(
      * compared to answer -if correct go next; if wrong show correct
      */
     fun onOptionClick(userAnswer: Boolean) {
-        val updatedQuestion = _question.value!!.copy(userAnswer = userAnswer)
-        val correctAnswer = _question.value!!.correctAnswer
-        Log.d(
-            TAG,
-            "onOptionClick, " +
-                    "userAnswer: $userAnswer, " +
-                    "correctAnswer: $correctAnswer"
-        )
-
-        updateQuestion(updatedQuestion)
 
         if (isCorrectAnswer(userAnswer)) {
             navigateOut()
         } else {// wrong answer
             showCorrectAnswer()
         }
+
+        val updatedQuestion = _currentQuestion.value!!.copy(userAnswer = userAnswer)
+        updateQuestion(updatedQuestion)
+
+        printNewQuestionState(updatedQuestion)
     }
 
     fun onNextClick() {
@@ -74,36 +99,22 @@ class QuizViewModel @Inject constructor(
     private fun navigateOut() {
         if (isQuizOver()) {
             completeQuiz()
-            Log.i(TAG, "complete quiz, current id: ${_question.value!!.id}")
+            Log.i(TAG, "complete quiz, current id: ${_currentQuestion.value!!.id}")
             //printDatabase()
         } else {
             goToNextQuestion()
         }
     }
 
-    fun loadQuestion() = viewModelScope.launch {
-        if (questionId == 0) {
-            Log.e(TAG, "invalid zero question ID, arg not sent?")
-            return@launch
-        }
-        repository.getQuestionById(questionId).collect { question ->
-            _question.value = question
-        }
+    private fun printNewQuestionState(updatedQuestion: Question) {
+        val correctAnswer = _currentQuestion.value!!.correctAnswer
+        Log.d(
+            TAG,
+            "on optionClick, " +
+                    "userAnswer: ${updatedQuestion.userAnswer}, " +
+                    "correctAnswer: $correctAnswer"
+        )
     }
-
-    /*fun printCurrentQuestionState() {
-        if (_question.value != null) {
-            Log.i(
-                TAG,
-                "question loaded: ${_question.value}"
-            )
-        } else {
-            Log.e(
-                TAG,
-                "failed to load question - id: $questionId"
-            )
-        }
-    }*/
 
     private fun printDatabase() = viewModelScope.launch {
         repository.getAllQuestions().forEach { question ->
@@ -111,24 +122,20 @@ class QuizViewModel @Inject constructor(
         }
     }
 
-    private fun setQuestionCount() = viewModelScope.launch {
-        questionCount = repository.getQuestionTotal()
-    }
-
     private fun goToNextQuestion() = viewModelScope.launch {
         navigationChannel.send(NavigationAction.GoToNextQuestion)
     }
 
     private fun isCorrectAnswer(userAnswer: Boolean): Boolean =
-        _question.value!!.correctAnswer == userAnswer
+        _currentQuestion.value!!.correctAnswer == userAnswer
 
     private fun isQuizOver(): Boolean =
-        _question.value!!.id == questionCount
+        _currentQuestion.value!!.id == questionsCount.value
 
-    private fun showCorrectAnswer() {
-        _isAnswerWrong.value = true
-        val string = if (_question.value!!.correctAnswer) "TRUE" else "FALSE"
-        _answerReview.value = "Correct Answer: $string"
+    private fun showCorrectAnswer() = viewModelScope.launch {
+        val string = if (_currentQuestion.value!!.correctAnswer) "TRUE" else "FALSE"
+        val explanation = "Correct Answer: $string"
+        navigationChannel.send(NavigationAction.ShowExplanation(explanation))
     }
 
     private fun completeQuiz() = viewModelScope.launch {
@@ -140,16 +147,14 @@ class QuizViewModel @Inject constructor(
         var correctCount = 0
         val questions = repository.getAllQuestions()
         questions.forEach { question ->
-            if (question.isAnswerCorrect)
-                correctCount++
+            if (question.isAnswerCorrect) correctCount++
         }
-        score = Score(correctCount, questionCount)
+        score = Score(correctCount, _questionsCount.value!!)
         //Log.d(TAG, "on setScore, score: $score")
     }
 
     private fun updateQuestion(question: Question) = viewModelScope.launch {
         repository.updateQuestion(question)
-        Log.d(TAG, "data updated: $question")
     }
 
     private val navigationChannel = Channel<NavigationAction>()
@@ -157,6 +162,7 @@ class QuizViewModel @Inject constructor(
 
     sealed class NavigationAction {
         object GoToNextQuestion : NavigationAction()
+        data class ShowExplanation(val explanation: String) : NavigationAction()
         data class CompleteQuizWithScore(val score: Score) : NavigationAction()
     }
 }

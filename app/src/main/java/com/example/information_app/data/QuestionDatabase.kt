@@ -31,9 +31,10 @@ abstract class QuestionDatabase : RoomDatabase() {
             super.onCreate(db)
 
             dao = database.get().getDao()
-            //initDatabase()
 
+            //initDatabase()
             val repository = repository.get()
+
             applicationScope.launch {
                 repository.initDatabase()
             }
