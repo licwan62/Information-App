@@ -6,7 +6,7 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 ### SCREENSHOT
 
-| ![1.0.1_home](description\1.0.1_home.png) | ![1.0.1_escorting](description\1.0.1_escorting.png) | ![1.0.1_quiz](description\1.0.1_quiz.png) | ![1.0.1_quiz_wrongAnswer](description\1.0.1_quiz_wrongAnswer.png) | ![1.0.1_quizResult](description\1.0.1_quizResult.png) |
+| ![1.0.1_home](description/1.0.1_home.png) | ![1.0.1_escorting](description/1.0.1_escorting.png) | ![1.0.1_quiz](description/1.0.1_quiz.png) | ![1.0.1_quiz_wrongAnswer](description/1.0.1_quiz_wrongAnswer.png) | ![1.0.1_quizResult](description/1.0.1_quizResult.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 </div>
