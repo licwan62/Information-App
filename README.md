@@ -6,8 +6,8 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 ### SCREENSHOT
 
-| <img src="description/Screenshot_04_home.png" style="zoom: 25%;" /> | <img src="description/Screenshot_04_escorting.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_quiz_checked.png" style="zoom:25%;" /> | <img src="description/Screenshot_04_result.png" style="zoom:25%;" /> |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![1.0.1_home](C:\Users\hzwlc\AndroidStudioProjects\InformationApp\description\1.0.1_home.png) | ![1.0.1_escorting](C:\Users\hzwlc\AndroidStudioProjects\InformationApp\description\1.0.1_escorting.png) | ![1.0.1_quiz](C:\Users\hzwlc\AndroidStudioProjects\InformationApp\description\1.0.1_quiz.png) | ![1.0.1_quiz_wrongAnswer](C:\Users\hzwlc\AndroidStudioProjects\InformationApp\description\1.0.1_quiz_wrongAnswer.png) | ![1.0.1_quizResult](C:\Users\hzwlc\AndroidStudioProjects\InformationApp\description\1.0.1_quizResult.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 </div>
 
