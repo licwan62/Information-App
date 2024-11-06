@@ -12,9 +12,8 @@
         android:layout_above="@+id/linear_layout"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="1dp"
-        android:contentDescription="@string/logo"
         android:src="@drawable/koru_transparent"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded, contentDescription" />
 
     <LinearLayout
         android:id="@+id/linear_layout"

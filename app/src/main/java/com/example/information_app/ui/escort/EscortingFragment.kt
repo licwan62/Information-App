@@ -29,26 +29,6 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
                     getString(R.string.escorting_paragraph),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
-
         }
-    }
-
-    private fun setLocale(languageCode: String) {
-        val context = requireContext()
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val config = context.resources.configuration
-        config.setLocale(locale)
-
-        context.resources.updateConfiguration(
-            config,
-            context.resources.displayMetrics
-        )
-        binding.apply {
-            activity?.recreate()
-        }
-        val msg = "language changed to $languageCode"
-        Snackbar.make(requireView(), msg, Snackbar.LENGTH_LONG).show()
     }
 }

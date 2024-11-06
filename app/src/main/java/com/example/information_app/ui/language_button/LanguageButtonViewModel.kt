@@ -31,6 +31,7 @@ class LanguageButtonViewModel @Inject constructor(
             else -> LanguageCode.EN
         }
         setLocale(newLanguageCode.name, activity)
+        currentLanguageCode = newLanguageCode.name
         preferenceManager.updateLanguageCode(newLanguageCode)
     }
 
@@ -59,4 +60,8 @@ class LanguageButtonViewModel @Inject constructor(
 
     private val languageChangingChannel = Channel<LanguageChangingAction>()
     val languageChangingFlow = languageChangingChannel.receiveAsFlow()
+
+    companion object Language{
+        lateinit var currentLanguageCode: String
+    }
 }
