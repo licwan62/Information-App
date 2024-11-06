@@ -37,7 +37,7 @@ interface QuestionDao {
     suspend fun resetId()
 
     @Query("SELECT COUNT(*) FROM question_table")
-    suspend fun getCount(): Int
+    fun getCount(): Flow<Int>
 
     suspend fun clear(){
         deleteTable()

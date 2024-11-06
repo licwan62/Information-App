@@ -27,11 +27,20 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         binding = FragmentQuizResultBinding.bind(view)
         binding.apply {
             buttonRetry.setOnClickListener {
-                val action =
-                    QuizResultFragmentDirections
-                        .actionQuizResultFragmentToQuizFragment(1)
-                findNavController().navigate(action)
                 Log.i(TAG, "on click button retry")
+
+                viewModel.initDatabase()
+
+                viewModel.isDatabaseInitialized.observe(viewLifecycleOwner) { isInit ->
+                    if (isInit){
+                        val action =
+                            QuizResultFragmentDirections
+                                .actionQuizResultFragmentToQuizFragment(1)
+                        findNavController().navigate(action)
+                    } else {
+                        Log.e(TAG, "database still initializing")
+                    }
+                }
             }
             buttonComplete.setOnClickListener {
                 Log.i(TAG, "on click button complete")
@@ -46,11 +55,12 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                             QuizResultFragmentDirections
                                 .actionQuizResultFragmentToEscortingFragment(score)
                         findNavController().navigate(action)
+                    } else {
+                        Log.e(TAG, "database still initializing")
                     }
                 }
             }
             textViewReview.text = getScoreText()
-
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.setHasFixedSize(true)
