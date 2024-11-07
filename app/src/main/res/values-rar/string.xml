@@ -1,14 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Maori_Information-App</string>
-    <string name="home_title">Maori_AWAI...</string>
+    <string name="home_title">Maori_AWAI</string>
     <string name="button_change_language">Maori</string>
     <string name="home_description">Maori_your trusted support for Tamariki and Rangatahi</string>
     <string name="button_information">Maori_Information</string>
     <string name="button_escorting">Maori_Process Of Escorting</string>
     <string name="button_custodians">Maori_Legal Right of Parents</string>
     <string name="button_caregivers">Maori_Legal Right Of Caregivers</string>
-    <string name="language">Māori</string>
-    <string name="test_long">This is a long test text...This is a long test text...This is a long test text...This is a long test text...This is a long test text...</string>
+    <string name="language">Te Reo</string>
+    <string name="test_long" tools:ignore="TypographyEllipsis">This is a long test text...This is a long test text...This is a long test text...This is a long test text...This is a long test text...</string>
     <string name="information_paragraph">Content for Information</string>
     <string name="escorting_paragraph">Content for Escorting</string>
     <string name="custodians_paragraph">Content for Parents</string>
