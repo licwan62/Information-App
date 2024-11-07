@@ -42,14 +42,15 @@ class LanguageButton @JvmOverloads constructor(
 
         viewModel.languageCode.observe(lifecycleOwner) { languageCode ->
             Log.d(TAG, "on observe changes on languageCode: ${languageCode.name}")
-            text = languageCode.name
+            val language = context.getString(R.string.language)
+            text = language
         }
 
         lifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.languageChangingFlow.collect { event ->
                 when (event) {
+                    // Recreate the activity
                     is LanguageButtonViewModel.LanguageChangingAction.LanguageChanged -> {
-                        // Recreate the activity
                         Handler(Looper.getMainLooper()).postDelayed({
                             restartActivity(activity)
                         }, 250)

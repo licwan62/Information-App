@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var navController: NavController
-    private val languageButtonViewModel: LanguageButtonViewModel by viewModels()
+//    private val languageButtonViewModel: LanguageButtonViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }, 500)
     }
-
 
     // accessible property over project
     companion object AppState {
