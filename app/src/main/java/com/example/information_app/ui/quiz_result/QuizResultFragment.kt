@@ -23,7 +23,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
 
     // more control on observer - handle removing observer
     private var questionsObserver: Observer<List<Question>>? = null
-    private var adapter = QuestionAdapter(requireContext())
+    private lateinit var adapter: QuestionAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,6 +51,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             }
 
             // apply reference of adapter - change in sync with adapter
+            adapter = QuestionAdapter(requireContext())
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.setHasFixedSize(true)
