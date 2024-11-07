@@ -19,7 +19,7 @@ import kotlinx.coroutines.delay
 import java.lang.Thread.sleep
 import kotlin.math.log
 
-const val TAG = "LanguageButton"
+private const val TAG = "LanguageButton"
 
 class LanguageButton @JvmOverloads constructor(
     context: Context,

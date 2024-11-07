@@ -1,5 +1,6 @@
 package com.example.information_app.ui.quiz_result
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,11 +12,11 @@ import com.example.information_app.R
 import com.example.information_app.data.Question
 import com.example.information_app.databinding.QuizResultItemBinding
 
-private const val TAG = "adapter"
+private const val TAG = "Adapter"
 
 class QuestionAdapter(
     private val context: Context,
-    private val questionList: List<Question> = listOf()
+    private var questionList: List<Question> = listOf()
 ) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
     // specify inflated view or viewBinding
@@ -30,11 +31,17 @@ class QuestionAdapter(
 
     // manage binding of ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val question = questionList.get(position)
+        val question = questionList[position]
         holder.bind(question)
     }
 
     override fun getItemCount(): Int = questionList.count()
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateQuestions(newQuestions: List<Question>) {
+        questionList = newQuestions
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(
         private val binding: QuizResultItemBinding
