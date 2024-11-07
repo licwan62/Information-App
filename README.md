@@ -58,11 +58,12 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 
 ## TODO LIST
 
-- [ ] Research contents for paragraph, quiz, explanation
+- [x] Research contents for paragraph, quiz, explanation
 - [x] Stylize fonts, colors and backgrounds
 - [x] Language buttons at other fragments
-- [ ] Fix exception for language switching
-
+- [x] Fix exception for language switching
+- [ ] Content beside Escorting
+- [ ] Cooperate Hyper link
 
 ## TEAM REMINDER
 
