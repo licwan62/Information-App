@@ -2,6 +2,8 @@ package com.example.information_app.ui.quiz_result
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.drawable.GradientDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,28 +55,72 @@ class QuestionAdapter(
 
         fun bind(question: Question) {
             binding.apply {
+
+                // question text 1.Is esc...
                 textViewQuestion.text =
-                    "${question.id}.${question.text}"
+                    context.getString(R.string.question_text, question.id, question.text)
 
-                val userAnswerString = if (question.userAnswer) "Yes" else "No"
+                // your answer: yes ... cross
+                val userAnswerString =
+                    if (question.userAnswer) context.getString(R.string.button_yes)
+                    else context.getString(R.string.button_no)
                 textViewUserAnswer.text =
-                    "Your Answer: ${userAnswerString}"
-
+                    context.getString(R.string.your_answer, userAnswerString)
                 textViewReview.text =
-                    "Correct Answer: ${question.correctAnswer}, ${question.explanation}"
+                    context.getString(R.string.correct_answer, question.explanation)
 
+                // set drawable cross or tick
                 val iconRes =
                     if (question.isAnswerCorrect) R.drawable.ic_tick
                     else R.drawable.ic_cross
                 val drawable = ContextCompat.getDrawable(context, iconRes)
                 textViewUserAnswer.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    null,
-                    null,
-                    drawable,
-                    null
+                    null, null, drawable, null
                 )
+
+                // set card view background
+                setGradientCardView(question, binding)
             }
-            Log.i(TAG, "question get bound onto view holder: $question")
+            Log.i(TAG, "$question get bound onto view holder")
+        }
+
+        private fun setGradientCardView(question: Question, binding: QuizResultItemBinding) {
+            val gradientDrawable =
+                if (question.isAnswerCorrect) {
+                    GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM,
+                        intArrayOf(
+                            ContextCompat.getColor(context, R.color.white),
+                            ContextCompat.getColor(context, R.color.light_green)
+                        )
+                    )
+                } else {
+                    GradientDrawable(
+                        GradientDrawable.Orientation.TOP_BOTTOM,
+                        intArrayOf(
+                            ContextCompat.getColor(context, R.color.white),
+                            ContextCompat.getColor(context, R.color.light_red)
+                        )
+                    )
+                }
+
+            gradientDrawable.cornerRadius = 20f  // Match your CardView's corner radius
+            binding.frameLayoutColor.background = gradientDrawable
+        }
+
+        private fun setSingleColoredCardView(question: Question, binding: QuizResultItemBinding) {
+            // bg color for card view
+            val colorStateList =
+                if (question.isAnswerCorrect) {
+                    ColorStateList.valueOf(
+                        ContextCompat.getColor(context, R.color.button_green)
+                    )
+                } else {
+                    ColorStateList.valueOf(
+                        ContextCompat.getColor(context, R.color.button_red)
+                    )
+                }
+            binding.cardView.backgroundTintList = colorStateList
         }
     }
 }
