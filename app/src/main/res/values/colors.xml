@@ -19,4 +19,7 @@
     <color name="button_red">#D32F2F</color>
     <color name="paragraph">#000000</color>
     <color name="text_grey">#757575</color>
+
+    <color name="light_green">#e9ffec</color>
+    <color name="light_red">#ffe9f3</color>
 </resources>
