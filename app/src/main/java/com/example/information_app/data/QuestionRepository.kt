@@ -47,37 +47,32 @@ class QuestionRepository @Inject constructor(
         fun defaultQuestions(context: Context) = listOf(
             Question(
                 context.getString(R.string.question_1_text),
-                true,
+                false,
                 context.getString(R.string.question_1_explanation),
-                userAnswer = false,
                 id = 1
             ),
             Question(
                 context.getString(R.string.question_2_text),
-                true,
+                false,
                 context.getString(R.string.question_2_explanation),
-                userAnswer = false,
                 id = 2
             ),
             Question(
                 context.getString(R.string.question_3_text),
                 true,
                 context.getString(R.string.question_3_explanation),
-                userAnswer = false,
                 id = 3
             ),
             Question(
                 context.getString(R.string.question_4_text),
                 true,
                 context.getString(R.string.question_4_explanation),
-                userAnswer = false,
                 id = 4
             ),
             Question(
                 context.getString(R.string.question_5_text),
                 true,
                 context.getString(R.string.question_5_explanation),
-                userAnswer = false,
                 id = 5
             )
         )
