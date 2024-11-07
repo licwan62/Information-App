@@ -113,5 +113,4 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             textViewReview.text = explanation
         }
     }
-    // TODO persist data in lifecycle
 }
