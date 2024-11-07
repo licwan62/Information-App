@@ -10,7 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-private const val TAG = "result_vm"
+private const val TAG = "Result"
 
 @HiltViewModel
 class QuizResultViewModel @Inject constructor(
@@ -22,18 +22,24 @@ class QuizResultViewModel @Inject constructor(
     // score result sent from last question of completed quiz
     var score = state.get<Score>("score") ?: Score()
 
+    val shouldUpdateAdapter = MutableLiveData<Boolean>()
+
     // observe to all questions
-    private val _questionList = MutableLiveData<List<Question>>()
-    val questionList: LiveData<List<Question>> = _questionList
+    private val _answeredQuestions = MutableLiveData<List<Question>>()
+    val answeredQuestions: LiveData<List<Question>> = _answeredQuestions
 
     private val _isDatabaseInitialized = MutableLiveData<Boolean>()
     val isDatabaseInitialized: LiveData<Boolean> get() = _isDatabaseInitialized
 
     init {
         viewModelScope.launch {
-            dao.getAllQuestions().collect { questions ->
-                _questionList.value = questions
+            launch {
+                dao.getAllQuestions().collect { questions ->
+                    _answeredQuestions.value = questions
+                }
             }
+
+            shouldUpdateAdapter.value = true
         }
     }
 
@@ -41,7 +47,7 @@ class QuizResultViewModel @Inject constructor(
         Log.e(TAG, "Starting database initialization")
         try {
             repository.initDatabase()  // Add logs inside this method too
-            Log.e(TAG, "Database initialization completed successfully")
+            Log.i(TAG, "Database initialization completed successfully")
             _isDatabaseInitialized.value = true
         } catch (e: Exception) {
             _isDatabaseInitialized.value = false

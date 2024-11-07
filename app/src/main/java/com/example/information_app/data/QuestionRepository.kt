@@ -8,27 +8,36 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
+private const val TAG = "Database"
+
 class QuestionRepository @Inject constructor(
     private val dao: QuestionDao,
     @ApplicationContext private val context: Context
 ) {
     suspend fun initDatabase() {
-        dao.clear()
-        Log.d("repo", "database cleared")
+//        dao.clear()
+//        Log.d("DATABASE", "database cleared")
         dao.insertAll(defaultQuestions(context))
-        Log.d("repo", "database init, items : " +
-                "${dao.getCount().first()},  ${dao.getAllQuestions().first()}")
+        Log.d(
+            TAG, "database init: " +
+                    "${dao.getAllQuestions().first()}"
+        )
     }
 
     fun getQuestionById(id: Int): Flow<Question> =
         dao.getQuestion(id)
 
-    suspend fun getAllQuestions(): List<Question> =
-        dao.getAllQuestions().first()
+    fun getAllQuestions(): Flow<List<Question>> =
+        dao.getAllQuestions()
 
     suspend fun updateQuestion(question: Question) {
-        Log.d("repo", "data updated: $question")
-        return dao.update(question)
+        dao.update(question)
+
+        val currentQuestion = dao.getQuestion(question.id)
+        Log.d(
+            TAG, "question to update: $question; " +
+                    "question in database: ${currentQuestion.first()}"
+        )
     }
 
     fun getQuestionTotal(): Flow<Int> =
@@ -40,32 +49,38 @@ class QuestionRepository @Inject constructor(
                 context.getString(R.string.question_1_text),
                 true,
                 context.getString(R.string.question_1_explanation),
-                userAnswer = false
+                userAnswer = false,
+                id = 1
             ),
             Question(
                 context.getString(R.string.question_2_text),
                 true,
                 context.getString(R.string.question_2_explanation),
-                userAnswer = false
+                userAnswer = false,
+                id = 2
             ),
             Question(
                 context.getString(R.string.question_3_text),
                 true,
                 context.getString(R.string.question_3_explanation),
-                userAnswer = false
+                userAnswer = false,
+                id = 3
             ),
             Question(
                 context.getString(R.string.question_4_text),
                 true,
                 context.getString(R.string.question_4_explanation),
-                userAnswer = false
+                userAnswer = false,
+                id = 4
             ),
             Question(
                 context.getString(R.string.question_5_text),
                 true,
                 context.getString(R.string.question_5_explanation),
-                userAnswer = false
+                userAnswer = false,
+                id = 5
             )
         )
     }
 }
+

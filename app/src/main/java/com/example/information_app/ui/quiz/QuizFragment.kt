@@ -1,6 +1,5 @@
 package com.example.information_app.ui.quiz
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,7 +14,7 @@ import com.example.information_app.databinding.FragmentQuizBinding
 import com.example.information_app.ui.util.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val TAG = "quiz_v"
+private const val TAG = "Quiz"
 
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
@@ -30,6 +29,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding.apply {
             groupBeforeAnswer.visibility = View.VISIBLE
             groupOnWrongAnswer.visibility = View.GONE
+
             buttonNext.setOnClickListener {
                 viewModel.onNextClick()
             }
@@ -43,17 +43,18 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             }
         }
 
-        viewModel.currentQuestion.observe(viewLifecycleOwner) { question ->
-            if (question == null) {
-                Log.e(TAG, "empty question to show!")
-            }
+        viewModel.answerSheet.observe(viewLifecycleOwner) { sheet ->
+            val question = sheet.first
+            val sum = sheet.second
             binding.apply {
                 textViewTitle.text =
                     getString(
                         R.string.question_idx_in_total,
-                        question.id, viewModel.questionsCount.value
+                        question.id,
+                        sum
                     )
-                textViewQuestion.text = question.text
+                textViewQuestion.text =
+                    question.text
             }
         }
 
@@ -82,7 +83,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     private fun navigateToNextQuestion(): Bundle {
         val bundle = Bundle().apply {
             val nextQuestionID =
-                viewModel.currentQuestionId + 1
+                viewModel.questionID + 1
             putInt("questionId", nextQuestionID)
         }
         val navOptions = NavOptions.Builder()

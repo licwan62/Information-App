@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
 // TODO language back to english on cold start
 //        syncLocale()
 
