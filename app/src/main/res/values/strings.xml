@@ -9,85 +9,230 @@
         This is a long test text…This is a long test text…</string>
 
     <!-- TODO: set PARAGRAPH text in four layouts -->
-    <string name="information_paragraph">Content for Information</string>
-    <string name="escorting_paragraph">
-        <![CDATA[
-            <p><big><font color="#007bb5"><b>What is Escorting?</b></font></big></p>
 
-            <p><font>Escorting is an official process in which a child is taken away from an environment that is dangerous. This process is enacted by Oranga Tamariki, or the Ministry for Children, as it is better known—the government agency of issues surrounding the welfare of children.</font></p>
+    <string name="about_text">
+<![CDATA[
 
-            <p><big><font color="#007bb5"><b>Types of Escorting</b></font></big></p>
+<p><big>
+    <font color="#007bb5"><b>About</b></font>
+</big></p>
 
-            <p><font><b>Care and Protection Escorts:</b> Relocation for children who require such due to safety and care concerns.</font></p>
+<p>Escorting is an official process in which a child is taken away from an environment that is dangerous. This process
+    is enacted by Oranga Tamariki, or the Ministry for Children, as it is better known—the government agency for issues
+    surrounding the welfare of children.</p>
 
-            <p><font><b>Youth Justice Escorts:</b> Young people who come into contact with youth justice, either by appearing in a court or being taken to a residence, are escorted.</font></p>
+<p><big>
+    <font color="#007bb5"><b>Types of Escorting</b></font>
+</big></p>
 
-            <p><big><font color="#007bb5"><b>Process of Escorting</b></font></big></p>
+<p>
+    <font color="#cc6633"><b>Planned Escorts:</b></font> Planned removals are those that are pre-arranged, where Oranga
+    Tamariki work with the families and other agencies about the strategy for a child\'s relocation. The process involves
+    thorough assessments and planning that need to be carried out to ensure the safety and well-being of the child.
+</p>
+<p>
+    <font color="#cc6633"><b>Urgent Uplifting:</b></font> Urgent removals are those in which the child is at imminent
+    risk, and something needs to be done straight away to ensure their safety. It may be that a child is considered at
+    immediate risk of harm, and Oranga Tamariki may not have to notify the family but go straight into taking action to
+    keep the child safe.
+</p>
 
-            <p><small><font color="#cc6633"><b>Risk Assessment:</b></font></small></p>
+<p><big>
+    <font color="#007bb5"><b>Who takes custody of the child after removal?</b></font>
+</big></p>
 
-            <p><font>A very careful risk assessment is carried out to review the environment and decide whether there is a requirement for escorting the child for safety purposes.</font></p>
+<p>
+    The child that is taken away from
+    home falls into the custody of Oranga Tamariki Ministry for Children. This child will be sent to stay with a family
+    member or somebody that he or she knows well. In case this may not be practicable or appropriate, the child could be
+    placed into a ministry home or residence.
+</p>
+<p>
+    Unless there is a good reason against it, you should be told as soon as possible about what is happening and why, and
+    about what is likely to happen in the future. You may also telephone the Ministry at any time of day or night for
+    information.
+</p>
+<p>
+    When a child is taken away from home and put into care by Oranga Tamariki Ministry for Children, it must be brought
+    before a Family Court within five days. You will be advised of the court decision.
+</p>
 
-            <p><font>Oranga Tamariki loses custody when any other person or agency takes legal custody of the child.</font></p>
-
-            <p><small><font color="#cc6633"><b>Authority to Escort and Escorting Conditions:</b></font></small></p>
-
-            <p><font>Escort is granted by a manager at Oranga Tamariki, and conditions include the fact that:</font></p>
-
-            <p><font>There should be a minimum of two escort staff who have had.</font></p>
-
-            <p><font>An escort of the same gender as the child whenever possible.</font></p>
-
-            <p><font>The staff have to be well trained to handle de-escalation.</font></p>
-
-            <p><small><font color="#cc6633"><b>Risk assessment and planning of the journey</b></font></small></p>
-
-            <p><font>Informed Escort Strategy: This is a strategy that involves a lot of planning and communication, with information provided to all parties, including the child, the family, and caregivers, so that all are aware of the reason for and the procedure for the escort.</font></p>
-
-            <p><font>Refer to Oranga Tamarikis escorting policy for further information on these processes.</font></p>
-
-            <p><font>Legal Parent Rights: <a href="https://communitylaw.org.nz/community-law-manual/test/family-matters/oranga-tamariki/">Oranga Tamariki - Community Law</a></font></p>
-
-            <p><font>Parents have some legal rights in the process of escorting, such as:</font></p>
-
-            <p><font>Being informed in advance of plans for escorting their child;</font></p>
-
-            <p><font>A chance to comment and express views about what occurs during the escorting process.</font></p>
-
-            <p><font>Access to Information: Being informed of the reasons for escorting and where the child is being taken.</font></p>
-
-            <p><font>For more details on these, refer to Community Laws guidebook to dealing with Oranga Tamariki.</font></p>
-
-            <p><big><font color="#007bb5"><b>Legal Rights of Caregivers</b></font></big></p>
-
-            <p><font>Caregivers also have some rights, including:</font></p>
-
-            <p><small><font color="#cc6633"><b>Notified decisions:</b></font></small></p>
-
-            <p><font>Being informed regarding any escorting arrangement that involves the child in their care.</font></p>
-
-            <p><font>Support: Receiving the necessary assistance and support in order for the child to prepare themselves with the escort.</font></p>
-
-            <p><font>Participation: An opportunity to have their views heard and to raise concerns about their child.</font></p>
-
-            <p><font>For more detailed information on caregiver s rights, refer to the policies of Oranga Tamariki on the processes they follow for allegations of harm in care/custody situations: </font></p>
-
-            <p><a href="https://www.howtolaw.co/know-your-rights-when-a-child-is-removed-from-your-care-392254">know your rights when a child is removed from your care</a></p>
-
-            <p><big><font color="#007bb5"><b>Who takes custody of the child after removal?</b></font></big></p>
-
-            <p><font>The child that is taken away from home falls into the custody of Oranga Tamariki - Ministry for Children. This child will be sent to stay with a family member or somebody that he or she knows well. In case this may not be practicable or appropriate, the child could be placed into a ministry home or residence.</font></p>
-
-            <p><font>Unless there is a good reason against it, you should be told as soon as possible about what is happening and why, and about what is likely to happen in the future. You may also telephone the Ministry at any time of day or night for information.</font></p>
-
-            <p><font>When a child is taken away from home and put into care by Oranga Tamariki - Ministry for Children, it must be brought before a Family Court within five days. You will be advised of the court decision.</font></p>
-
-            <p><a href="https://www.howtolaw.co/know-your-rights-when-a-child-is-removed-from-your-care-392254">know your rights when a child is removed from your care</a></p>
-        ]]>
+]]>
     </string>
 
-    <string name="custodians_paragraph">Content for Custodians</string>
-    <string name="caregivers_paragraph">Content for Caregivers</string>
+    <string name="escorting_text">
+<![CDATA[
+
+<p><big>
+    <font color="#007bb5"><b>Process of Escorting</b></font>
+</big></p>
+
+<p>
+    <font color="#cc6633"><b>Risk Assessment:</b></font>
+</p>
+
+<p>
+    A very careful risk assessment is carried out to review the
+    environment and decide whether there is a requirement for escorting the child for safety purposes.
+</p>
+<p> Oranga Tamariki loses custody when any other person or agency takes legal custody of the child.</p>
+
+
+<p>
+    <font color="#cc6633"><b>Authority to Escort and Escorting Conditions:</b></font>
+</p>
+
+<p>
+    Escort is granted by a manager at
+    Oranga Tamariki, and conditions include the fact that:
+</p>
+
+<ul>
+    <li> There should be a minimum of two escort staff who have had.</li>
+    <li> An escort of the same gender as the child whenever possible.</li>
+    <li> The staff have to be well trained to handle de-escalation.</li>
+</ul>
+
+<p><big>
+    <font color="#007bb5"><b>Risk assessment and planning of the journey</b></font>
+</big></p>
+
+<p>
+    <font color="#cc6633"><b>Informed Escort Strategy:</b></font>
+</p>
+
+<p>
+    This is a strategy that involves a lot of planning and
+    communication, with information provided to all parties, including the child, the family, and caregivers, so that
+    all are aware of the reason for and the procedure for the escort.
+</p>
+<p> Refer to Oranga Tamariki\'s escorting policy for further information on these processes.</p>
+
+]]>
+    </string>
+
+    <string name="caregivers_text">
+<![CDATA[
+
+<p><big>
+    <font color="#007bb5"><b>Legal Rights of Caregivers and Parents</b></font>
+</big></p>
+
+<p>
+    <font color="#cc6633"><b>Legal Parent Rights:</b></font>
+</p>
+
+<p>
+    Parents have some legal rights in the process of escorting,
+    such as:
+</p>
+
+<ul>
+    <li> Being informed in advance of plans for escorting their child;</li>
+    <li> A chance to comment and express views about what occurs during the escorting process.</li>
+    <li> Access to Information: Being informed of the reasons for escorting and where the child is being taken.</li>
+</ul>
+
+<p> For more details on these, refer to Community Law\'s guidebook to dealing with Oranga Tamariki.</p>
+
+<p><big>
+    <font color="#007bb5"><b>What are the rights of parents when it comes to this matter during eviction.</b></font>
+</big></p>
+
+<ul>
+    <li> Right to Information: A parent can be informed of the decisions made about the child, including any plan for
+        escorting. Oranga Tamariki shall inform a parent of the grounds of escort, destination, and such other relevant
+        information.</li>
+    <li> Participation in Decision-Making: Parents are entitled to take part in decision-making on matters relating to
+        their child\'s care and protection. This includes the opportunity to take part in Family Group Conferences and
+        other meetings which may be held in order to formulate a plan, which may then involve escorting.</li>
+    <li> Access to Advocacy: Parents should have access to independent advocacy that might assist them in dealing with
+        Oranga Tamariki. An advocate may assist parents in negotiating their rights and processes so their voice is
+        firmly heard.</li>
+    <li> Right to Legal Representation: If legal proceedings are initiated, such as the application for a Care or
+        Protection Order, parents have rights to legal representation. Agencies like Community Law provide free legal
+        advice and representation if the criteria for eligibility are met.</li>
+    <li> Right to Complain: Parents have a right to comment on the process of escorting or any actions taken by Oranga
+        Tamariki. Oranga Tamariki takes avenues of responding to feedback and complaints addressing such concerns.</li>
+</ul>
+
+<p>
+    <font color="#cc6633"><b>Consideration of Cultural Connections:</b></font>
+</p>
+
+<p>
+    Oranga Tamariki shall, in respect of
+    considerations for Māori families, take into account the whanau, hapū, and iwi of the child when it engages in
+    decision-making processes. In this respect, this shall guarantee that all cultural identity and relationship matters
+    are preserved as the child is escorted.
+</p>
+<p>
+    Parents should be made to feel welcome to play an active role in being constructive, asking questions and seeking
+    resources on behalf of their children.
+</p>
+
+]]>
+    </string>
+
+    <string name="custodians_text">
+<![CDATA[
+
+<p><big>
+    <font color="#007bb5"><b>For Custodians</b></font>
+</big></p>
+
+<p>
+    <font color="#cc6633"><b>What is the eligibility criteria?</b></font>
+</p>
+
+<p>
+    To be appointed as a custodian for a child in
+    New Zealand, non-parents must apply to the Family Court, providing detailed information about their relationship
+    with the child and their suitability for guardianship. If the child\'s current guardians consent to the appointment,
+    the process may be more straightforward. In the absence of such consent, the court evaluates the application based
+    on the child\'s best interests, considering factors such as the applicant\'s relationship to the child, the child\'s
+    safety and well-being, the preservation of the child\'s cultural heritage, and the child\'s own preferences if they
+    are mature enough to express them.
+</p>
+<p>It\'s advisable to seek legal counsel during this process; organisations like Community Law offer free legal advice
+    and assistance.</p>
+
+<p><big>
+    <font color="#007bb5"><b>Criteria for Appointment as Custodian</b></font>
+</big></p>
+
+<p>
+    <font color="#cc6633"><b>Application to the Family Court:</b></font> Non-parents must make an application to the
+    Family Court for being appointed as a custodian.
+</p>
+<p> The application ought to involve filing appropriate forms and details about your relationship with the child, how
+    befitting you are to become the guardian of the child.</p>
+<p>
+    <font color="#cc6633"><b>Consent:</b></font> If the child\'s parents are the current guardians and they are in
+    approval of your appointment, then it may be easier. Where parental consent is absent, the court will determine
+    based on the best interest of the child.
+</p>
+<p>
+    <font color="#cc6633"><b>Factors Court Consider:</b></font>
+</p>
+
+<ul>
+    <li> Best Interest: Here, the court looks at the security and safety of the child.</li>
+    <li> Relationship to Existing Parents/Guardians: The court examines your relation to the child, whether a parent,
+        sibling, or family friend, to whom the care of a child was initially provided.</li>
+    <li> Cultural Heritage: The court wants to preserve the child\'s cultural heritage.</li>
+    <li> Child\'s Preference: The court may consider the child\'s view on this matter if he/she is old and mature enough to
+        give his/her preference.</li>
+</ul>
+
+<p>
+    <font color="#cc6633"><b>Legal Advice:</b></font> It is advisable to seek legal advice in the case you want to
+    pursue this route of custodianship.
+</p>
+
+]]>
+    </string>
+
 
     <!--  TODO: set buttons text -->
     <string name="button_information">About</string>
@@ -116,4 +261,6 @@
     <string name="question_3_explanation">Carers have a right to be informed of any escort arrangements proposed for a child in their care, and to have an opportunity to express their concerns</string>
     <string name="question_4_explanation">provided the applicant has to meet the criteria like the age of 18 years or above, and the relation with the child, issues of safety, and their cultural heritage is taken into account by the court</string>
     <string name="question_5_explanation">Oranga Tamariki should keep parents\' personal information confidential and only disclose it when necessary and appropriate</string>
+    <string name="your_answer_true">Correct Answer: True</string>
+    <string name="your_answer_false">Correct Answer: False</string>
 </resources>
