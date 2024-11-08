@@ -14,92 +14,97 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/relative_layout"
+        <FrameLayout
+            android:id="@+id/frame_layout_color"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/my_space_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
-
-            <TextView
-                android:id="@+id/text_view_title"
-                style="@style/GreyTitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                tools:text="Question 1 in 5" />
-
-            <TextView
-                android:id="@+id/text_view_question"
-                style="@style/QuestionDescription"
-                android:layout_width="352dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_view_title"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-                tools:text="@string/test_long" />
-
-            <TextView
-                android:id="@+id/text_view_review"
-                style="@style/GreyTitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_view_question"
-                android:layout_centerHorizontal="true"
-                app:drawableTopCompat="@drawable/ic_cross"
-                tools:text="Correct Answer: NO" />
-
-            <TextView
-                android:id="@+id/text_view_explanation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text_view_review"
-                android:textAlignment="center"
-                tools:text="@string/question_1_explanation" />
-
-            <LinearLayout
-                android:id="@+id/linear_layout_buttons"
+            <RelativeLayout
+                android:id="@+id/relative_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text_view_explanation">
+                android:layout_margin="@dimen/my_space_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    style="@style/GreyTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    tools:text="Question 1 in 5" />
+
+                <TextView
+                    android:id="@+id/text_view_question"
+                    style="@style/QuestionDescription"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_view_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="@dimen/my_space_medium"
+                    android:textAlignment="center"
+                    tools:text="@string/test_long" />
+
+                <TextView
+                    android:id="@+id/text_view_review"
+                    style="@style/GreyTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_view_question"
+                    android:layout_centerHorizontal="true"
+                    app:drawableTopCompat="@drawable/ic_cross"
+                    tools:text="Correct Answer: NO" />
+
+                <TextView
+                    android:id="@+id/text_view_explanation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_view_review"
+                    android:textAlignment="center"
+                    tools:text="@string/question_1_explanation" />
+
+                <LinearLayout
+                    android:id="@+id/linear_layout_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_view_explanation"
+                    android:layout_marginHorizontal="@dimen/my_space_medium">
+
+                    <Button
+                        android:id="@+id/button_left"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginHorizontal="@dimen/my_space_medium"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/button_blue"
+                        android:text="@string/button_yes" />
+
+                    <Button
+                        android:id="@+id/button_right"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginHorizontal="@dimen/my_space_medium"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/button_red"
+                        android:text="@string/button_no" />
+                </LinearLayout>
+
 
                 <Button
-                    android:id="@+id/button_left"
-                    android:layout_width="0dp"
+                    android:id="@+id/button_next"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginHorizontal="@dimen/my_space_medium"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_blue"
-                    android:text="@string/button_yes" />
+                    android:layout_below="@+id/linear_layout_buttons"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/button_green"
+                    android:text="@string/button_next" />
 
-                <Button
-                    android:id="@+id/button_right"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginHorizontal="@dimen/my_space_medium"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_red"
-                    android:text="@string/button_no" />
-            </LinearLayout>
-
-
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_layout_buttons"
-                android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/button_green"
-                android:text="@string/button_next" />
-
-        </RelativeLayout>
-
+            </RelativeLayout>
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

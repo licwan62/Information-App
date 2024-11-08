@@ -1,9 +1,11 @@
 package com.example.information_app.ui.quiz
 
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -73,6 +75,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                             binding, true,
                             event.feedbackRes, event.explanationRes
                         )
+
+                        setGradientCardView(binding)
+
                         Log.i(TAG, "explanation for current question is shown")
                     }
                 }.exhaustive
@@ -116,6 +121,21 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             R.id.quizFragment, bundle, navOptions
         )
         return bundle
+    }
+
+    private fun setGradientCardView(binding: FragmentQuizBinding) {
+        val context = requireContext()
+        val gradientDrawable =
+            GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                intArrayOf(
+                    ContextCompat.getColor(context, R.color.white),
+                    ContextCompat.getColor(context, R.color.light_red)
+                )
+            )
+
+        gradientDrawable.cornerRadius = 20f  // Match your CardView's corner radius
+        binding.frameLayoutColor.background = gradientDrawable
     }
 
     private fun navigateToResult(score: Score) {
