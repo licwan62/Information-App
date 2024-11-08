@@ -4,11 +4,11 @@
 
 Escorting is an official process in which a child is taken away from an environment that is dangerous. This process is enacted by Oranga Tamariki, or the Ministry for Children, as it is better known-the government agency of issues surrounding the welfare of children. **Types of Escorting**
 
-Planned Escorts:
+**Planned Escorts:**
 
 Planned removals are those that are pre-arranged, where Oranga Tamariki work with the families and other agencies about the strategy for a child's relocation. The process involves thorough assessments and planning that need to be carried out to ensure the safety and well-being of the child.
 
-Urgent Uplifting:
+**Urgent Uplifting:**
 
 Urgent removals are those in which the child is at imminent risk, and something needs to be done straight away to ensure their safety. It may be that a child is considered at immediate risk of harm, and Oranga Tamariki may not have to notify the family but go straight into taking action to keep the child safe.
 
@@ -24,7 +24,7 @@ https://www.howtolaw.co/know-your-rights-when-a-child-is-removed-from-your-care-
 
 # Process of escorting
 
-Risk Assessment:
+**Risk Assessment:**
 
 A very careful risk assessment is carried out to review the environment and decide whether there is a requirement for escorting the child for safety purposes.
 
@@ -40,13 +40,13 @@ Escort is granted by a manager at Oranga Tamariki, and conditions include the fa
 
 Risk assessment and planning of the journey
 
-Informed Escort Strategy:
+**Informed Escort Strategy:**
 
 This is a strategy that involves a lot of planning and communication, with information provided to all parties, including the child, the family, and caregivers, so that all are aware of the reason for and the procedure for the escort.
 
 Refer to Oranga Tamariki's escorting policy for further information on these processes.
 
-Legal Parent Rights:
+**Legal Parent Rights:**
 
 Parents have some legal rights in the process of escorting, such as:
 
@@ -64,8 +64,6 @@ Tamariki.[https://communitylaw.org.nz/community-law-manual/test/family-matters/o
 
 # Legal rights of caregivers/parents
 
-Legal guardians
-
 **what are the rights of parents when it comes to this matter during eviction.**
 
 1. Right to Information: A parent can be informed of the decisions made about the child, including any plan for escorting. Oranga Tamariki shall inform a parent of the grounds of escort, destination, and such other relevant information.
@@ -75,14 +73,9 @@ Legal guardians
 5. Right to Complain: Parents have a right to comment on the process of escorting or any actions taken by Oranga Tamariki. Oranga Tamariki takes avenues of responding to feedback and complaints addressing such concerns.
 6. Consideration of Cultural Connections: Oranga Tamariki shall, in respect of considerations for Māori families, take into account the whanau, hapū, and iwi of the child when it engages in decision-making processes. In this respect, this shall guarantee that all cultural identity and relationship matters are preserved as the child is escorted.
 7. Right to Privacy: Parents have the right to privacy in relation to personal information. Oranga Tamariki has the obligation to ensure that all information is kept confidential, only disseminated when necessary and appropriate.
-8. Right to Support Services: Parents may be provided support services that can help resolve whatever issues brought Or
-9. Oranga Tamariki into their lives in the first instance. It may include counselling, parenting programs, and other resources that have a focus on family reunification and well-being.
+8. Right to Support Services: Parents may be provided support services that can help resolve whatever issues brought or Oranga Tamariki into their lives in the first instance. It may include counselling, parenting programs, and other resources that have a focus on family reunification and well-being.
 
 It would be expected that parents engage positively with Oranga Tamariki, ask questions if they don't understand, and utilise support services in a constructive way that recognizes what is in the best interest of their children.
-
-**Or the bottom paragraph - choose one**
-
-**The info above collated in one paragraph:**
 
 During the process of taking a child away, Oranga Tamariki allows the parents a few core rights. Parents have the right to be fully informed regarding decisions surrounding their child, such as why their relocation is necessary and where that would take place. Parents can also be given the chance to join decision-making activities like the Family Group Conferences and be able to contribute to plans drafted for the care of the child. Individual advocacy supports parents to ensure their perspective is recognized. Representation can be obtained legally about any formal proceedings. Some services are free for those meeting eligibility criteria. Parents also have the right to make complaints about the removal process, and Oranga Tamariki is committed to responding to these concerns. With Māori families, the continuation of cultural links is held in high regard; this offers assurance that the child's identity and the family connection remain intact. Personal information is kept confidential while services provided for parents may include counselling and parenting programs with regards to maintaining and reunifying a family. Parents should be made to feel welcome to play an active role in being constructive, asking questions and seeking resources on behalf of their children.
 
@@ -95,7 +88,6 @@ https://www.justice.govt.nz/family/care-of-children/guardianship/being-a-guardia
 Age Requirement: You should be at least 18 years of age
 
 The court can appoint both couples and single people as guardians given that they are deemed suitable to be appointed. One of the main aspects is to ensure that there is a safe house
-
 
 **Criteria for Appointment as Custodian**
 
@@ -125,7 +117,7 @@ Legal Advice:
 
 It is advisable to seek legal advice in the course of an application. The agencies like Community Law offer free legal advice and assistance.
 
-**The above collated into one paragraph:**
+
 
 To be appointed as a custodian for a child in New Zealand, non-parents must apply to the Family Court, providing detailed information about their relationship with the child and their suitability for guardianship. If the child's current guardians consent to the appointment, the process may be more straightforward. In the absence of such consent, the court evaluates the application based on the child's best interests, considering factors such as the applicant's relationship to the child, the child's safety and well-being, the preservation of the child's cultural heritage, and the child's own preferences if they are mature enough to express them. It's advisable to seek legal counsel during this process; organisations like Community Law offer free legal advice and assistance.
 
