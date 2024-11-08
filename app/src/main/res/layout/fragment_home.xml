@@ -46,7 +46,7 @@
             android:id="@+id/button_language"
             style="@style/LanguageButton"
             android:layout_gravity="end"
-            android:text="@string/button_change_language" />
+            android:text="@string/language" />
 
         <Button
             android:id="@+id/button_information"
