@@ -6,10 +6,10 @@
     <string name="button_custodians">Tika Ture mō ngā Kaitiaki</string>
     <string name="button_caregivers">Tika Ture mō ngā Kaitiaki</string>
     <string name="language">Te Reo Māori</string>
-    <string name="information_paragraph">Content for Information</string>
-    <string name="escorting_paragraph">Content for Escorting</string>
-    <string name="custodians_paragraph">Content for Parents</string>
-    <string name="caregivers_paragraph">Content for Caregivers</string>
+    <string name="about_text">Content for Information</string>
+    <string name="escorting_text">Content for Escorting</string>
+    <string name="custodians_text">Content for Parents</string>
+    <string name="caregivers_text">Content for Caregivers</string>
     <string name="button_yes">Āe</string>
     <string name="button_no">Kāo</string>
     <string name="button_next">Pātai Anei</string>
@@ -29,4 +29,6 @@
     <string name="question_3_explanation">He tika tō ngā kaitiaki ki te mōhio ki ngā whakarite nekehanga mō te tamaiti kei raro i tā rātou tiaki, ā, me whai wāhi hoki ki te whakaputa whakaaro ki ō rātou āwangawanga.</string>
     <string name="question_4_explanation">Engari me eke te kaitono ki ngā paearu pērā i te pakeke kia 18 tau neke atu, me te hononga ki te tamaiti, ngā take mōrearea, me te mātua ko te mātauranga tikanga ā-iwi o te tamaiti ka whakaarotia e te kōti.</string>
     <string name="question_5_explanation">Me pupuri ngātahi a Oranga Tamariki i ngā mōhiohio whaiaro a ngā mātua, ā, kātahi anake ka whakaatu mēnā he mea tika me te hāngai ki te āhuatanga.</string>
+    <string name="your_answer_true">Whakautu Tika: Āe</string>
+    <string name="your_answer_false">Whakautu Tika: Kāo</string>
 </resources>

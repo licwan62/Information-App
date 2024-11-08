@@ -22,7 +22,7 @@
                 style="@style/ParagraphText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/escorting_paragraph" />
+                tools:text="@string/escorting_text" />
 
         </ScrollView>
 

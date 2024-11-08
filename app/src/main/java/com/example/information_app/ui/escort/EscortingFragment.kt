@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentEscortingBinding
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class EscortingFragment : Fragment(R.layout.fragment_escorting) {
@@ -26,7 +24,7 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
             }
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.escorting_paragraph),
+                    getString(R.string.escorting_text),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
         }
