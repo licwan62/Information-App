@@ -17,7 +17,7 @@ class QuestionRepository @Inject constructor(
     suspend fun initDatabase() {
 //        dao.clear()
 //        Log.d("DATABASE", "database cleared")
-        dao.insertAll(defaultQuestions(context))
+        dao.insertAll(defaultQuestions())
         Log.d(
             TAG, "database init: " +
                     "${dao.getAllQuestions().first()}"
@@ -44,35 +44,40 @@ class QuestionRepository @Inject constructor(
         dao.getCount()
 
     companion object {
-        fun defaultQuestions(context: Context) = listOf(
+
+        /**
+         * set default questions properties
+         * language adjustment by storing reference resource id for strings
+         */
+        fun defaultQuestions() = listOf(
             Question(
-                context.getString(R.string.question_1_text),
-                false,
-                context.getString(R.string.question_1_explanation),
+                R.string.question_1_text,
+                true,
+                R.string.question_1_explanation,
                 id = 1
             ),
             Question(
-                context.getString(R.string.question_2_text),
-                false,
-                context.getString(R.string.question_2_explanation),
+                R.string.question_2_text,
+                true,
+                R.string.question_2_explanation,
                 id = 2
             ),
             Question(
-                context.getString(R.string.question_3_text),
+                R.string.question_3_text,
                 true,
-                context.getString(R.string.question_3_explanation),
+                R.string.question_3_explanation,
                 id = 3
             ),
             Question(
-                context.getString(R.string.question_4_text),
+                R.string.question_4_text,
                 true,
-                context.getString(R.string.question_4_explanation),
+                R.string.question_4_explanation,
                 id = 4
             ),
             Question(
-                context.getString(R.string.question_5_text),
+                R.string.question_5_text,
                 true,
-                context.getString(R.string.question_5_explanation),
+                R.string.question_5_explanation,
                 id = 5
             )
         )

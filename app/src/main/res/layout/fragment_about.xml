@@ -4,7 +4,7 @@
     style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.infomation.InformationFragment">
+    tools:context=".ui.about.AboutFragment">
 
     <androidx.cardview.widget.CardView
         style="@style/RoundedShadowCardView"
@@ -16,10 +16,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/text_view_paragraph"
                 style="@style/ParagraphText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/information_paragraph" />
+                android:text="@string/about_text" />
 
         </ScrollView>
 

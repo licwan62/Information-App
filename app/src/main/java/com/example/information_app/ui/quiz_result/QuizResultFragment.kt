@@ -120,10 +120,6 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         }
     }
 
-    private fun stopUpdatingAdapter() {
-
-    }
-
     private fun getScoreText(): String {
         val correctCount = viewModel.score.correctCount
         val totalCount = viewModel.score.totalCount

@@ -1,7 +1,9 @@
 package com.example.information_app.ui.custodians
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.example.information_app.R
 import com.example.information_app.databinding.FragmentCaregiversBinding
@@ -18,25 +20,15 @@ class CustodiansFragment : Fragment(R.layout.fragment_custodians) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentCustodiansBinding.bind(view)
-
-    }
-
-    private fun setLocale(languageCode: String) {
-        val context = requireContext()
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val config = context.resources.configuration
-        config.setLocale(locale)
-
-        context.resources.updateConfiguration(
-            config,
-            context.resources.displayMetrics
-        )
         binding.apply {
-            activity?.recreate()
+            textViewParagraph.text =
+                HtmlCompat.fromHtml(
+                    getString(R.string.custodians_text),
+                    HtmlCompat.FROM_HTML_MODE_LEGACY
+                )
+            textViewParagraph.movementMethod =
+                LinkMovementMethod.getInstance()
         }
-        val msg = "language changed to $languageCode"
-        Snackbar.make(requireView(), msg, Snackbar.LENGTH_LONG).show()
+
     }
 }
