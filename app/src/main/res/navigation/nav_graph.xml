@@ -26,7 +26,7 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_informationFragment"
-            app:destination="@id/informationFragment"
+            app:destination="@id/aboutFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -63,10 +63,10 @@
             app:nullable="true" />
     </fragment>
     <fragment
-        android:id="@+id/informationFragment"
-        android:name="com.example.information_app.ui.infomation.InformationFragment"
-        android:label="Information"
-        tools:layout="@layout/fragment_information" />
+        android:id="@+id/aboutFragment"
+        android:name="com.example.information_app.ui.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/custodiansFragment"
         android:name="com.example.information_app.ui.custodians.CustodiansFragment"
