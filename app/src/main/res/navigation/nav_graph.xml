@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.information_app.ui.home.HomeFragment"
-        android:label=" "
+        android:label=""
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_caregiverFragment"
@@ -26,7 +26,7 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_informationFragment"
-            app:destination="@id/informationFragment"
+            app:destination="@id/aboutFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -42,12 +42,12 @@
     <fragment
         android:id="@+id/caregiverFragment"
         android:name="com.example.information_app.ui.caregivers.CaregiverFragment"
-        android:label="Legal Rights of Caregivers"
+        android:label="@string/button_caregivers"
         tools:layout="@layout/fragment_caregivers" />
     <fragment
         android:id="@+id/escortingFragment"
         android:name="com.example.information_app.ui.escort.EscortingFragment"
-        android:label="Escorting"
+        android:label="@string/button_escorting"
         tools:layout="@layout/fragment_escorting">
         <action
             android:id="@+id/action_escortingFragment_to_quizFragment"
@@ -63,19 +63,19 @@
             app:nullable="true" />
     </fragment>
     <fragment
-        android:id="@+id/informationFragment"
-        android:name="com.example.information_app.ui.infomation.InformationFragment"
-        android:label="Information"
-        tools:layout="@layout/fragment_information" />
+        android:id="@+id/aboutFragment"
+        android:name="com.example.information_app.ui.about.AboutFragment"
+        android:label="@string/button_about"
+        tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/custodiansFragment"
         android:name="com.example.information_app.ui.custodians.CustodiansFragment"
-        android:label="Legal Rights of Custodians"
+        android:label="@string/button_custodians"
         tools:layout="@layout/fragment_custodians" />
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.information_app.ui.quiz.QuizFragment"
-        android:label="Quiz"
+        android:label="@string/quiz"
         tools:layout="@layout/fragment_quiz">
         <argument
             android:name="questionId"
@@ -92,7 +92,7 @@
     <fragment
         android:id="@+id/quizResultFragment"
         android:name="com.example.information_app.ui.quiz_result.QuizResultFragment"
-        android:label="Your Quiz Result"
+        android:label="@string/quiz_result"
         tools:layout="@layout/fragment_quiz_result">
         <action
             android:id="@+id/action_quizResultFragment_to_quizFragment"

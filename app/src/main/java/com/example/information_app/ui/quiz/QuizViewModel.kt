@@ -2,14 +2,15 @@ package com.example.information_app.ui.quiz
 
 import android.content.Context
 import android.util.Log
+import androidx.annotation.StringRes
 import androidx.lifecycle.*
+import com.example.information_app.R
 import com.example.information_app.data.Question
 import com.example.information_app.data.QuestionRepository
 import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -18,17 +19,11 @@ import javax.inject.Inject
 
 private const val TAG = "Quiz"
 
-data class AnswerSheet(
-    val question: Question,
-    val isAnswerWrong: Boolean,
-    val answerReview: String
-)
-
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val repository: QuestionRepository,
     @ApplicationContext context: Context,
-    private val state: SavedStateHandle // persist data and fetch arguments
+    state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
     // question id fetched through arguments by NavGraph
@@ -36,11 +31,10 @@ class QuizViewModel @Inject constructor(
     val questionID = _questionID
 
     private val _questionsSum = MutableLiveData<Int>()
-    val questionsSum = _questionsSum
 
     // reserve question when null question is emitted, to keep question non-null
     private var lastQuestion: Question =
-        QuestionRepository.defaultQuestions(context)[0]
+        QuestionRepository.defaultQuestions()[0]
 
     // sync question queried by questionID
     private val _question = MutableLiveData<Question>()
@@ -137,9 +131,15 @@ class QuizViewModel @Inject constructor(
         _question.value!!.id == _questionsSum.value
 
     private fun showCorrectAnswer() = viewModelScope.launch {
-        val string = if (_question.value!!.correctAnswer) "TRUE" else "FALSE"
-        val explanation = "Correct Answer: $string"
-        navigationChannel.send(NavigationAction.ShowExplanation(explanation))
+        val feedbackRes =
+            if (_question.value!!.correctAnswer) R.string.your_answer_true
+            else R.string.your_answer_false
+        navigationChannel.send(
+            NavigationAction.ShowExplanation(
+                feedbackRes,
+                _question.value!!.explanationRes
+            )
+        )
     }
 
     private fun completeQuiz() = viewModelScope.launch {
@@ -150,8 +150,10 @@ class QuizViewModel @Inject constructor(
     private suspend fun getScore(): Score {
         var correctCount = 0
         val questions = repository.getAllQuestions().first()
-        Log.v(TAG, "get score to pass on quiz completed, " +
-                "result: $questions")
+        Log.v(
+            TAG, "get score to pass on quiz completed, " +
+                    "result: $questions"
+        )
         var idx = 0
         questions.forEach { question ->
             if (question.isAnswerCorrect) {
@@ -172,7 +174,11 @@ class QuizViewModel @Inject constructor(
 
     sealed class NavigationAction {
         object GoToNextQuestion : NavigationAction()
-        data class ShowExplanation(val explanation: String) : NavigationAction()
+        data class ShowExplanation(
+            @StringRes val feedbackRes: Int,
+            @StringRes val explanationRes: Int
+        ) : NavigationAction()
+
         data class CompleteQuizWithScore(val score: Score) : NavigationAction()
     }
 }

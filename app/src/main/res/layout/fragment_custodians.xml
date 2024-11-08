@@ -16,10 +16,11 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/text_view_paragraph"
                 style="@style/ParagraphText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/custodians_paragraph" />
+                android:text="@string/custodians_text" />
 
         </ScrollView>
 

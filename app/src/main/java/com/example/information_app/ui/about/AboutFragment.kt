@@ -1,4 +1,4 @@
-package com.example.information_app.ui.caregivers
+package com.example.information_app.ui.about
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -6,28 +6,29 @@ import android.view.View
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.example.information_app.R
-import com.example.information_app.databinding.FragmentCaregiversBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.information_app.databinding.FragmentAboutBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
-class CaregiverFragment : Fragment(R.layout.fragment_caregivers) {
-
-    private lateinit var binding: FragmentCaregiversBinding
+class AboutFragment : Fragment(R.layout.fragment_about) {
+    private lateinit var binding: FragmentAboutBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentCaregiversBinding.bind(view)
+        binding = FragmentAboutBinding.bind(view)
         binding.apply {
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.caregivers_text),
+                    getString(R.string.about_text),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
+
+            // enable link click event to its href
             textViewParagraph.movementMethod =
                 LinkMovementMethod.getInstance()
+
+//            webView.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null)
         }
     }
 }

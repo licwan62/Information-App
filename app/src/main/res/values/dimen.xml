@@ -8,5 +8,6 @@
     <dimen name="median_title_font_size">25sp</dimen>
     <dimen name="large_title_font_size">30sp</dimen>
     <dimen name="cross_dimen">35dp</dimen>
+    <dimen name="icon_max_width">100dp</dimen>
 
 </resources>
