@@ -49,6 +49,23 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         viewModel.answerSheet.observe(viewLifecycleOwner) { sheet ->
             val question = sheet.first
             val sum = sheet.second
+
+            if (question == null || sum == null) {
+                Log.e(
+                    TAG, "observe invalid answerSheet, " +
+                            "sum: $sum, " +
+                            "question: $question"
+                )
+
+                return@observe
+            }
+
+            Log.w(
+                TAG, "observe answerSheet, " +
+                        "sum: $sum, " +
+                        "question: $question"
+            )
+
             binding.apply {
                 textViewTitle.text = getString(
                     R.string.question_idx_in_total, question.id, sum
