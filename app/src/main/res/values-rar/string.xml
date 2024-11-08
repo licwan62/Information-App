@@ -1,15 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="home_title">AWAI Ringa Awhina:</string>
     <string name="home_description">Tāu Tautoko Pono mō te Tamariki me te Rangatahi</string>
-    <string name="button_information">Mō</string>
+    <string name="button_about">Mō</string>
     <string name="button_escorting">Huarahi o te Tautoko</string>
     <string name="button_custodians">Tika Ture mō ngā Kaitiaki</string>
     <string name="button_caregivers">Tika Ture mō ngā Kaitiaki</string>
     <string name="language">Te Reo Māori</string>
-    <string name="about_text">Content for Information</string>
-    <string name="escorting_text">Content for Escorting</string>
-    <string name="custodians_text">Content for Parents</string>
-    <string name="caregivers_text">Content for Caregivers</string>
     <string name="button_yes">Āe</string>
     <string name="button_no">Kāo</string>
     <string name="button_next">Pātai Anei</string>
@@ -31,4 +27,191 @@
     <string name="question_5_explanation">Me pupuri ngātahi a Oranga Tamariki i ngā mōhiohio whaiaro a ngā mātua, ā, kātahi anake ka whakaatu mēnā he mea tika me te hāngai ki te āhuatanga.</string>
     <string name="your_answer_true">Whakautu Tika: Āe</string>
     <string name="your_answer_false">Whakautu Tika: Kāo</string>
+
+    <string name="about_text">
+    <![CDATA[
+        <p><big>
+            <font color="#007bb5"><b>Te Mōhiotanga</b></font>
+        </big></p>
+
+        <p>Ko te whakaki i te tamaiti he kaupapa ā-ture i reira ka tangohia te tamaiti i te taiao e mōhiotia ana hei raru. Ko tēnei tukanga e whakahaerehia ana e Oranga Tamariki, te Manatū mō ngā Tamariki, e kākahu nei hei rōpū kāwanatanga mō ngā take e pā ana ki te oranga o ngā tamariki.</p>
+
+        <p><big>
+            <font color="#007bb5"><b>Ngā Momo Whakaki</b></font>
+        </big></p>
+
+        <p>
+            <font color="#d4af37"><b>Whakaki Rautaki:</b></font> Ko ngā tango rautaki ko ngā tango kua whakaritea, ko te wāhi ka mahi tahi a Oranga Tamariki me ngā whānau me ngā rōpū kē e pā ana ki te rautaki mō te nekehanga o te tamaiti. Ko te tukanga e hiahia ana ki ngā arotake me ngā whakamahere kia tika ai te haumaru me te oranga o te tamaiti.
+        </p>
+        <p>
+            <font color="#d4af37"><b>Tāngia Tere:</b></font> Ko ngā tango tere ko ngā tango e pā ana ki te tamaiti kei te raru mō te haumaru, me kākahu rātou ki te hanga i ngā rongoā tere hei whakarite i te haumaru. Tērā pea ko te tamaiti kei te raru tino, ā, kāore e taea e Oranga Tamariki te whakamohio atu ki te whānau engari ka tango rātou i te tamaiti ki te whakarite i tōna haumaru.
+        </p>
+
+        <p><big>
+            <font color="#007bb5"><b>Ko wai te tangata ka tango i te tamaiti i muri i te tango?</b></font>
+        </big></p>
+
+        <p>
+            Ko te tamaiti e tangohia ana i te kāinga ka riro i te mana o Oranga Tamariki Manatū mō ngā Tamariki. Ka tukuna te tamaiti ki te noho ki te whānau, ki te tangata pea e mōhiotia ana e ia. Ki te kāore pea e taea e ia, ka tukuna te tamaiti ki te whare o te Manatū, ki te whare rānei.
+        </p>
+        <p>
+            Ki te kāore e taea te whai hua i ngā kaupapa, me te whakamohio atu ki a koe mō ngā mahi e pā ana ki ngā tikanga me ngā paerewa hei painga mō ngā tamariki. Ka taea hoki te waea atu ki te Manatū i te wā katoa.
+        </p>
+        <p>
+            I te wā e tangohia ana te tamaiti i te kāinga me te tukuna atu e Oranga Tamariki, me tango te tamaiti ki te Kōti Whānau i ngā rima rā. Ka whakamohio atu ki a koe te whakataunga a te Kōti.
+        </p>
+
+        <p><a href="https://www.howtolaw.co/know-your-rights-when-a-child-is-removed-from-your-care-392254">mātau i ōu tika ina tangohia te tamaiti i tō mana i Aotearoa</a></p>
+    ]]>
+    </string>
+
+    <string name="escorting_text">
+    <![CDATA[
+        <p><big>
+            <font color="#007bb5"><b>Te Tukanga Whakaki</b></font>
+        </big></p>
+
+        <p>
+            <font color="#d4af37"><b>Arotake Raru:</b></font>
+        </p>
+
+        <p>
+            Ka whakahaerehia he arotake raru ki te arotake i te taiao me te whakatau mēnā e hiahiatia ana te whakaki i te tamaiti mō te haumaru.
+        </p>
+        <p> Ka ngaro te mana o Oranga Tamariki ka tango atu te mana o te tamaiti e tētahi atu tangata rānei rōpū.</p>
+
+        <p>
+            <font color="#d4af37"><b>Mana Whakaki me ngā Huarahi Whakaki:</b></font>
+        </p>
+
+        <p>
+            Ka tukuna te whakaki e te kaiwhakahaere i Oranga Tamariki, ā, ko ngā paerewa ko ngā rātou:
+        </p>
+
+        <ul>
+            <li> Me rima ngā kaiwhakaki e tika ana.</li>
+            <li> He kaiwhakaki i te taha kotahi ki te tamaiti mēnā pea.</li>
+            <li> Ko ngā kaiwhakaki he tino pai te kimi i ngā tukanga hei tango i ngā raru.</li>
+        </ul>
+
+        <p><big>
+                <font color="#007bb5"><b>Arotake me te Whakamahere o te Haerenga</b></font>
+            </big></p>
+
+        <p>
+            <font color="#d4af37"><b>Rautaki Whakaki:</b></font>
+        </p>
+
+        <p>
+            Ko te rautaki he whakamahere i ngā wa katoa, ko te whānui o ngā pānui mō ngā taha katoa, me ngā whānau, me ngā kaiāwhina mō te mārama ki ngā kaupapa me ngā tikanga o te whakaki.
+        </p>
+        <p> Tirohia te kaupapa rautaki o Oranga Tamariki mō ngā pārongo i ngā tukanga nei.</p>
+
+        <p><big>
+                <font color="#007bb5"><b>Ngā Tika ā-Ture mō ngā Kaiāwhina me ngā Mātua</b></font>
+            </big></p>
+        <p>
+            <font color="#d4af37"><b>Ngā Tika a te Mātua:</b></font> Ko ngā mātua kei ngā tika ā-ture i te tukanga whakaki, pērā i:
+        </p>
+        <ul>
+            <li> Kōrero i ngā mahere whakaki i te tamaiti;</li>
+            <li> Te whai wāhi ki te whakaaro me te whakaatu whakaaro mō ngā tukanga i roto i ngā tukanga whakaki.</li>
+            <li> Te whai wāhi ki ngā pārongo: Ko ngā mātua ka whakamohiohia mō ngā take o te whakaki me ngā wahi e haere ai te tamaiti.</li>
+        </ul>
+        <p> Mō ngā pānui, tirohia te Pukapuka a te Hāpori i ngā mahi me Oranga Tamariki.</p>
+
+        <p><a href="https://communitylaw.org.nz/community-law-manual/test/family-matters/oranga-tamariki/">Te Pukapuka a te Hāpori</a></p>
+    ]]>
+    </string>
+
+    <string name="caregivers_text">
+    <![CDATA[
+        <p><big>
+            <font color="#007bb5"><b>Ngā Tika ā-Ture mō ngā Kaiāwhina me ngā Mātua</b></font>
+        </big></p>
+
+        <p><big>
+            <font color="#007bb5"><b>He aha ngā tika a ngā mātua mō tēnei kaupapa i te wā o te tangohanga?</b></font>
+        </big></p>
+
+        <ul>
+            <li>
+                <font color="#d4af37"><b>Tika ki ngā Pārongo: </b></font>
+                Ka taea te whakamohio i te mātua mō ngā whakatau i pā ki te tamaiti, tae atu ki ngā whakamahere whakaki. Me whakamohio hoki Oranga Tamariki ki te mātua mō ngā take o te whakaki, ngā wāhi e haere ai me ngā pārongo e pā ana.
+            </li>
+            <li>
+                <font color="#d4af37"><b>Te Whai Wāhi i ngā Whakatau: </b></font>
+                Ko ngā mātua kei ngā tika ki te whai wāhi ki ngā whakatau i ngā take mō te tiaki me te whakaora o te tamaiti. Hei tauira, ko te whai wāhi ki ngā Hui Rōpū Whānau me ngā hui kē atu hei whakarite rautaki, pēnei i ngā tukanga whakaki.
+            </li>
+            <li>
+                <font color="#d4af37"><b>Te Whai Wāhi i ngā Awhina: </b></font>
+                Ko ngā mātua e whai wāhi ki ngā awhina e taea te tautoko i ngā raru me Oranga Tamariki. Ka taea te awhina i te mātua ki te whakarite i ngā tika me ngā tukanga kia taea ai e ia te kīhai i ngā raru.
+            </li>
+            <li>
+                <font color="#d4af37"><b>Tika ki te Ture: </b></font>
+                Ki te tīmata ngā whakahaere ture, pēnei i te tono mō te Ota Tiaki Rānei Whakahaere, ko ngā mātua e whai tika ki te kōwhiri i te Ture. Ka taea hoki te rapu rongoā mā ngā whakahaere ā-ture e pā ana ki ngā tamariki.
+            </li>
+        </ul>
+
+        <p><a href="https://www.familiescommission.govt.nz">Ki te rapu āwhina i te whakahaere ā-ture mō ngā tamariki, tirohia te Pukapuka a te Hāpori.</a></p>
+    ]]>
+    </string>
+    <string name="custodians_text">
+    <![CDATA[
+        <p><big>
+            <font color="#007bb5"><b>Mo ngā Kaitiaki</b></font>
+        </big></p>
+
+        <p>
+            <font color="#d4af37"><b>He aha ngā paerewa whakaaetanga?</b></font>
+        </p>
+
+        <p>
+            Hei whakatūnga hei kaitiaki mō te tamaiti i Aotearoa, me tono ngā tangata kāore he pātea (non-parents) ki te Kōti Whānau, ā, me whakarato pārongo taipitopito e pā ana ki tā rātou hononga ki te tamaiti me tā rātou āheinga hei kaitiaki. Mēnā ka whakaae ngā kaitiaki o te tamaiti o nāianei ki te tono, tērā pea ka tere te tukanga. Mēnā kāore e whakaae, ka arotakehia te tono e te kōti i runga anake i ngā painga mō te tamaiti, e mōhiotia ana ko ngā āhuatanga pērā i tā te kaitono hononga ki te tamaiti, te haumaru me te oranga o te tamaiti, te tiaki i ngā tikanga ahurea o te tamaiti, me ngā hiahia a te tamaiti mēnā e pakeke ana, ka taea hoki e ia te kōrero i āna hiahia.
+        </p>
+        <p>He pai ki te kimi paerewa ā-ture i roto i tēnei tukanga; e pā ana ngā whakahaere pērā i te Community Law ki te tuku whakaaro ā-ture me te tautoko kore utu.</p>
+
+        <p><big>
+            <font color="#007bb5"><b>Ngā Paerewa mō te Whakatuunga hei Kaitiaki</b></font>
+        </big></p>
+
+        <p>
+            <font color="#d4af37"><b>Te Tono ki te Kōti Whānau:</b></font> Me tono ngā tangata kāore he pātea ki te Kōti Whānau hei kaitiaki.
+        </p>
+        <p> Ko te tono me pānui i ngā puka tika me ngā pārongo mō tāu hononga ki te tamaiti, me te whakamārama i te āheinga hei kaitiaki mō te tamaiti.</p>
+        <p>
+            <font color="#d4af37"><b>Te Whakaaetanga:</b></font> Mēnā ko ngā mātua o te tamaiti ngā kaitiaki o nāianei, ā, e whakaae ana rātou ki te whakatūnga, tērā pea ka tere te tukanga. Mēnā kāore e whakaae ngā mātua, ka whakatauhia e te kōti i runga anake i ngā painga mō te tamaiti.
+        </p>
+        <p>
+            <font color="#d4af37"><b>Ngā Āhuatanga e Arotakehia ana e te Kōti:</b></font>
+        </p>
+
+        <ul>
+            <li> Painga mō te Tamaiti: Arotakengia te haumaru me te oranga o te tamaiti.</li>
+            <li> Hononga ki ngā Mātua/Kaitiaki o Nāianei: Arotakengia te hononga ki te tamaiti, he pāpā, he tuākana, he hoa whānau rānei, nō rātou te tiaki i te tamaiti.</li>
+            <li> Tikanga Ahurea: Me tiakina ngā tikanga ahurea o te tamaiti.</li>
+            <li> Ngā Hiahia a te Tamaiti: Arotakengia pea ngā whakaaro a te tamaiti mēnā kua pakeke rātou ki te kōrero i ngā hiahia.</li>
+        </ul>
+
+        <p>
+            <font color="#d4af37"><b>Paerewa ā-Ture:</b></font> He pai ki te rapu paerewa ā-ture mēnā kei te hiahia koe ki te kimi i te huarahi hei kaitiaki.
+        </p>
+
+        <p>
+            He pai ki te rapu paerewa ā-ture i roto i te tukanga tono. Ko ngā whakahaere pērā i <a
+            href="https://communitylaw.org.nz/resources/">Community Law</a> e tuku ana i ngā whakaaro ā-ture me te tautoko kore utu.</p>
+
+        <p>
+            Hei whakatūnga hei kaitiaki mō te tamaiti i Aotearoa, me tono ngā tangata kāore he pātea ki te Kōti Whānau, me whakarato pārongo taipitopito e pā ana ki tā rātou hononga ki te tamaiti me tā rātou āheinga hei kaitiaki. Mēnā ka whakaae ngā kaitiaki o te tamaiti o nāianei ki te tono, tērā pea ka tere te tukanga. Mēnā kāore e whakaae, ka arotakehia te tono e te kōti i runga anake i ngā painga mō te tamaiti, e mōhiotia ana ko ngā āhuatanga pērā i tā te kaitono hononga ki te tamaiti, te haumaru me te oranga o te tamaiti, te tiaki i ngā tikanga ahurea o te tamaiti, me ngā hiahia a te tamaiti mēnā e pakeke ana, ka taea hoki e ia te kōrero i āna hiahia. He pai ki te kimi paerewa ā-ture i roto i tēnei tukanga; e pā ana ngā whakahaere pērā i <a href="https://communitylaw.org.nz/resources/">Community Law</a> ki te tuku whakaaro ā-ture me te tautoko kore utu.
+        </p>
+
+        <p><a href="https://www.edenfamilylaw.co.nz/topics/care-of-children/child-custody-who-can-apply-to-the-family-court-for-a-parenting-order">
+        Eden Family Law. (n.d.). Te tiaki tamaiti: Ko wai e taea te tono ki te kōti whānau mō te whakahau matua?</a></p>
+
+        <p><a href="https://www.orangatamariki.govt.nz">Oranga Tamariki. (n.d.). Ngā aratohu mō ngā tukanga tango tamaiti. Oranga Tamariki - Manatū mō ngā Tamariki.</a></p>
+    ]]>
+    </string>
+    <string name="quiz">Rīpoata</string>
+    <string name="quiz_result">Rīpoata Pātai</string>
+
 </resources>
