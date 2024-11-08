@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation,TypographyEllipsis">
 
     <!-- TODO set generic text -->
-    <string name="app_name" translatable="false">Information</string>
+    <string name="app_name" translatable="false">AWAI</string>
     <string name="home_title">AWAI Ringa Awhina:</string>
     <string name="home_description">Your trusted support for Tamariki and Rangatahi</string>
     <string name="language">English</string>
