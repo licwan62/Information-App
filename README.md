@@ -4,11 +4,13 @@
 
 The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting Tamariki and Rangatahi from their current place of care. 
 
-### SCREENSHOT
+### Lateset Screenshot
 
-| ![1.1.0_home](description/1.1.0_home.png)               | ![1.1.0_escorting](description/1.1.0_escorting.png) | ![1.1.0_quiz](description/1.1.0_quiz.png) |      |
-| ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------- | ---- |
-| ![1.1.0_quiz_answer](description/1.1.0_quiz_answer.png) | ![1.1.0_result](description/1.1.0_result.png)       |                                           |      |
+| ![1.2.0_splash_screen](description/1.2.0_splash_screen.png)  | ![1.2.0_home](description/1.2.0_home.png)                    | ![1.2.0_about](description/1.2.0_about.png)             |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
+| ![1.2.0_escorting](description/1.2.0_escorting.png)          | ![1.2.0_custodians](description/1.2.0_custodians.png)        | ![1.2.0_caregivers](description/1.2.0_caregivers.png)   |
+| ![1.2.0_quiz_beforeAnswer](description/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](description/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](description/1.2.0_quiz_result.png) |
+
 
 </div>
 
@@ -112,3 +114,31 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 - Better Language switching looks
 - Add the Landscape layout for Home
 - Modify the language button implementation
+
+## Update at 11-7 [v1.1.0]
+
+### COMPLETE
+
+- Colorful card view
+- Demo questions in quiz
+- Show paragraph with HTML - CDATA
+- Fix data error - get null question item
+
+| ![1.1.0_home](description/1.1.0_home.png)               | ![1.1.0_escorting](description/1.1.0_escorting.png) | ![1.1.0_quiz](description/1.1.0_quiz.png) |      |
+| ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------- | ---- |
+| ![1.1.0_quiz_answer](description/1.1.0_quiz_answer.png) | ![1.1.0_result](description/1.1.0_result.png)       |                                           |      |
+
+## Update at 11-9 [v1.2.0]
+
+### COMPLETE
+
+- Splash screen
+- Nicer home background
+- Enable hyperlink direction in paragraph
+- Show explanation on getting question wrong
+
+| ![1.2.0_splash_screen](description/1.2.0_splash_screen.png)  | ![1.2.0_home](description/1.2.0_home.png)                    | ![1.2.0_about](description/1.2.0_about.png)             |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
+| ![1.2.0_escorting](description/1.2.0_escorting.png)          | ![1.2.0_custodians](description/1.2.0_custodians.png)        | ![1.2.0_caregivers](description/1.2.0_caregivers.png)   |
+| ![1.2.0_quiz_beforeAnswer](description/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](description/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](description/1.2.0_quiz_result.png) |
+
