@@ -1,6 +1,7 @@
 package com.example.information_app.ui.caregivers
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
@@ -25,6 +26,8 @@ class CaregiverFragment : Fragment(R.layout.fragment_caregivers) {
                     getString(R.string.caregivers_text),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
+            textViewParagraph.movementMethod =
+                LinkMovementMethod.getInstance()
         }
     }
 }
