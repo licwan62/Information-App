@@ -4,7 +4,7 @@
     style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.infomation.InformationFragment">
+    tools:context=".ui.about.AboutFragment">
 
     <androidx.cardview.widget.CardView
         style="@style/RoundedShadowCardView"
