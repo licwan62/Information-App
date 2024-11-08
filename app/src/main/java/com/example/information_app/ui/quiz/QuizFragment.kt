@@ -3,6 +3,7 @@ package com.example.information_app.ui.quiz
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -26,35 +27,31 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentQuizBinding.bind(view)
-        binding.apply {
-            groupBeforeAnswer.visibility = View.VISIBLE
-            groupOnWrongAnswer.visibility = View.GONE
 
+        binding.apply {
             buttonNext.setOnClickListener {
                 viewModel.onNextClick()
             }
-
             buttonLeft.setOnClickListener {
                 viewModel.onOptionClick(true)
             }
-
             buttonRight.setOnClickListener {
                 viewModel.onOptionClick(false)
             }
+            showReviewViews(binding, false)
         }
 
+        showReviewViews(binding, false)
+
+        // observe emissions of answerSheet (question, count of questions in database)
         viewModel.answerSheet.observe(viewLifecycleOwner) { sheet ->
             val question = sheet.first
             val sum = sheet.second
             binding.apply {
-                textViewTitle.text =
-                    getString(
-                        R.string.question_idx_in_total,
-                        question.id,
-                        sum
-                    )
-                textViewQuestion.text =
-                    question.text
+                textViewTitle.text = getString(
+                    R.string.question_idx_in_total, question.id, sum
+                )
+                textViewQuestion.text = requireContext().getString(question.textRes)
             }
         }
 
@@ -72,7 +69,10 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         Log.i(TAG, "navigate to result with score: ${event.score}")
                     }
                     is QuizViewModel.NavigationAction.ShowExplanation -> {
-                        showExplanation(binding, event.explanation)
+                        showReviewViews(
+                            binding, true,
+                            event.feedbackRes, event.explanationRes
+                        )
                         Log.i(TAG, "explanation for current question is shown")
                     }
                 }.exhaustive
@@ -80,37 +80,46 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
     }
 
+    private fun showReviewViews(
+        binding: FragmentQuizBinding,
+        show: Boolean,
+        @StringRes feedbackRes: Int = 0,
+        @StringRes explanationRes: Int = 0
+    ) {
+        binding.apply {
+            if (show) {
+                linearLayoutButtons.visibility = View.GONE
+                textViewReview.visibility = View.VISIBLE
+                textViewExplanation.visibility = View.VISIBLE
+                buttonNext.visibility = View.VISIBLE
+
+                textViewReview.text = requireContext().getString(feedbackRes)
+                textViewExplanation.text = requireContext().getString(explanationRes)
+
+            } else {
+                linearLayoutButtons.visibility = View.VISIBLE
+                textViewReview.visibility = View.GONE
+                textViewExplanation.visibility = View.GONE
+                buttonNext.visibility = View.GONE
+            }
+        }
+    }
+
     private fun navigateToNextQuestion(): Bundle {
         val bundle = Bundle().apply {
-            val nextQuestionID =
-                viewModel.questionID + 1
+            val nextQuestionID = viewModel.questionID + 1
             putInt("questionId", nextQuestionID)
         }
-        val navOptions = NavOptions.Builder()
-            .setPopUpTo(R.id.quizFragment, true)
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .build()
+        val navOptions = NavOptions.Builder().setPopUpTo(R.id.quizFragment, true)
+            .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).build()
         findNavController().navigate(
-            R.id.quizFragment,
-            bundle,
-            navOptions
+            R.id.quizFragment, bundle, navOptions
         )
         return bundle
     }
 
     private fun navigateToResult(score: Score) {
-        val action =
-            QuizFragmentDirections
-                .actionQuizFragmentToQuizResultFragment(score)
+        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(score)
         findNavController().navigate(action)
-    }
-
-    private fun showExplanation(binding: FragmentQuizBinding, explanation: String) {
-        binding.apply {
-            groupOnWrongAnswer.visibility = View.VISIBLE
-            groupBeforeAnswer.visibility = View.GONE
-            textViewReview.text = explanation
-        }
     }
 }
