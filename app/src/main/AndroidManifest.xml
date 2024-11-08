@@ -16,20 +16,17 @@
             android:name=".SlashActivity"
             android:exported="true"
             android:theme="@style/splash">
+
+            <!--signals to the Android system that this activity should appear as an app icon in the launcher,
+             and tapping that icon will launch the specified activity.-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
