@@ -57,8 +57,13 @@ class QuestionAdapter(
             binding.apply {
 
                 // question text 1.Is esc...
+                val questionText =
+                    context.getString(question.textRes)
                 textViewQuestion.text =
-                    context.getString(R.string.question_text, question.id, question.text)
+                    context.getString(
+                        R.string.question_text,
+                        question.id, questionText
+                    )
 
                 // your answer: yes ... cross
                 val userAnswerString =
@@ -66,8 +71,12 @@ class QuestionAdapter(
                     else context.getString(R.string.button_no)
                 textViewUserAnswer.text =
                     context.getString(R.string.your_answer, userAnswerString)
+
+                // show explanation in result card
+                val explanation =
+                    context.getString(question.explanationRes)
                 textViewReview.text =
-                    context.getString(R.string.correct_answer, question.explanation)
+                    context.getString(R.string.correct_answer, explanation)
 
                 // set drawable cross or tick
                 val iconRes =
