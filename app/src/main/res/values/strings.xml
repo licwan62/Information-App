@@ -14,10 +14,6 @@
 
     <string name="about_text">
     <![CDATA[
-        <p><big>
-            <font color="#007bb5"><b>About</b></font>
-        </big></p>
-
         <p>Escorting is an official process in which a child is taken away from an environment that is dangerous. This process
             is enacted by Oranga Tamariki, or the Ministry for Children, as it is better known—the government agency for issues
             surrounding the welfare of children.</p>
@@ -65,10 +61,6 @@
 
     <string name="escorting_text">
     <![CDATA[
-        <p><big>
-            <font color="#007bb5"><b>Process of Escorting</b></font>
-        </big></p>
-
         <p>
             <font color="#d4af37"><b>Risk Assessment:</b></font>
         </p>
@@ -131,10 +123,6 @@
 
     <string name="caregivers_text">
     <![CDATA[
-        <p><big>
-            <font color="#007bb5"><b>Legal Rights of Caregivers and Parents</b></font>
-        </big></p>
-
         <p><big>
             <font color="#007bb5"><b>What are the rights of parents when it comes to this matter during eviction.</b></font>
         </big></p>
@@ -217,10 +205,6 @@
 
     <string name="custodians_text">
     <![CDATA[
-        <p><big>
-            <font color="#007bb5"><b>For Custodians</b></font>
-        </big></p>
-
         <p>
             <font color="#d4af37"><b>What is the eligibility criteria?</b></font>
         </p>
