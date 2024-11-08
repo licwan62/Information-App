@@ -18,17 +18,11 @@ import javax.inject.Inject
 
 private const val TAG = "Quiz"
 
-data class AnswerSheet(
-    val question: Question,
-    val isAnswerWrong: Boolean,
-    val answerReview: String
-)
-
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val repository: QuestionRepository,
     @ApplicationContext context: Context,
-    private val state: SavedStateHandle // persist data and fetch arguments
+    state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
 
     // question id fetched through arguments by NavGraph
@@ -36,11 +30,10 @@ class QuizViewModel @Inject constructor(
     val questionID = _questionID
 
     private val _questionsSum = MutableLiveData<Int>()
-    val questionsSum = _questionsSum
 
     // reserve question when null question is emitted, to keep question non-null
     private var lastQuestion: Question =
-        QuestionRepository.defaultQuestions(context)[0]
+        QuestionRepository.defaultQuestions()[0]
 
     // sync question queried by questionID
     private val _question = MutableLiveData<Question>()

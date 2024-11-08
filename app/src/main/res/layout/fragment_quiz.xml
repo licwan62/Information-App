@@ -14,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+        <RelativeLayout
+            android:id="@+id/relative_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_margin="@dimen/my_space_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -29,22 +29,18 @@
                 style="@style/GreyTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
                 tools:text="Question 1 in 5" />
 
             <TextView
                 android:id="@+id/text_view_question"
                 style="@style/QuestionDescription"
-                android:layout_width="0dp"
+                android:layout_width="352dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/my_space_medium"
+                android:layout_below="@+id/text_view_title"
+                android:layout_centerHorizontal="true"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_title"
                 tools:text="@string/test_long" />
 
             <TextView
@@ -52,70 +48,56 @@
                 style="@style/GreyTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_below="@+id/text_view_question"
+                android:layout_centerHorizontal="true"
                 app:drawableTopCompat="@drawable/ic_cross"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_question"
                 tools:text="Correct Answer: NO" />
 
-            <Button
-                android:id="@+id/button_left"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/text_view_explanation"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/button_blue"
-                android:text="@string/button_yes"
-                android:visibility="visible"
-                app:layout_constraintEnd_toStartOf="@+id/button_right"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_review" />
+                android:layout_below="@id/text_view_review"
+                tools:text="@string/question_1_explanation" />
 
-            <Button
-                android:id="@+id/button_right"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/linear_layout_buttons"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="32dp"
-                android:backgroundTint="@color/button_red"
-                android:text="@string/button_no"
-                app:layout_constraintBottom_toBottomOf="@+id/button_left"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_left"
-                app:layout_constraintTop_toTopOf="@+id/button_left" />
+                android:layout_below="@id/text_view_explanation">
+
+                <Button
+                    android:id="@+id/button_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginHorizontal="@dimen/my_space_medium"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_blue"
+                    android:text="@string/button_yes" />
+
+                <Button
+                    android:id="@+id/button_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginHorizontal="@dimen/my_space_medium"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_red"
+                    android:text="@string/button_no" />
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout_buttons"
+                android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/button_green"
-                android:text="@string/button_next"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_left" />
+                android:text="@string/button_next" />
 
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/group_before_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:constraint_referenced_ids="button_left,button_right"
-                tools:visibility="visible" />
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/group_on_wrong_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:constraint_referenced_ids="button_next,text_view_review"
-                tools:visibility="visible" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

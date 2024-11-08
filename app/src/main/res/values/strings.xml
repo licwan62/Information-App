@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation,TypographyEllipsis">
 
     <!-- TODO set home text -->
-    <string name="app_name">Information</string>
-    <string name="home_title">AWAI</string>
-    <string name="home_description">your trusted support for Tamariki and Rangatahi</string>
+    <string name="app_name" translatable="false">Information</string>
+    <string name="home_title">AWAI Ringa Awhina:</string>
+    <string name="home_description">Your trusted support for Tamariki and Rangatahi</string>
     <string name="language">English</string>
-    <string name="test_long">This is a long test text…This is a long test text…This is a long test text…
+    <string name="test_long" translatable="false">This is a long test text…This is a long test text…This is a long test text…
         This is a long test text…This is a long test text…</string>
 
     <!-- TODO: set PARAGRAPH text in four layouts -->
@@ -90,7 +90,6 @@
     <string name="caregivers_paragraph">Content for Caregivers</string>
 
     <!--  TODO: set buttons text -->
-    <string name="button_change_language">English</string>
     <string name="button_information">About</string>
     <string name="button_escorting">Process Of Escorting</string>
     <string name="button_custodians">Legal Right of Custodians</string>
@@ -105,16 +104,16 @@
     <!-- TODO: set questions text -->
     <string name="your_answer">Your Answer: %1$s</string>
     <string name="correct_answer">Correct Answer: %1$s</string>
-    <string name="question_text">%1$d.%2$s</string>
+    <string name="question_text" translatable="false">%1$d.%2$s</string>
     <string name="question_idx_in_total">Question %1$d in %2$d</string>
-    <string name="question_1_text">Is escorting only applicable to children who have been involved in criminal activity?</string>
-    <string name="question_2_text">Is it mandatory for an escort to always be of the same gender as the child?</string>
-    <string name="question_3_text">Are parents legally allowed to comment on the escorting process of their child?</string>
-    <string name="question_4_text">Can a child be placed in a ministry residence if staying with a family member is not feasible?</string>
-    <string name="question_5_text">Is Oranga Tamariki required to bring a child before a Family Court within five days after taking custody?</string>
-    <string name="question_1_explanation">Escorting is not limited to children involved in criminal activities. It includes Care and Protection Escorts (children needing relocation due to safety concerns) as well as Youth Justice Escorts (children involved with youth justice). So, it applies to both children in need of protection and those involved with the justice system.</string>
-    <string name="question_2_explanation">While it is preferred for the escort to be of the same gender as the child, it is not a strict requirement. The guidelines specify it \"whenever possible,\" meaning it is flexible depending on the situation.</string>
-    <string name="question_3_explanation">Parents have the right to comment and express views about the escorting process. This is part of their legal rights during the escorting process.</string>
-    <string name="question_4_explanation">If the child cannot be placed with a family member or someone they know well, they may be placed in a ministry home or residence as a temporary measure.</string>
-    <string name="question_5_explanation">Once Oranga Tamariki takes custody of a child, the child must be brought before a Family Court within five days. The parent or caregiver will be informed about the court\'s decision.</string>
+    <string name="question_1_text">Can Oranga Tamariki uplift a child without notice, removing the child from a hazardous environment?</string>
+    <string name="question_2_text">"Does the law allow parents to be involved in decision-making at the time of escorting? "</string>
+    <string name="question_3_text">"Does a caregiver have a right to be informed if a child in their care is to be escorted? "</string>
+    <string name="question_4_text">Can anyone apply to the Family Court for custody of a child?</string>
+    <string name="question_5_text">Does Oranga Tamariki have to keep a parent\'s information confidential when taking a child away?</string>
+    <string name="question_1_explanation">"In urgent uplifting circumstances, when a child's life is in immediate danger, Oranga Tamariki may take such steps without notice in order to save the life of the child "</string>
+    <string name="question_2_explanation">Parents can be entitled to be involved in decision-making, often provided through Family Group Conferences, and may include having their wishes considered in relation to the accommodation of their child</string>
+    <string name="question_3_explanation">Carers have a right to be informed of any escort arrangements proposed for a child in their care, and to have an opportunity to express their concerns</string>
+    <string name="question_4_explanation">provided the applicant has to meet the criteria like the age of 18 years or above, and the relation with the child, issues of safety, and their cultural heritage is taken into account by the court</string>
+    <string name="question_5_explanation">Oranga Tamariki should keep parents\' personal information confidential and only disclose it when necessary and appropriate</string>
 </resources>
