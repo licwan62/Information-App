@@ -46,7 +46,7 @@
         tools:layout="@layout/fragment_caregivers" />
     <fragment
         android:id="@+id/escortingFragment"
-        android:name="com.example.information_app.ui.escort.EscortingFragment"
+        android:name="com.example.information_app.ui.escorting.EscortingFragment"
         android:label="@string/button_escorting"
         tools:layout="@layout/fragment_escorting">
         <action

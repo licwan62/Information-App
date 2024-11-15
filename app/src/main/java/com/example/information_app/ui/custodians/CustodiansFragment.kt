@@ -23,7 +23,7 @@ class CustodiansFragment : Fragment(R.layout.fragment_custodians) {
         binding.apply {
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.custodians_text),
+                    getString(R.string.custodians_document),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
             textViewParagraph.movementMethod =
