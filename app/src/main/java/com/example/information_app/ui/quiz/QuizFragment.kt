@@ -68,7 +68,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 textViewTitle.text = getString(
                     R.string.question_idx_in_total, question.id, sum
                 )
-                textViewQuestion.text = requireContext().getString(question.textRes)
+                textViewQuestion.text = question.question
             }
         }
 
@@ -81,14 +81,13 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         val bundle = navigateToNextQuestion()
                         Log.i(TAG, "navigate to next question with arg: $bundle")
                     }
-                    is QuizViewModel.NavigationAction.CompleteQuizWithScore -> {
-                        navigateToResult(event.score)
-                        Log.i(TAG, "navigate to result with score: ${event.score}")
+                    is QuizViewModel.NavigationAction.CompleteQuiz -> {
+                        navigateToResult()
                     }
                     is QuizViewModel.NavigationAction.ShowExplanation -> {
                         showReviewViews(
                             binding, true,
-                            event.feedbackRes, event.explanationRes
+                            event.feedbackRes, event.explanation
                         )
 
                         setGradientCardView(binding)
@@ -104,7 +103,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding: FragmentQuizBinding,
         show: Boolean,
         @StringRes feedbackRes: Int = 0,
-        @StringRes explanationRes: Int = 0
+        explanation: String = ""
     ) {
         binding.apply {
             if (show) {
@@ -114,7 +113,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 buttonNext.visibility = View.VISIBLE
 
                 textViewReview.text = requireContext().getString(feedbackRes)
-                textViewExplanation.text = requireContext().getString(explanationRes)
+                textViewExplanation.text = explanation
 
             } else {
                 linearLayoutButtons.visibility = View.VISIBLE
@@ -127,8 +126,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     private fun navigateToNextQuestion(): Bundle {
         val bundle = Bundle().apply {
-            val nextQuestionID = viewModel.questionID + 1
-            putInt("questionId", nextQuestionID)
+            val nextQuestionID = viewModel.questionNumber + 1
+            putInt("question_number", nextQuestionID)
         }
         val navOptions = NavOptions.Builder().setPopUpTo(R.id.quizFragment, true)
             .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).build()
@@ -153,8 +152,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding.frameLayoutColor.background = gradientDrawable
     }
 
-    private fun navigateToResult(score: Score) {
-        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(score)
+    private fun navigateToResult() {
+        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(viewModel.quizId)
         findNavController().navigate(action)
     }
 }

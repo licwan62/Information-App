@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.information_app.R
+import com.example.information_app.data.models.Question
 import com.example.information_app.databinding.FragmentQuizResultBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +55,15 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.setHasFixedSize(true)
-            textViewReview.text = getScoreText()
+
+            // Observe score and totalQuestions and update the text
+            viewModel.score.observe(viewLifecycleOwner) { score ->
+                binding.textViewReview.text = getScoreText(score, viewModel.totalQuestions.value ?: 0)
+            }
+
+            viewModel.totalQuestions.observe(viewLifecycleOwner) { totalQuestions ->
+                binding.textViewReview.text = getScoreText(viewModel.score.value ?: 0, totalQuestions)
+            }
         }
         // detach adapter from questions on button clicked
         setAdapter(adapter)
@@ -85,7 +94,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             if (isInit) {
                 val action =
                     QuizResultFragmentDirections
-                        .actionQuizResultFragmentToQuizFragment(1)
+                        .actionQuizResultFragmentToQuizFragment(viewModel.quizId, 1)
                 findNavController().navigate(action)
             } else {
                 Log.e(TAG, "database still initializing")
@@ -119,9 +128,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         }
     }
 
-    private fun getScoreText(): String {
-        val correctCount = viewModel.score.correctCount
-        val totalCount = viewModel.score.totalCount
+    private fun getScoreText(correctCount: Int, totalCount: Int): String {
         return "You got $correctCount in $totalCount correct!"
     }
 

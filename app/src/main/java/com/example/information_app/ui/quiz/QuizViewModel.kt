@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.*
 import com.example.information_app.R
+import com.example.information_app.data.QuizDao
+import com.example.information_app.data.models.Question
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.Channel
@@ -18,20 +20,17 @@ private const val TAG = "Quiz"
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
-    private val repository: QuestionRepository,
-    @ApplicationContext context: Context,
+    private val context: Context,
+    private val quizDao: QuizDao,
     state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
-
-    // question id fetched through arguments by NavGraph
-    private val _questionID = state.get<Int>("questionId") ?: 0
-    val questionID = _questionID
+    val quizId = state.get<Int>("quiz_id")!!
+    val questionNumber = state.get<Int>("question_number") ?: 1
 
     private val _questionsSum = MutableLiveData<Int>()
 
     // reserve question when null question is emitted, to keep question non-null
-    private var lastQuestion: Question =
-        QuestionRepository.defaultQuestions()[0]
+    //private var lastQuestion: Question = QuestionRepository.defaultQuestions()[0]
 
     // sync question queried by questionID
     private val _question = MutableLiveData<Question>()
@@ -62,16 +61,14 @@ class QuizViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             launch {
-                repository.getQuestionTotal().collect { count ->
+                quizDao.getQuestionAmountByQuiz(quizId).collect { count ->
                     _questionsSum.value = count
 //                    Log.i(TAG, "count updated: $count")
                 }
             }
             launch {
-                repository.getQuestionById(_questionID).collect { question ->
-                    val nonNullQuestion = question ?: lastQuestion
-                    _question.value = nonNullQuestion
-                    lastQuestion = nonNullQuestion
+                quizDao.getQuestionByQuizAndNumber(quizId, questionNumber).collect { question ->
+                    _question.value = question
                 }
             }
         }
@@ -86,8 +83,8 @@ class QuizViewModel @Inject constructor(
 
         viewModelScope.launch {
             val questionToUpdate =
-                _question.value!!.copy(userAnswer = userAnswer)
-            repository.updateQuestion(questionToUpdate)
+                _question.value!!.copy(result = userAnswer)
+            quizDao.updateQuestion(questionToUpdate)
 
             when {
                 isCorrectAnswer(userAnswer) -> navigateOut()
@@ -108,11 +105,11 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun printDatabase() = viewModelScope.launch {
-        repository.getAllQuestions().first().forEach { question ->
+        quizDao.getAllQuestionsByQuiz(quizId).first().forEach { question ->
             Log.w(
                 TAG,
                 "current $question, " +
-                        "isCorrect: ${question.isAnswerCorrect}"
+                        "isCorrect: ${question.answer == question.result}"
             )
         }
     }
@@ -122,47 +119,52 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun isCorrectAnswer(userAnswer: Boolean): Boolean =
-        _question.value!!.correctAnswer == userAnswer
+        _question.value!!.answer == userAnswer
 
     private fun isQuizOver(): Boolean =
         _question.value!!.id == _questionsSum.value
 
     private fun showCorrectAnswer() = viewModelScope.launch {
         val feedbackRes =
-            if (_question.value!!.correctAnswer) R.string.your_answer_true
+            if (_question.value!!.answer) R.string.your_answer_true
             else R.string.your_answer_false
         navigationChannel.send(
             NavigationAction.ShowExplanation(
                 feedbackRes,
-                _question.value!!.explanationRes
+                _question.value!!.explanation
             )
         )
     }
 
     private fun completeQuiz() = viewModelScope.launch {
+        // Update score on quiz
         val score = getScore()
-        navigationChannel.send(NavigationAction.CompleteQuizWithScore(score))
+        val quiz = quizDao.getQuiz(quizId).first()
+
+        quizDao.updateQuiz(quiz.copy(score = score))
+
+        navigationChannel.send(NavigationAction.CompleteQuiz)
     }
 
-    private suspend fun getScore(): Score {
+    private suspend fun getScore(): Int {
         var correctCount = 0
-        val questions = repository.getAllQuestions().first()
+        val questions = quizDao.getAllQuestionsByQuiz(quizId).first()
         Log.v(
             TAG, "get score to pass on quiz completed, " +
                     "result: $questions"
         )
         var idx = 0
         questions.forEach { question ->
-            if (question.isAnswerCorrect) {
+            if (question.answer == question.result) {
                 correctCount++
                 Log.w(
                     TAG,
-                    "question ${++idx} is ${question.isAnswerCorrect}, " +
+                    "question ${++idx} is ${question.answer == question.result}, " +
                             "correct count: $correctCount"
                 )
             }
         }
-        return Score(correctCount, _questionsSum.value!!)
+        return correctCount
         //Log.d(TAG, "on setScore, score: $score")
     }
 
@@ -173,10 +175,10 @@ class QuizViewModel @Inject constructor(
         object GoToNextQuestion : NavigationAction()
         data class ShowExplanation(
             @StringRes val feedbackRes: Int,
-            @StringRes val explanationRes: Int
+            val explanation: String
         ) : NavigationAction()
 
-        data class CompleteQuizWithScore(val score: Score) : NavigationAction()
+        object CompleteQuiz : NavigationAction()
     }
 }
 
