@@ -33,16 +33,19 @@ interface QuizDao {
     suspend fun insertQuestion(question: Question)
 
     @Query("SELECT * FROM Question WHERE id == :id")
-    fun getQuestion(id: Int) : Question
+    fun getQuestion(id: Int) : Flow<Question>
 
     @Query("SELECT * FROM Question WHERE quiz_id == :quizId AND number == :number")
-    fun getQuestionByQuizAndNumber(quizId: Int, number: Int) : Question
+    fun getQuestionByQuizAndNumber(quizId: Int, number: Int) : Flow<Question>
 
     @Query("SELECT * FROM Question")
     fun getAllQuestions() : Flow<List<Question>>
 
     @Query("SELECT * FROM Question WHERE quiz_id == :quizId")
     fun getAllQuestionsByQuiz(quizId: Int) : Flow<List<Question>>
+
+    @Query("SELECT COUNT(*) FROM Question WHERE quiz_id == :quizId")
+    fun getQuestionAmountByQuiz(quizId: Int) : Flow<Int>
 
     @Update
     suspend fun updateQuestion(question: Question)
