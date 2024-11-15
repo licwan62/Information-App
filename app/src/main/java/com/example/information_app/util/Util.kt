@@ -1,4 +1,4 @@
-package com.example.information_app.ui.util
+package com.example.information_app.util
 
 //enforce the compiler to check that all possible branches are covered
 val <T> T.exhaustive: T
