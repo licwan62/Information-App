@@ -57,25 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*private fun syncLocale() {
-        val configuration = resources.configuration
-        val currentLocale = when {
-            android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.N
-            -> configuration.locales.get(0)
-            else -> configuration.locale
-        }
-
-        if (currentLocale.language.uppercase() != LanguageButtonViewModel.currentLanguageCode) {
-            Log.i(
-                "LanguageButton",
-                "detect different language, update language code, " +
-                        "language: ${currentLocale.language}, " +
-                        "vm language: ${LanguageButtonViewModel.currentLanguageCode}"
-            )
-            languageButtonViewModel.updateLanguageCode(this)
-        }
-    }*/
-
     private fun showLanguagePopup() {
         val language = getString(R.string.language)
         android.os.Handler(Looper.getMainLooper()).postDelayed({

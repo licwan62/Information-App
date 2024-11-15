@@ -14,7 +14,8 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
-enum class LanguageCode { EN, RAR }
+enum class LanguageCode { ENG, MAO }
+
 /*// single object holding multiple values to be emit from preferenceFlow
 data class FilterPreferences(val languageCode: LanguageCode)*/
 
@@ -47,9 +48,9 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
         }
         .map { preferences ->
             // emit data for LANGUAGE_CODE, and convert it into enum item
-            val data = preferences[LANGUAGE_CODE] ?: LanguageCode.EN.name
+            val data = preferences[LANGUAGE_CODE] ?: LanguageCode.ENG.name
             val languageCode = LanguageCode.valueOf(data)
-//            Log.d("LanguageButton", "preference emit code: ${languageCode.name}")
+            Log.d("LanguageButton", "preference emit code: ${languageCode.name}")
             languageCode
         }
 
