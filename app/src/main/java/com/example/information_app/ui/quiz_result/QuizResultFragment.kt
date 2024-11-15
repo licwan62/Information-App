@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.information_app.R
-import com.example.information_app.data.Question
 import com.example.information_app.databinding.FragmentQuizResultBinding
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.information_app.R
-import com.example.information_app.data.Question
 import com.example.information_app.databinding.QuizResultItemBinding
 
 private const val TAG = "Adapter"

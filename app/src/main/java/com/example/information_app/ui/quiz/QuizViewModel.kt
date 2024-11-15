@@ -5,9 +5,6 @@ import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.*
 import com.example.information_app.R
-import com.example.information_app.data.Question
-import com.example.information_app.data.QuestionRepository
-import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.Channel

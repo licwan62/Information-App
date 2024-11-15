@@ -2,10 +2,6 @@ package com.example.information_app.ui.quiz_result
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.information_app.data.Question
-import com.example.information_app.data.QuestionDao
-import com.example.information_app.data.QuestionRepository
-import com.example.information_app.data.Score
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
