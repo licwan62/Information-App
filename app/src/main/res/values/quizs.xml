@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="escorting_quiz_question_1">Can Oranga Tamariki uplift a child without notice, removing the child from a hazardous environment?</string>
+    <string name="escorting_quiz_question_2">"Does the law allow parents to be involved in decision-making at the time of escorting? "</string>
+    <string name="escorting_quiz_question_3">"Does a caregiver have a right to be informed if a child in their care is to be escorted? "</string>
+    <string name="escorting_quiz_question_4">Can anyone apply to the Family Court for custody of a child?</string>
+    <string name="escorting_quiz_question_5">Does Oranga Tamariki have to keep a parent\'s information confidential when taking a child away?</string>
+    <bool name="escorting_quiz_question_1_answer">true</bool>
+    <bool name="escorting_quiz_question_2_answer">true</bool>
+    <bool name="escorting_quiz_question_3_answer">true</bool>
+    <bool name="escorting_quiz_question_4_answer">true</bool>
+    <bool name="escorting_quiz_question_5_answer">true</bool>
+    <string name="escorting_quiz_question_1_explanation">"In urgent uplifting circumstances, when a child's life is in immediate danger, Oranga Tamariki may take such steps without notice in order to save the life of the child "</string>
+    <string name="escorting_quiz_question_2_explanation">Parents can be entitled to be involved in decision-making, often provided through Family Group Conferences, and may include having their wishes considered in relation to the accommodation of their child</string>
+    <string name="escorting_quiz_question_3_explanation">Carers have a right to be informed of any escort arrangements proposed for a child in their care, and to have an opportunity to express their concerns</string>
+    <string name="escorting_quiz_question_4_explanation">provided the applicant has to meet the criteria like the age of 18 years or above, and the relation with the child, issues of safety, and their cultural heritage is taken into account by the court</string>
+    <string name="escorting_quiz_question_5_explanation">Oranga Tamariki should keep parents\' personal information confidential and only disclose it when necessary and appropriate</string>
+</resources>

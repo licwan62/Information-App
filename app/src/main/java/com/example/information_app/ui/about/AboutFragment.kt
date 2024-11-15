@@ -20,7 +20,7 @@ class AboutFragment : Fragment(R.layout.fragment_about) {
         binding.apply {
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.about_text),
+                    getString(R.string.about_document),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
 
