@@ -1,22 +1,22 @@
-<div align="center">
-
 # Information App
 
 The Information App for the prototype should cover Escorting Tamariki and Rangatahi. Escorting is the process of removing, relocating, and uplifting Tamariki and Rangatahi from their current place of care. 
 
+<div align="center">
+
 ### Lateset Screenshot
 
-| ![1.2.0_splash_screen](description/1.2.0_splash_screen.png)  | ![1.2.0_home](description/1.2.0_home.png)                    | ![1.2.0_about](description/1.2.0_about.png)             |
+| ![1.2.0_splash_screen](assets/1.2.0_splash_screen.png)  | ![1.2.0_home](assets/1.2.0_home.png)                    | ![1.2.0_about](assets/1.2.0_about.png)             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
-| ![1.2.0_escorting](description/1.2.0_escorting.png)          | ![1.2.0_custodians](description/1.2.0_custodians.png)        | ![1.2.0_caregivers](description/1.2.0_caregivers.png)   |
-| ![1.2.0_quiz_beforeAnswer](description/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](description/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](description/1.2.0_quiz_result.png) |
+| ![1.2.0_escorting](assets/1.2.0_escorting.png)          | ![1.2.0_custodians](assets/1.2.0_custodians.png)        | ![1.2.0_caregivers](assets/1.2.0_caregivers.png)   |
+| ![1.2.0_quiz_beforeAnswer](assets/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](assets/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](assets/1.2.0_quiz_result.png) |
 
 
 </div>
 
 <div align="right">
 
-### [Demo Animation](description/demo_1104.gif)
+### [Demo Animation](assets/demo_1104.gif)
 
 Update on 11-4
 
@@ -73,21 +73,21 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 
 - XML layouts could be placed in `frontend-layout` directory, then I will cooperate them into project
 
-![Team reminder](description/team_remind.jpeg)
+![Team reminder](assets/team_remind.jpeg)
 
 - Modify styles that referred from views in `theme.xml`
 
-![team_reminder_4](description/team_reminder_4.jpeg)
+![team_reminder_4](assets/team_reminder_4.jpeg)
 
 ### Research 
 
-- Upload Text file in `description` directory, better to have HTML file to specify color and size (only big and small for respectively 20% larger and smaller compared to normal size)
+- Upload Text file in `assets` directory, better to have HTML file to specify color and size (only big and small for respectively 20% larger and smaller compared to normal size)
 
-![team_reminder_3](description/team_reminder_3.jpeg)
+![team_reminder_3](assets/team_reminder_3.jpeg)
 
 - Modify references for every texts of views in`string.xml`, Then open Translation Editor
 
-![team_reminder_2](description/team_reminder_2.jpeg)
+![team_reminder_2](assets/team_reminder_2.jpeg)
 
 ## Update at 11-2
 
@@ -124,9 +124,9 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 - Show paragraph with HTML - CDATA
 - Fix data error - get null question item
 
-| ![1.1.0_home](description/1.1.0_home.png)               | ![1.1.0_escorting](description/1.1.0_escorting.png) | ![1.1.0_quiz](description/1.1.0_quiz.png) |      |
+| ![1.1.0_home](assets/1.1.0_home.png)               | ![1.1.0_escorting](assets/1.1.0_escorting.png) | ![1.1.0_quiz](assets/1.1.0_quiz.png) |      |
 | ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------- | ---- |
-| ![1.1.0_quiz_answer](description/1.1.0_quiz_answer.png) | ![1.1.0_result](description/1.1.0_result.png)       |                                           |      |
+| ![1.1.0_quiz_answer](assets/1.1.0_quiz_answer.png) | ![1.1.0_result](assets/1.1.0_result.png)       |                                           |      |
 
 ## Update at 11-9 [v1.2.0]
 
@@ -137,8 +137,8 @@ Legal rights for Caregivers shall refer to Escorting and/or the Escorting proces
 - Enable hyperlink direction in paragraph
 - Show explanation on getting question wrong
 
-| ![1.2.0_splash_screen](description/1.2.0_splash_screen.png)  | ![1.2.0_home](description/1.2.0_home.png)                    | ![1.2.0_about](description/1.2.0_about.png)             |
+| ![1.2.0_splash_screen](assets/1.2.0_splash_screen.png)  | ![1.2.0_home](assets/1.2.0_home.png)                    | ![1.2.0_about](assets/1.2.0_about.png)             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- |
-| ![1.2.0_escorting](description/1.2.0_escorting.png)          | ![1.2.0_custodians](description/1.2.0_custodians.png)        | ![1.2.0_caregivers](description/1.2.0_caregivers.png)   |
-| ![1.2.0_quiz_beforeAnswer](description/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](description/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](description/1.2.0_quiz_result.png) |
+| ![1.2.0_escorting](assets/1.2.0_escorting.png)          | ![1.2.0_custodians](assets/1.2.0_custodians.png)        | ![1.2.0_caregivers](assets/1.2.0_caregivers.png)   |
+| ![1.2.0_quiz_beforeAnswer](assets/1.2.0_quiz_beforeAnswer.png) | ![1.2.0_quiz_answerWrong](assets/1.2.0_quiz_answerWrong.png) | ![1.2.0_quiz_result](assets/1.2.0_quiz_result.png) |
 
