@@ -105,7 +105,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                 val score = viewModel.score
                 val action =
                     QuizResultFragmentDirections
-                        .actionQuizResultFragmentToEscortingFragment(score)
+                        .actionQuizResultFragmentToEscortingFragment()
                 findNavController().navigate(action)
             } else {
                 Log.e(TAG, "database still initializing")

@@ -51,33 +51,33 @@ class QuestionRepository @Inject constructor(
          */
         fun defaultQuestions() = listOf(
             Question(
-                R.string.question_1_text,
+                R.string.escorting_quiz_question_1,
                 true,
-                R.string.question_1_explanation,
+                R.string.escorting_quiz_question_1_explanation,
                 id = 1
             ),
             Question(
-                R.string.question_2_text,
+                R.string.escorting_quiz_question_2,
                 true,
-                R.string.question_2_explanation,
+                R.string.escorting_quiz_question_2_explanation,
                 id = 2
             ),
             Question(
-                R.string.question_3_text,
+                R.string.escorting_quiz_question_3,
                 true,
-                R.string.question_3_explanation,
+                R.string.escorting_quiz_question_3_explanation,
                 id = 3
             ),
             Question(
-                R.string.question_4_text,
+                R.string.escorting_quiz_question_4,
                 true,
-                R.string.question_4_explanation,
+                R.string.escorting_quiz_question_4_explanation,
                 id = 4
             ),
             Question(
-                R.string.question_5_text,
+                R.string.escorting_quiz_question_5,
                 true,
-                R.string.question_5_explanation,
+                R.string.escorting_quiz_question_5_explanation,
                 id = 5
             )
         )

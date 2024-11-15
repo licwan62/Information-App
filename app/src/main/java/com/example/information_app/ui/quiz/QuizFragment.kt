@@ -21,7 +21,6 @@ private const val TAG = "Quiz"
 
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
-
     private val viewModel: QuizViewModel by viewModels()
     private lateinit var binding: FragmentQuizBinding
 

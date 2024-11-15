@@ -48,32 +48,32 @@ abstract class QuizDatabase : RoomDatabase() {
                     2,
                     context.resources.getString(R.string.escorting_quiz_question_2),
                     context.resources.getBoolean(R.bool.escorting_quiz_question_2_answer),
-                    1,
-                    context.resources.getString(R.string.escorting_quiz_question_2_explanation)
+                    context.resources.getString(R.string.escorting_quiz_question_2_explanation),
+                    1
                 )
                 )
                 quizDao.insertQuestion(Question(
                     3,
                     context.resources.getString(R.string.escorting_quiz_question_3),
                     context.resources.getBoolean(R.bool.escorting_quiz_question_3_answer),
-                    1,
-                    context.resources.getString(R.string.escorting_quiz_question_3_explanation)
+                    context.resources.getString(R.string.escorting_quiz_question_3_explanation),
+                    1
                 )
                 )
                 quizDao.insertQuestion(Question(
                     4,
                     context.resources.getString(R.string.escorting_quiz_question_4),
                     context.resources.getBoolean(R.bool.escorting_quiz_question_4_answer),
-                    1,
-                    context.resources.getString(R.string.escorting_quiz_question_4_explanation)
+                    context.resources.getString(R.string.escorting_quiz_question_4_explanation),
+                    1
                 )
                 )
                 quizDao.insertQuestion(Question(
                     5,
                     context.resources.getString(R.string.escorting_quiz_question_5),
                     context.resources.getBoolean(R.bool.escorting_quiz_question_5_answer),
-                    1,
-                    context.resources.getString(R.string.escorting_quiz_question_5_explanation)
+                    context.resources.getString(R.string.escorting_quiz_question_5_explanation),
+                    1
                 )
                 )
             }
