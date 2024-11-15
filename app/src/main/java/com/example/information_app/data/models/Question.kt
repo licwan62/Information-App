@@ -20,5 +20,5 @@ data class Question(
     val explanation: String,
     val quiz_id: Int,
     val result: Boolean? = null,
-    @PrimaryKey(autoGenerate = true) val id: Int = 1
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
 ) : Parcelable

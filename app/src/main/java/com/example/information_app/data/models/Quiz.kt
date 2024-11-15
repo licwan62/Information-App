@@ -8,8 +8,8 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "Quiz")
 @Parcelize
 data class Quiz(
-    @PrimaryKey(autoGenerate = true) val id: Int,
     val title: String,
     val document: String,
-    val score: Int = 0
+    val score: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
 ) : Parcelable

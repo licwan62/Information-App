@@ -24,9 +24,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(
-        app: Application,
+        application: Application,
         callback: QuizDatabase.Callback
-    ) = Room.databaseBuilder(app, QuizDatabase::class.java, "Quiz_Database")
+    ) = Room.databaseBuilder(application, QuizDatabase::class.java, "Quiz_Database")
         .fallbackToDestructiveMigration()
         .addCallback(callback)
         .build()

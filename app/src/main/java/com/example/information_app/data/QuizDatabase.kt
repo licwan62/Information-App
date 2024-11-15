@@ -30,7 +30,6 @@ abstract class QuizDatabase : RoomDatabase() {
             applicationScope.launch {
                 // Quiz's
                 quizDao.insertQuiz(Quiz(
-                    1,
                     "Escorting Quiz",
                     "escorting",
                 ))

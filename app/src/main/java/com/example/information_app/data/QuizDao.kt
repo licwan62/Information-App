@@ -17,10 +17,10 @@ interface QuizDao {
     suspend fun insertQuiz(quiz: Quiz)
 
     @Query("SELECT * FROM Quiz WHERE id == :id")
-    fun getQuiz(id: Int) : Quiz
+    fun getQuiz(id: Int) : Flow<Quiz>
 
     @Query("SELECT * FROM Quiz WHERE document == :document")
-    fun getQuizByDocument(document: String) : Quiz
+    fun getQuizByDocument(document: String) : Flow<Quiz>
 
     @Update
     suspend fun updateQuiz(quiz: Quiz)
