@@ -4,7 +4,7 @@
     style="@style/FragmentRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.escort.EscortingFragment">
+    tools:context=".ui.escorting.EscortingFragment">
 
     <androidx.cardview.widget.CardView
         style="@style/RoundedShadowCardView"
@@ -21,8 +21,7 @@
                 android:id="@+id/text_view_paragraph"
                 style="@style/ParagraphText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="@string/escorting_text" />
+                android:layout_height="wrap_content" />
 
         </ScrollView>
 

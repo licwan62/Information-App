@@ -1,0 +1,22 @@
+<resources>
+    <string name="home_title">AWAI Ringa Awhina:</string>
+    <string name="home_description">Tāu Tautoko Pono mō te Tamariki me te Rangatahi</string>
+    <string name="button_about">Mō</string>
+    <string name="button_escorting">Huarahi o te Tautoko</string>
+    <string name="button_custodians">Tika Ture mō ngā Kaitiaki</string>
+    <string name="button_caregivers">Tika Ture mō ngā Kaitiaki</string>
+    <string name="language">Te Reo Māori</string>
+    <string name="button_yes">Āe</string>
+    <string name="button_no">Kāo</string>
+    <string name="button_next">Pātai Anei</string>
+    <string name="button_start_quiz">Whakamātautau i tō Mātauranga</string>
+    <string name="button_retry">Whakamātau Anō</string>
+    <string name="button_complete">Whakaoti</string>
+    <string name="your_answer">Tāu Whakautu: %1$s</string>
+    <string name="correct_answer">Whakautu Tika: %1$s</string>
+    <string name="question_idx_in_total">Pātai %1$d o roto i te %2$d</string>
+    <string name="your_answer_true">Whakautu Tika: Āe</string>
+    <string name="your_answer_false">Whakautu Tika: Kāo</string>
+    <string name="quiz">Rīpoata</string>
+    <string name="quiz_result">Rīpoata Pātai</string>
+</resources>

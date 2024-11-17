@@ -23,7 +23,7 @@ class CaregiverFragment : Fragment(R.layout.fragment_caregivers) {
         binding.apply {
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.caregivers_text),
+                    getString(R.string.caregivers_document),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
             textViewParagraph.movementMethod =

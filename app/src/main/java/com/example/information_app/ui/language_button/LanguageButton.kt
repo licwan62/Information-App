@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.information_app.R
 import com.example.information_app.data.LanguageCode
 import com.example.information_app.ui.MainActivity
-import com.example.information_app.ui.util.exhaustive
+import com.example.information_app.util.exhaustive
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay

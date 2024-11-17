@@ -1,4 +1,4 @@
-package com.example.information_app.ui.escort
+package com.example.information_app.ui.escorting
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -25,7 +25,7 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
             }
             textViewParagraph.text =
                 HtmlCompat.fromHtml(
-                    getString(R.string.escorting_text),
+                    getString(R.string.escorting_document),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
             textViewParagraph.movementMethod =
