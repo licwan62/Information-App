@@ -1,4 +1,4 @@
-package com.example.information_app.ui.util
+package com.example.information_app.util
 
 import android.app.Application
 import dagger.hilt.android.AndroidEntryPoint

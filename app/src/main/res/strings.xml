@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Information-App</string>
-    <string name="information_button">Information</string>
-    <string name="escorting_button">Process Of Escorting</string>
-    <string name="parents_button">Legal Right of Parents</string>
-    <string name="caregivers_button">Legal Right Of Caregivers</string>
-</resources>
