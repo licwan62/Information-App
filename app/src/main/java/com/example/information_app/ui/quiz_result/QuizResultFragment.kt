@@ -122,8 +122,9 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
 
     private fun getScoreText(): String {
         val correctCount = viewModel.score.correctCount
-        val totalCount = viewModel.score.totalCount
-        return "You got $correctCount in $totalCount correct!"
+        val total = viewModel.score.totalCount
+        return requireContext()
+            .getString(R.string.score_text, correctCount, total)
     }
 
 }

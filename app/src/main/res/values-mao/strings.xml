@@ -19,4 +19,5 @@
     <string name="your_answer_false">Whakautu Tika: Kāo</string>
     <string name="quiz">Rīpoata</string>
     <string name="quiz_result">Rīpoata Pātai</string>
+    <string name="score_text">"I tika koe i te %1$d i roto i te %2$d!</string>
 </resources>

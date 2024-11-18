@@ -27,7 +27,7 @@ class LanguageButtonViewModel @Inject constructor(
     fun updateLanguageCode(activity: Activity) = viewModelScope.launch {
         // get the other language in enum
         val newLanguageCode = when (languageCode.value) {
-            LanguageCode.ENG -> LanguageCode.MI
+            LanguageCode.ENG -> LanguageCode.MAO
             else -> LanguageCode.ENG
         }
         setLocale(newLanguageCode.name, activity)
