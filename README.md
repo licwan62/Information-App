@@ -17,17 +17,20 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 
 
-### [Demo Animation](assets/Screenshots/1.2.0_recording.gif)
+### GIF Demonstration
+[Demo Animation](assets/Screenshots/1.2.0_recording.gif)
 
-- ### [Training Videos #1](assets/Training%20videos/1-Introducingofescorting.mp4)
+### Training Videos
 
-- ### [Training Videos #2](assets/Training%20videos/2-Processofescorting.mp4)
+[Training Videos #1](assets/Training%20videos/1-Introducingofescorting.mp4)
 
-- ### [Training Videos #3](assets/Training%20videos/3-LegalRightofcustodians.mp4)
+[Training Videos #2](assets/Training%20videos/2-Processofescorting.mp4)
 
-- ### [Training Videos #4](assets/Training%20videos/4-LegalRightofcaregivers.mp4)
+[Training Videos #3](assets/Training%20videos/3-LegalRightofcustodians.mp4)
 
-- ### [Training Videos #5](assets/Training%20videos/5-Testyourknowledge.mp4)
+[Training Videos #4](assets/Training%20videos/4-LegalRightofcaregivers.mp4)
+
+[Training Videos #5](assets/Training%20videos/5-Testyourknowledge.mp4)
 
 ***Update on 11-4***
 
