@@ -68,7 +68,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 textViewTitle.text = getString(
                     R.string.question_idx_in_total, question.id, sum
                 )
-                textViewQuestion.text = question.question
+                textViewQuestion.text = requireContext().getString(question.question_id)
             }
         }
 
@@ -87,7 +87,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                     is QuizViewModel.NavigationAction.ShowExplanation -> {
                         showReviewViews(
                             binding, true,
-                            event.feedbackRes, event.explanation
+                            event.feedbackRes, event.explanationId
                         )
 
                         setGradientCardView(binding)
@@ -103,7 +103,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding: FragmentQuizBinding,
         show: Boolean,
         @StringRes feedbackRes: Int = 0,
-        explanation: String = ""
+        @StringRes explanationId: Int = 0
     ) {
         binding.apply {
             if (show) {
@@ -113,7 +113,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 buttonNext.visibility = View.VISIBLE
 
                 textViewReview.text = requireContext().getString(feedbackRes)
-                textViewExplanation.text = explanation
+                textViewExplanation.text = requireContext().getString(explanationId)
 
             } else {
                 linearLayoutButtons.visibility = View.VISIBLE

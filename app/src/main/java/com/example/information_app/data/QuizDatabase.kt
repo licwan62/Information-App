@@ -29,51 +29,58 @@ abstract class QuizDatabase : RoomDatabase() {
 
             applicationScope.launch {
                 // Quiz's
-                quizDao.insertQuiz(Quiz(
-                    "Escorting Quiz",
-                    "escorting",
-                ))
+                quizDao.insertQuiz(
+                    Quiz(
+                        "Escorting Quiz",
+                        "escorting",
+                    )
+                )
 
                 // Questions
-                quizDao.insertQuestion(Question(
-                    1,
-                    context.resources.getString(R.string.escorting_quiz_question_1),
-                    context.resources.getBoolean(R.bool.escorting_quiz_question_1_answer),
-                    context.resources.getString(R.string.escorting_quiz_question_1_explanation),
-                    1
+                quizDao.insertQuestion(
+                    Question(
+                        1,
+                        R.string.escorting_quiz_question_1,
+                        context.resources.getBoolean(R.bool.escorting_quiz_question_1_answer),
+                        R.string.escorting_quiz_question_1_explanation,
+                        1
+                    )
                 )
+                quizDao.insertQuestion(
+                    Question(
+                        2,
+                        R.string.escorting_quiz_question_2,
+                        context.resources.getBoolean(R.bool.escorting_quiz_question_2_answer),
+                        R.string.escorting_quiz_question_2_explanation,
+                        1
+                    )
                 )
-                quizDao.insertQuestion(Question(
-                    2,
-                    context.resources.getString(R.string.escorting_quiz_question_2),
-                    context.resources.getBoolean(R.bool.escorting_quiz_question_2_answer),
-                    context.resources.getString(R.string.escorting_quiz_question_2_explanation),
-                    1
+                quizDao.insertQuestion(
+                    Question(
+                        3,
+                        R.string.escorting_quiz_question_3,
+                        context.resources.getBoolean(R.bool.escorting_quiz_question_3_answer),
+                        R.string.escorting_quiz_question_3_explanation,
+                        1
+                    )
                 )
+                quizDao.insertQuestion(
+                    Question(
+                        4,
+                        R.string.escorting_quiz_question_4,
+                        context.resources.getBoolean(R.bool.escorting_quiz_question_4_answer),
+                        R.string.escorting_quiz_question_4_explanation,
+                        1
+                    )
                 )
-                quizDao.insertQuestion(Question(
-                    3,
-                    context.resources.getString(R.string.escorting_quiz_question_3),
-                    context.resources.getBoolean(R.bool.escorting_quiz_question_3_answer),
-                    context.resources.getString(R.string.escorting_quiz_question_3_explanation),
-                    1
-                )
-                )
-                quizDao.insertQuestion(Question(
-                    4,
-                    context.resources.getString(R.string.escorting_quiz_question_4),
-                    context.resources.getBoolean(R.bool.escorting_quiz_question_4_answer),
-                    context.resources.getString(R.string.escorting_quiz_question_4_explanation),
-                    1
-                )
-                )
-                quizDao.insertQuestion(Question(
-                    5,
-                    context.resources.getString(R.string.escorting_quiz_question_5),
-                    context.resources.getBoolean(R.bool.escorting_quiz_question_5_answer),
-                    context.resources.getString(R.string.escorting_quiz_question_5_explanation),
-                    1
-                )
+                quizDao.insertQuestion(
+                    Question(
+                        5,
+                        R.string.escorting_quiz_question_5,
+                        context.resources.getBoolean(R.bool.escorting_quiz_question_5_answer),
+                        R.string.escorting_quiz_question_5_explanation,
+                        1
+                    )
                 )
             }
         }

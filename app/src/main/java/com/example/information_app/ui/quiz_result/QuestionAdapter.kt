@@ -58,7 +58,7 @@ class QuestionAdapter(
 
                 // question text 1.Is esc...
                 val questionText =
-                    question.question
+                    context.getString(question.question_id)
                 textViewQuestion.text =
                     context.getString(
                         R.string.question_text,
@@ -74,7 +74,7 @@ class QuestionAdapter(
 
                 // show explanation in result card
                 val explanation =
-                    question.explanation
+                    context.getString(question.explanation_id)
                 textViewReview.text =
                     context.getString(R.string.correct_answer, explanation)
 

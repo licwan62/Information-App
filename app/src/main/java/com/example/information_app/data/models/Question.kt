@@ -15,9 +15,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Question(
     val number: Int,
-    val question: String,
+    val question_id: Int,
     val answer: Boolean,
-    val explanation: String,
+    val explanation_id: Int,
     val quiz_id: Int,
     val result: Boolean? = null,
     @PrimaryKey(autoGenerate = true) val id: Int = 0

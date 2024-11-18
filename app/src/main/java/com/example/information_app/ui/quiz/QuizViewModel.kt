@@ -132,7 +132,7 @@ class QuizViewModel @Inject constructor(
         navigationChannel.send(
             NavigationAction.ShowExplanation(
                 feedbackRes,
-                _question.value!!.explanation
+                _question.value!!.explanation_id
             )
         )
     }
@@ -176,7 +176,7 @@ class QuizViewModel @Inject constructor(
         object GoToNextQuestion : NavigationAction()
         data class ShowExplanation(
             @StringRes val feedbackRes: Int,
-            val explanation: String
+            @StringRes val explanationId: Int
         ) : NavigationAction()
 
         object CompleteQuiz : NavigationAction()
