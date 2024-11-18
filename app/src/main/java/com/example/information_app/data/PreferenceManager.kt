@@ -14,7 +14,7 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
-enum class LanguageCode { ENG, MAO }
+enum class LanguageCode { ENG, MI }
 
 /*// single object holding multiple values to be emit from preferenceFlow
 data class FilterPreferences(val languageCode: LanguageCode)*/
