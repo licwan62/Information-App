@@ -20,7 +20,7 @@ class EscortingFragment : Fragment(R.layout.fragment_escorting) {
         binding = FragmentEscortingBinding.bind(view)
         binding.apply {
             buttonQuiz.setOnClickListener {
-                val action = EscortingFragmentDirections.actionEscortingFragmentToQuizFragment(1)
+                val action = EscortingFragmentDirections.actionGlobalQuizFragment(R.id.escortingFragment, 1)
                 findNavController().navigate(action)
             }
             textViewParagraph.text =

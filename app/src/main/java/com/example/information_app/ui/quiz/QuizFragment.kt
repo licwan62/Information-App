@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.information_app.R
-import com.example.information_app.data.Score
 import com.example.information_app.databinding.FragmentQuizBinding
 import com.example.information_app.util.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +20,6 @@ private const val TAG = "Quiz"
 
 @AndroidEntryPoint
 class QuizFragment : Fragment(R.layout.fragment_quiz) {
-
     private val viewModel: QuizViewModel by viewModels()
     private lateinit var binding: FragmentQuizBinding
 
@@ -70,7 +68,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 textViewTitle.text = getString(
                     R.string.question_idx_in_total, question.id, sum
                 )
-                textViewQuestion.text = requireContext().getString(question.textRes)
+                textViewQuestion.text = requireContext().getString(question.question_id)
             }
         }
 
@@ -83,14 +81,13 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                         val bundle = navigateToNextQuestion()
                         Log.i(TAG, "navigate to next question with arg: $bundle")
                     }
-                    is QuizViewModel.NavigationAction.CompleteQuizWithScore -> {
-                        navigateToResult(event.score)
-                        Log.i(TAG, "navigate to result with score: ${event.score}")
+                    is QuizViewModel.NavigationAction.CompleteQuiz -> {
+                        navigateToResult()
                     }
                     is QuizViewModel.NavigationAction.ShowExplanation -> {
                         showReviewViews(
                             binding, true,
-                            event.feedbackRes, event.explanationRes
+                            event.feedbackRes, event.explanationId
                         )
 
                         setGradientCardView(binding)
@@ -106,7 +103,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding: FragmentQuizBinding,
         show: Boolean,
         @StringRes feedbackRes: Int = 0,
-        @StringRes explanationRes: Int = 0
+        @StringRes explanationId: Int = 0
     ) {
         binding.apply {
             if (show) {
@@ -116,7 +113,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                 buttonNext.visibility = View.VISIBLE
 
                 textViewReview.text = requireContext().getString(feedbackRes)
-                textViewExplanation.text = requireContext().getString(explanationRes)
+                textViewExplanation.text = requireContext().getString(explanationId)
 
             } else {
                 linearLayoutButtons.visibility = View.VISIBLE
@@ -129,8 +126,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     private fun navigateToNextQuestion(): Bundle {
         val bundle = Bundle().apply {
-            val nextQuestionID = viewModel.questionID + 1
-            putInt("questionId", nextQuestionID)
+            putInt("fragment_id", viewModel.fragmentId)
+            putInt("quiz_id", viewModel.quizId)
+            putInt("question_number", viewModel.questionNumber + 1)
         }
         val navOptions = NavOptions.Builder().setPopUpTo(R.id.quizFragment, true)
             .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).build()
@@ -155,8 +153,8 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         binding.frameLayoutColor.background = gradientDrawable
     }
 
-    private fun navigateToResult(score: Score) {
-        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(score)
+    private fun navigateToResult() {
+        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(viewModel.fragmentId, viewModel.quizId)
         findNavController().navigate(action)
     }
 }
