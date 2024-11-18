@@ -6,10 +6,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.information_app.R
-import com.example.information_app.data.Question
+import com.example.information_app.data.models.Question
 import com.example.information_app.databinding.FragmentQuizResultBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,8 +47,8 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                 stopUpdateAdapter()
                 viewModel.initDatabase()
 
-                // back to escorting after database already init
-                navigateToEscorting()
+                // back to source after database already init
+                navigateToFragment()
             }
 
             // apply reference of adapter - change in sync with adapter
@@ -55,7 +56,15 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.setHasFixedSize(true)
-            textViewReview.text = getScoreText()
+
+            // Observe score and totalQuestions and update the text
+            viewModel.score.observe(viewLifecycleOwner) { score ->
+                binding.textViewReview.text = getScoreText(score, viewModel.totalQuestions.value ?: 0)
+            }
+
+            viewModel.totalQuestions.observe(viewLifecycleOwner) { totalQuestions ->
+                binding.textViewReview.text = getScoreText(viewModel.score.value ?: 0, totalQuestions)
+            }
         }
         // detach adapter from questions on button clicked
         setAdapter(adapter)
@@ -86,7 +95,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
             if (isInit) {
                 val action =
                     QuizResultFragmentDirections
-                        .actionQuizResultFragmentToQuizFragment(1)
+                        .actionQuizResultFragmentToQuizFragment(viewModel.quizId, 1)
                 findNavController().navigate(action)
             } else {
                 Log.e(TAG, "database still initializing")
@@ -99,14 +108,17 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         Log.d(TAG, "to stop updating adapter")
     }
 
-    private fun navigateToEscorting() {
+    private fun navigateToFragment() {
         viewModel.isDatabaseInitialized.observe(viewLifecycleOwner) { isInit ->
             if (isInit) {
-                val score = viewModel.score
-                val action =
-                    QuizResultFragmentDirections
-                        .actionQuizResultFragmentToEscortingFragment(score)
-                findNavController().navigate(action)
+                val navOptions = NavOptions.Builder()
+                    .setEnterAnim(R.anim.slide_in_left)
+                    .setExitAnim(R.anim.slide_out_right)
+                    .setPopUpTo(R.id.quizResultFragment, true)
+                    .setLaunchSingleTop(true)
+                    .build()
+
+                findNavController().navigate(viewModel.fragmentId, null, navOptions)
             } else {
                 Log.e(TAG, "database still initializing")
             }
@@ -120,11 +132,7 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         }
     }
 
-    private fun getScoreText(): String {
-        val correctCount = viewModel.score.correctCount
-        val total = viewModel.score.totalCount
-        return requireContext()
-            .getString(R.string.score_text, correctCount, total)
+    private fun getScoreText(correctCount: Int, totalCount: Int): String {
+        return requireContext().getString(R.string.score_text, correctCount, totalCount)
     }
-
 }
