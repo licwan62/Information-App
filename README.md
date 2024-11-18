@@ -19,7 +19,7 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 ### [Demo Animation](assets/Screenshots/1.2.0_recording.gif)
 
-- ### [Training Videos #1](assets/Training videos/1-Introducingofescorting.mp4)
+- ### [Training Videos #1](assets/Training%20videos/1-Introducingofescorting.mp4)
 
 - ### [Training Videos #2](assets/Training videos/2-Processofescorting.mp4)
 
