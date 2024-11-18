@@ -33,7 +33,7 @@ The Information App for the prototype should cover Escorting Tamariki and Rangat
 
 [Training Videos #5](assets/Training%20videos/5-Testyourknowledge.mp4)
 
-***Update on 11-4***
+***Update on 11-18***
 
 </div>
 
