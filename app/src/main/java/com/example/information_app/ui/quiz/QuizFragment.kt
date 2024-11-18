@@ -126,8 +126,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     private fun navigateToNextQuestion(): Bundle {
         val bundle = Bundle().apply {
-            val nextQuestionID = viewModel.questionNumber + 1
-            putInt("question_number", nextQuestionID)
+            putInt("fragment_id", viewModel.fragmentId)
+            putInt("quiz_id", viewModel.quizId)
+            putInt("question_number", viewModel.questionNumber + 1)
         }
         val navOptions = NavOptions.Builder().setPopUpTo(R.id.quizFragment, true)
             .setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).build()
@@ -153,7 +154,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     private fun navigateToResult() {
-        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(viewModel.quizId)
+        val action = QuizFragmentDirections.actionQuizFragmentToQuizResultFragment(viewModel.fragmentId, viewModel.quizId)
         findNavController().navigate(action)
     }
 }

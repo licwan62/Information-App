@@ -24,6 +24,7 @@ class QuizViewModel @Inject constructor(
     private val quizDao: QuizDao,
     state: SavedStateHandle // persist data and fetch arguments
 ) : ViewModel() {
+    val fragmentId = state.get<Int>("fragment_id")!!
     val quizId = state.get<Int>("quiz_id")!!
     val questionNumber = state.get<Int>("question_number") ?: 1
 

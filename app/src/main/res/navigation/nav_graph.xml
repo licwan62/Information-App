@@ -48,15 +48,7 @@
         android:id="@+id/escortingFragment"
         android:name="com.example.information_app.ui.escorting.EscortingFragment"
         android:label="@string/button_escorting"
-        tools:layout="@layout/fragment_escorting">
-        <action
-            android:id="@+id/action_escortingFragment_to_quizFragment"
-            app:destination="@id/quizFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
+        tools:layout="@layout/fragment_escorting"/>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.information_app.ui.about.AboutFragment"
@@ -80,9 +72,11 @@
             app:popUpTo="@id/quizFragment"
             app:popUpToInclusive="true" />
         <argument
+            android:name="fragment_id"
+            app:argType="integer" />
+        <argument
             android:name="quiz_id"
-            app:argType="integer"
-            android:defaultValue="1" />
+            app:argType="integer" />
         <argument
             android:name="question_number"
             app:argType="integer"
@@ -100,17 +94,18 @@
             app:exitAnim="@anim/slide_out_right"
             app:popUpTo="@id/quizResultFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_quizResultFragment_to_escortingFragment"
-            app:destination="@id/escortingFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/escortingFragment"
-            app:popUpToInclusive="false" />
+        <argument
+            android:name="fragment_id"
+            app:argType="integer" />
         <argument
             android:name="quiz_id"
-            app:argType="integer"
-            android:defaultValue="1" />
+            app:argType="integer" />
     </fragment>
+    <action
+        android:id="@+id/action_global_quizFragment"
+        app:destination="@id/quizFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
 </navigation>

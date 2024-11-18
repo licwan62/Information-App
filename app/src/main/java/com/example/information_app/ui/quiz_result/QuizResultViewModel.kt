@@ -16,6 +16,7 @@ class QuizResultViewModel @Inject constructor(
     private val quizDao: QuizDao,
     private val state: SavedStateHandle
 ) : ViewModel() {
+    val fragmentId = state.get<Int>("fragment_id")!!
     val quizId = state.get<Int>("quiz_id")!!
 
     val shouldUpdateAdapter = MutableLiveData<Boolean>()

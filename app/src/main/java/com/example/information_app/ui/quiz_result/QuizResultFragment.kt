@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.information_app.R
@@ -46,8 +47,8 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
                 stopUpdateAdapter()
                 viewModel.initDatabase()
 
-                // back to escorting after database already init
-                navigateToEscorting()
+                // back to source after database already init
+                navigateToFragment()
             }
 
             // apply reference of adapter - change in sync with adapter
@@ -107,14 +108,17 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
         Log.d(TAG, "to stop updating adapter")
     }
 
-    private fun navigateToEscorting() {
+    private fun navigateToFragment() {
         viewModel.isDatabaseInitialized.observe(viewLifecycleOwner) { isInit ->
             if (isInit) {
-                val score = viewModel.score
-                val action =
-                    QuizResultFragmentDirections
-                        .actionQuizResultFragmentToEscortingFragment()
-                findNavController().navigate(action)
+                val navOptions = NavOptions.Builder()
+                    .setEnterAnim(R.anim.slide_in_left)
+                    .setExitAnim(R.anim.slide_out_right)
+                    .setPopUpTo(R.id.quizResultFragment, true)
+                    .setLaunchSingleTop(true)
+                    .build()
+
+                findNavController().navigate(viewModel.fragmentId, null, navOptions)
             } else {
                 Log.e(TAG, "database still initializing")
             }
