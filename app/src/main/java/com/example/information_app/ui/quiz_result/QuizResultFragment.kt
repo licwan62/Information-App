@@ -133,7 +133,6 @@ class QuizResultFragment : Fragment(R.layout.fragment_quiz_result) {
     }
 
     private fun getScoreText(correctCount: Int, totalCount: Int): String {
-        return "You got $correctCount in $totalCount correct!"
+        return requireContext().getString(R.string.score_text, correctCount, totalCount)
     }
-
 }

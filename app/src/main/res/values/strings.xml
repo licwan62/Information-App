@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">AWAI</string>
-    <string name="home_title">AWAI Ringa Awhina:</string>
+    <string name="home_title">AWAI Ringa Awhina</string>
     <string name="home_description">Your trusted support for Tamariki and Rangatahi</string>
     <string name="language">English</string>
     <string name="test_long" translatable="false">This is a long test text…This is a long test text…This is a long test text…
@@ -23,4 +23,5 @@
     <string name="question_idx_in_total">Question %1$d in %2$d</string>
     <string name="your_answer_true">Correct Answer: True</string>
     <string name="your_answer_false">Correct Answer: False</string>
+    <string name="score_text">"You got %1$d in %2$d correct!"</string>
 </resources>

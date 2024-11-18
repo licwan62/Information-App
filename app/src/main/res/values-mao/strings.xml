@@ -1,5 +1,5 @@
 <resources>
-    <string name="home_title">AWAI Ringa Awhina:</string>
+    <string name="home_title">AWAI Ringa Awhina</string>
     <string name="home_description">Tāu Tautoko Pono mō te Tamariki me te Rangatahi</string>
     <string name="button_about">Mō</string>
     <string name="button_escorting">Huarahi o te Tautoko</string>
@@ -19,4 +19,5 @@
     <string name="your_answer_false">Whakautu Tika: Kāo</string>
     <string name="quiz">Rīpoata</string>
     <string name="quiz_result">Rīpoata Pātai</string>
+    <string name="score_text">"I tika koe i te %1$d i roto i te %2$d!</string>
 </resources>

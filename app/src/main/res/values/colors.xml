@@ -25,4 +25,6 @@
 
     <color name="half_transparent_dark_white">#50F2F2F2</color>
     <color name="transparent">#00000000</color>
+
+    <color name="ic_my_launcher_2_background">#FDFDFD</color>
 </resources>
